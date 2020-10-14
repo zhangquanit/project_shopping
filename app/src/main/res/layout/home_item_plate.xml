@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:orientation="vertical">
+
+    <com.snqu.shopping.ui.main.view.GifChannelCircleItemView
+        android:id="@+id/topView"
+        android:layout_width="wrap_content"
+        android:layout_height="70dp"
+        android:layout_marginBottom="10dp" />
+
+    <com.snqu.shopping.ui.main.view.GifChannelCircleItemView
+        android:id="@+id/centerView"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_height="70dp" />
+
+    <com.snqu.shopping.ui.main.view.GifChannelCircleItemView
+        android:id="@+id/bottomView"
+        android:visibility="invisible"
+        android:layout_width="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_height="70dp" />
+
+</LinearLayout>

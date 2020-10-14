@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="删除"
+            android:textColor="#25282D"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginTop="28dp"
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:textColor="#25282D"
+            android:layout_marginLeft="24.5dp"
+            android:layout_marginRight="24.5dp"
+            android:textSize="14sp"
+            android:text="若商品奖励还未结算，则商品相关数据、预估奖励也将被删除失效，确定要删除吗？"/>
+
+
+        <RelativeLayout
+            android:layout_marginTop="28dp"
+            android:layout_marginBottom="29.5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="21dp"
+            android:layout_marginRight="21dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/btn_cancel"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:background="@drawable/btn_canel_stroke"
+                android:gravity="center"
+                android:text="取消"
+                android:layout_gravity="left"
+                android:textColor="#25282D"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/btn_sure"
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:background="@drawable/btn_sure_solid"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+</FrameLayout>

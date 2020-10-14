@@ -1,0 +1,329 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+//apply plugin: 'com.didi.dokit'
+//添加 sndodata 插件
+apply plugin: 'com.sndodata.analytics.android'
+//apply plugin: 'bugly' //腾讯符号表插件
+//bugly {
+//    appId = '280e459010' // 注册时分配的App ID
+//    appKey = '73abeab6-8fc2-43d8-9818-67a7894f265b' // 注册时分配的App Key
+//    debug = true
+//}
+
+def config = rootProject.ext
+android {
+
+    compileSdkVersion config.compileSdkVersion
+    buildToolsVersion config.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion config.minSdkVersion
+        targetSdkVersion config.targetSdkVersion
+
+        applicationId config.app.applicationId
+        versionCode config.app.versionCode
+        versionName config.app.versionName
+
+        manifestPlaceholders = [UMENG_CHANNEL_VALUE: "official"] // 默认渠道
+
+        ndk {
+            // 设置支持的 SO 库构架
+            abiFilters 'armeabi'//, 'armeabi-v7a', 'arm64-v8a', 'x86', 'x86_64', 'mips', 'mips64'
+        }
+
+        multiDexEnabled true
+
+        packagingOptions {
+            exclude 'META-INF/proguard/androidx-annotations.pro'
+        }
+
+        vectorDrawables.useSupportLibrary = true
+
+        manifestPlaceholders = [
+                JPUSH_PKGNAME: config.app.applicationId,
+                JPUSH_APPKEY : "7c77df5a0e7eb7bf7f856acc", //极光开发平台上注册的包名对应的appkey.
+                JPUSH_CHANNEL: "default_developer", //暂时填写默认值即可.
+        ]
+    }
+
+//    splits {
+//        def cmd = 'git symbolic-ref --short -q HEAD'
+//        def gitBranch = cmd.execute().text.trim()
+//        if (gitBranch == "master" || gitBranch == "developer") {
+//            return
+//        }
+//        abi {
+//            enable true
+//            reset()
+//            include "armeabi", "armeabi-v7a", "arm64-v8a", 'x86', 'x86_64'
+//            universalApk true
+//        }
+//
+//    }
+
+    //----------------------签名配置----------------------
+    signingConfigs {
+        debug {
+            //为了方便测试分享或第三方登录  使用正式签名
+            storeFile file('../buildsystem/keystore.jks')
+            storePassword 'snqu_123456_agent'
+            keyAlias 'key0'
+            keyPassword 'snqu_123456_agent'
+            v2SigningEnabled false
+        }
+        release {
+            storeFile file('../buildsystem/keystore.jks')
+            storePassword 'snqu_123456_agent'
+            keyAlias 'key0'
+            keyPassword 'snqu_123456_agent'
+            v2SigningEnabled false
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            shrinkResources false
+            manifestPlaceholders = [DEBUGABLE: true]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+        }
+        release {
+            minifyEnabled true
+            multiDexEnabled true
+            zipAlignEnabled true
+            shrinkResources true
+            manifestPlaceholders = [DEBUGABLE: false]
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+
+    flavorDimensions "channel"
+    productFlavors {
+        //测试
+        prod_test {}
+
+        //合作渠道  直接填写邀请码 新增合作渠道添加到cooperChannels变量
+        "1112T" {}
+        "2222A" {}
+        "ZRVQ7" {}
+
+        //应用商店
+        "offical" {} //官方
+        "xiaomi" {} //小米
+        "vivo" {} //vivo商店
+        "oppo" {} //oppo商店
+        "huawei" {} //华为
+        "yyb" {} //应用宝
+        "p360" {} //360
+        "ali" {} //阿里
+        "baidu" {}//百度
+
+//        kuan {} //酷安
+//        anzhi {} //安智
+//        samsung {} //三星
+//        meizu {}//魅族
+//        sogou {}//搜狗
+//        liqu {}//历趣
+//        mumayi {}//木蚂蚁
+//        yingyognhui {}//应用汇
+//        jifeng {}//机锋
+//        mm {}//mm应用商店
+//        lenovo {}//联想
+    }
+    productFlavors.all {
+        flavor ->
+            //合作渠道
+            buildConfigField("String", "cooperChannels", '"1112T,2222A,ZRVQ7"')
+
+            if (name == "prod_test") {
+                ndk {
+                    abiFilters "armeabi", 'x86'
+                }
+                buildConfigField "String", "API_HOST", '"https://api-t.xin1.cn/" ' //测试服务器
+                buildConfigField "String", "H5_HOST", '"https://m-xlt-t.xin1.cn/" '
+                buildConfigField "String", "LOG_HOST", '"https://report-t.xin1.cn/"'
+                buildConfigField "String", "H5_ACT_HOST", '"https://ac-t2.xin1.cn/"'
+                manifestPlaceholders = [APP_NAME: "@string/app_name_test", DEV_ENV: true, UMENG_CHANNEL_VALUE: name]
+            } else {
+                ndk {
+                    abiFilters "armeabi"
+                }
+                buildConfigField "String", "API_HOST", '"https://api.xinletao.vip/" ' //线上服务器
+                buildConfigField "String", "H5_HOST", '"https://m.xinletao.vip/" '
+                buildConfigField "String", "LOG_HOST", '"https://report.xin1.cn/" '
+                buildConfigField "String", "H5_ACT_HOST", '"https://ac.xinletao.vip/"'
+                flavor.manifestPlaceholders = [APP_NAME: "@string/app_name", DEV_ENV: false, UMENG_CHANNEL_VALUE: name]
+            }
+    }
+
+    applicationVariants.all { variant ->
+        if (variant.buildType.name == "release" && variant.flavorName != "prod_test") {
+            variant.getPackageApplicationProvider().get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+            variant.getPackageApplicationProvider().get().outputScope.apkDatas.forEach { apkData ->
+
+                apkData.outputFileName = "xlt_" + variant.flavorName + ".apk"
+//                if (apkData.getFullName() == variant.flavorName + "UniversalRelease") {
+//                    variant.getPackageApplicationProvider().get().outputDirectory = new File(project.rootDir.absolutePath + "/apk")
+//                    apkData.outputFileName = variant.flavorName + ".apk"
+//                } else {
+//                    apkData.outputFileName = apkData.getFullName() + ".apk"
+//                }
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dexOptions {
+        javaMaxHeapSize "4g"
+    }
+
+    packagingOptions {
+        exclude 'LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/ASL2.0'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+    }
+
+    lintOptions {
+        quiet true
+        abortOnError false
+        ignoreWarnings true
+        disable 'InvalidPackage'            //Some libraries have issues with this.
+        disable 'OldTargetApi'
+        //Lint gives this warning but SDK 20 would be Android L Beta.
+        disable 'IconDensities'             //For testing purpose. This is safe to remove.
+        disable 'IconMissingDensityFolder'  //For testing purpose. This is safe to remove.
+    }
+    useLibrary 'org.apache.http.legacy'
+    androidExtensions {
+        experimental = true
+    }
+}
+
+
+dependencies {
+    implementation fileTree(include: ['*.jar', '*.aar'], exclude: ['android-support*.jar'], dir: 'libs')
+    implementation project(':librarys:AppUpdate')
+    implementation project(':librarys:CommonUtil')
+    implementation project(':librarys:Logger')
+    implementation project(':librarys:CommonWidget')
+    implementation project(':librarys:BaseRecyclerViewAdapterHelper')
+    implementation project(':librarys:czbwebview')
+    implementation project(':librarys:jg_ml')
+    implementation project(':librarys:push')
+    implementation project(':librarys:jiaozivideoplayer')
+    implementation project(':librarys:jdsdk_lib')
+    implementation project(':librarys:umeng')
+
+    implementation config.kotlin
+    implementation config.appCompat
+    implementation config.supportV4
+    implementation config.recyclerView
+    implementation config.constraint //约束布局
+    implementation config.multidex
+    implementation config.lifecycleExtensions //ViewModelProviders
+    implementation config.fragmentation  //页面容器
+    implementation config.rxPermissions  //rxpermission
+    implementation config.rxBinding
+
+    //数据
+    implementation config.retrofit2
+    implementation config.retrofit2AdapterRxjava
+    implementation config.retrofit2ConvertGson
+    implementation config.retrofit2Scalars
+    implementation config.okHttp
+    implementation config.loggingInterceptor
+    implementation config.rxJava
+    implementation config.rxAndroid
+    implementation config.gson
+
+    //图片加载
+    implementation config.glide
+    annotationProcessor config.glideCompiler
+    implementation(config.glideOkHttp) {
+        exclude group: "com.android.support"
+    }
+    implementation config.glideWebp //glide支持webp
+    implementation config.glideTransform //glide图片处理
+    implementation config.album //图片选择
+    implementation config.luban //图片压缩
+    implementation config.roundedImageView //圆角图片
+//    implementation config.recycleViewAdapter //recycleView Adapter
+
+    //注入
+    implementation config.butterKnife //UI
+    annotationProcessor config.butterKnifeCompiler
+    implementation config.eventBus //事件通知
+
+    //工具箱
+    implementation config.guava
+    implementation config.utilCode
+
+    //UI控件
+    implementation config.pickerView //时间或条件选择器
+    implementation config.zxing //二维码扫描
+    implementation config.flowlayout //标签流式布局
+    implementation config.smartRefresh  //下拉刷新
+    implementation config.smartRefreshHeader
+
+    //其他
+    implementation config.truetime //真实时间  防用户修改系统时间
+    implementation config.easyProtector //APK 模拟器检测
+    implementation config.mapLocation //高德定位
+    implementation config.mapSearch //高德地图搜索
+    implementation config.eventBus //事件通知
+    implementation config.sndoData //深度数据
+//    implementation config.bugly //腾讯bugly
+//    implementation config.buglyNDK //腾讯buglyNdk
+    implementation 'com.kd.sdk:chargeQrcode:1.1.1' //快电
+    implementation config.recyclerviewSwipe
+
+    //####################阿里百川
+    //登陆
+    implementation 'com.ali.auth.sdk:alibabauth_core:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ui:2.0.0.6@aar'
+    implementation 'com.ali.auth.sdk:alibabauth_ext:2.0.0.6@aar'
+    //安全组件
+    implementation 'com.taobao.android:securityguardaar3:5.4.171@aar'
+    implementation 'com.taobao.android:securitybodyaar3:5.4.99@aar'
+    implementation 'com.taobao.android:avmpaar3:5.4.36@aar'
+    implementation 'com.taobao.android:sgmiddletieraar3:5.4.9@aar'
+    //Mtop
+    implementation 'com.taobao.android:mtopsdk_allinone_open:3.1.2.5@jar'
+    //applink
+    implementation 'com.alibaba.sdk.android:alibc_link_partner:4.1.15@aar'
+    //ut
+//    implementation 'com.taobao.android:utdid4all:1.5.2'     //暂定
+        implementation 'com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc'
+//    implementation("com.alibaba.mtl:app-monitor-sdk:2.6.4.5_for_bc") {
+//        exclude group: ' com.taobao.android', module: 'utdid4all'
+//    }
+    // 电商基础组件
+    implementation 'com.alibaba.sdk.android:AlibcTradeCommon:4.0.0.8@aar'
+    implementation 'com.alibaba.sdk.android:AlibcTradeBiz:4.0.0.8@aar'
+    implementation 'com.alibaba.sdk.android:nb_trade:4.0.0.8@aar'
+//    implementation 'com.alibaba:fastjson:1.1.71.android'
+    implementation 'com.alibaba:fastjson:1.2.73'
+
+    //####################阿里百川
+
+
+    //调试
+//    debugImplementation config.debugDependencies.leakCanary
+//    debugImplementation config.debugDependencies.blockCanary
+//    releaseImplementation config.releaseDependencies.leakCanary
+//    releaseImplementation config.releaseDependencies.blockCanary
+
+}

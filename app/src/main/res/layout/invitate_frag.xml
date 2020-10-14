@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/item_content"
+            android:layout_width="375dp"
+            android:layout_height="667dp"
+            >
+
+            <ImageView
+                android:id="@+id/item_img"
+                android:layout_width="375dp"
+                android:layout_height="667dp"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/iv_qrcode"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_alignBottom="@+id/item_img"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="83dp"
+                android:src="@drawable/invite_code" />
+
+            <TextView
+                android:id="@+id/item_code"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:layout_above="@+id/iv_qrcode"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="30dp"
+                android:background="@drawable/invite_code_bg"
+                android:gravity="center"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:text="邀请口令：12HF2GD"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:background="@drawable/shape_invitate_top_bg"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:id="@+id/titlebar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp">
+
+                <ImageView
+                    android:id="@+id/btn_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="5dp"
+                    android:padding="10dp"
+                    android:src="@drawable/back_white" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="邀请分享"
+                    android:textColor="#FFFDFFFE"
+                    android:textSize="18sp" />
+            </RelativeLayout>
+
+            <androidx.core.widget.NestedScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/titlebar">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:paddingBottom="100dp">
+
+                    <LinearLayout
+                        android:id="@+id/white_layout"
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:layout_marginLeft="15dp"
+                        android:elevation="5dp"
+                        android:layout_marginRight="15dp"
+                        android:background="@drawable/invitate_white_bg"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="我的邀请码"
+                            android:textColor="#FF25282D"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="13dp"
+                            android:textColor="#FF25282D"
+                            android:textSize="16sp"
+                            tools:text="L32DW234KHG68" />
+
+                        <TextView
+                            android:id="@+id/btn_copy"
+                            android:layout_width="70dp"
+                            android:layout_height="30dp"
+                            android:layout_marginTop="15dp"
+                            android:background="@drawable/shape_invitate_btn_bg"
+                            android:gravity="center"
+                            android:text="复制"
+                            android:textColor="#FFFFFFFF"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/label_share_way"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/white_layout"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="16dp"
+                        android:text="邀请方式"
+                        android:textColor="#FF000000"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/tv_share_text1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/label_share_way"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="12dp"
+                        android:text="方式1  复制邀请码给好友下载APP注册时填写"
+                        android:textColor="#FF848487"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_share_text2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_share_text1"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="方式2  转发邀请海报，好友下载APP注册时填写海报上的邀请码"
+                        android:textColor="#FF848487"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/tv_share_text3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/tv_share_text2"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="5dp"
+                        android:text="方式3  复制邀请链接给好友下载APP注册并使用链接后的邀请码"
+                        android:textColor="#FF848487"
+                        android:textSize="12sp" />
+
+                    <View
+                        android:id="@+id/v_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1px"
+                        android:layout_below="@+id/tv_share_text3"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="15dp"
+                        android:background="#ffdcdcdc" />
+
+                    <TextView
+                        android:id="@+id/label_intro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/v_line"
+                        android:layout_marginLeft="15dp"
+                        android:text="重点：成功邀请的粉丝每下一单，你都能从中获取收益哦～"
+                        android:textColor="#FFFF8202"
+                        android:textSize="11sp" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/label_intro"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp" />
+
+                </RelativeLayout>
+            </androidx.core.widget.NestedScrollView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:background="#f5f6f7"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/btn_share"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="50dp"
+                        android:drawableTop="@drawable/icon_share_r"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="分享海报"
+                        android:textColor="#ff25282d"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/btn_share_url"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="50dp"
+                        android:drawableTop="@drawable/icon_share_url"
+                        android:drawablePadding="12dp"
+                        android:gravity="center_horizontal"
+                        android:text="邀请链接"
+                        android:textColor="#ff25282d"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+            </LinearLayout>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

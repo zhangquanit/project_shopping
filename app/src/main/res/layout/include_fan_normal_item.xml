@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/item_coupon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="6dp"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        android:background="@drawable/icon_person_coupon"
+        android:gravity="center"
+        android:visibility="gone"
+        tools:text="10元券" />
+
+    <TextView
+        android:id="@+id/item_fan"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/item_coupon"
+        android:background="@drawable/rebate_bg"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/c_FF8202"
+        android:textSize="10sp"
+        android:visibility="invisible"
+        android:gravity="center"
+        tools:text="返￥32.58" />
+
+</RelativeLayout>

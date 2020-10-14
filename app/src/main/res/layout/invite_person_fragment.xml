@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/invite_layout"
+    android:background="#f5f5f7">
+
+    <LinearLayout
+        android:id="@+id/invited_layout_one"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginLeft="22.5dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="22.5dp"
+            android:gravity="center_horizontal"
+            android:text="填写邀请码，可获得专属导师一对一免费指导，导师会把所有星乐桃省钱秘笈传授给你，让你躺赚收益哦！"
+            android:textColor="#9C9C9C"
+            android:textSize="13dp" />
+
+
+        <TextView
+            android:id="@+id/tv_invited"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="22.5dp"
+            android:layout_marginTop="46.5dp"
+            android:layout_marginRight="22.5dp"
+            android:background="@drawable/bg_invite"
+            android:gravity="center"
+            android:textColor="#25282D"
+            android:textSize="18dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="22.5dp"
+            android:layout_marginTop="23.5dp"
+            android:layout_marginRight="22.5dp">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/icon_inviter"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:scaleType="centerCrop"
+                app:riv_border_color="#FFFFFF"
+                app:riv_border_width="1.5dp"
+                app:riv_corner_radius="20dp"
+                app:riv_oval="true" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@+id/icon_inviter"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="秃头小宝贝"
+                    android:textColor="#000000"
+                    android:textSize="13dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="邀请您加入星乐桃"
+                    android:textColor="#9C9C9C"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/invited_layout_two"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="22.5dp"
+                android:layout_marginTop="45dp"
+                android:layout_marginRight="22.5dp"
+                android:gravity="center_horizontal"
+                android:text="填写邀请码，可获得专属导师一对一免费指导，导师会把所有星乐桃省钱秘笈传授给你，让你躺赚收益哦！"
+                android:textColor="#9C9C9C"
+                android:layout_marginBottom="25dp"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/tv_recommend"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:visibility="invisible"
+                android:layout_marginRight="22.5dp"
+                android:layout_marginBottom="18dp"
+                android:text="系统推荐"
+                android:textColor="#FF8202"
+                android:textSize="14dp" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginLeft="22.5dp"
+                android:layout_marginRight="22.5dp"
+                android:background="@drawable/bg_invite_edit">
+
+                <EditText
+                    android:id="@+id/invite_edit"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginLeft="15dp"
+                    android:maxLength="11"
+                    android:maxLines="1"
+                    android:textStyle="bold"
+                    android:background="@null"
+                    android:hint="请输入邀请码或邀请人手机号"
+                    android:textColor="#25282D"
+                    android:textColorHint="#B9B9B9" />
+
+            </FrameLayout>
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/error_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22.5dp"
+                android:layout_marginTop="17dp"
+                android:text="手机号码输入错误"
+                android:textColor="#FC0202"
+                android:textSize="13dp" />
+
+            <RelativeLayout
+                android:visibility="gone"
+                android:id="@+id/invited_person_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="22.5dp"
+                android:layout_marginTop="23.5dp"
+                android:layout_marginRight="22.5dp">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/icon_inviter_two"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:scaleType="centerCrop"
+                    app:riv_border_color="#FFFFFF"
+                    app:riv_border_width="1.5dp"
+                    app:riv_corner_radius="20dp"
+                    app:riv_oval="true" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:layout_toRightOf="@+id/icon_inviter_two"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_name_two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="秃头小宝贝"
+                        android:textColor="#000000"
+                        android:textSize="13dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="7dp"
+                        android:text="邀请您加入星乐桃"
+                        android:textColor="#9C9C9C"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/tv_ensure"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="22.5dp"
+            android:layout_marginEnd="22.5dp"
+            android:background="@drawable/ripple_sure_withdrawal_bg"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="确认"
+            android:layout_marginBottom="50dp"
+            android:textColor="#ffffffff"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cos_invite" />
+
+    </RelativeLayout>
+
+    <!--    <android.support.v7.widget.AppCompatImageView-->
+    <!--        android:id="@+id/img_back"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginTop="24dp"-->
+    <!--        android:background="?attr/selectableItemBackgroundBorderless"-->
+    <!--        android:padding="8dp"-->
+    <!--        android:src="@drawable/back"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <TextView-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="8dp"-->
+    <!--        android:layout_marginEnd="8dp"-->
+    <!--        android:text="设置上级邀请人"-->
+    <!--        android:textColor="#ff25282d"-->
+    <!--        android:textSize="19sp"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/img_back"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/img_back" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_title"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginStart="26dp"-->
+    <!--        android:layout_marginTop="85dp"-->
+    <!--        android:text="请输入邀请码"-->
+    <!--        android:textColor="#ff25282d"-->
+    <!--        android:textSize="25sp"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--    <EditText-->
+    <!--        android:id="@+id/et_invite_code"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="40dp"-->
+    <!--        android:layout_marginStart="25dp"-->
+    <!--        android:layout_marginTop="40dp"-->
+    <!--        android:layout_marginEnd="25dp"-->
+    <!--        android:background="@null"-->
+    <!--        android:gravity="center_vertical"-->
+    <!--        android:hint="邀请码或邀请人手机"-->
+    <!--        android:inputType="text"-->
+    <!--        android:maxLength="13"-->
+    <!--        android:textColor="#ff25282d"-->
+    <!--        android:textColorHint="#C3C4C7"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_title" />-->
+
+    <!--    <android.support.v7.widget.AppCompatImageView-->
+    <!--        android:id="@+id/img_clear"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginEnd="17dp"-->
+    <!--        android:padding="8dp"-->
+    <!--        android:src="@drawable/icon_delete"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@+id/et_invite_code"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="@+id/et_invite_code" />-->
+
+    <!--    <View-->
+    <!--        android:id="@+id/view_line"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="1px"-->
+    <!--        android:layout_marginStart="25dp"-->
+    <!--        android:layout_marginEnd="25dp"-->
+    <!--        android:background="#EBEBED"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/et_invite_code" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tv_notice"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="15dp"-->
+    <!--        android:text="长按粘贴邀请码或手机号"-->
+    <!--        android:textColor="#ff25282d"-->
+    <!--        android:textSize="14sp"-->
+    <!--        app:layout_constraintStart_toStartOf="@+id/et_invite_code"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/et_invite_code" />-->
+
+    <!--    <android.support.constraint.ConstraintLayout-->
+    <!--        android:id="@+id/cos_invite"-->
+    <!--        android:layout_width="0dp"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="25dp"-->
+    <!--        android:visibility="gone"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/tv_notice"-->
+    <!--        tools:visibility="visible">-->
+
+    <!--        <android.support.v7.widget.AppCompatImageView-->
+    <!--            android:id="@+id/img_inviter_pic"-->
+    <!--            android:layout_width="45dp"-->
+    <!--            android:layout_height="45dp"-->
+    <!--            android:layout_marginStart="22dp"-->
+    <!--            android:src="@drawable/icon_default_head"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toTopOf="parent" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/tv_invited_name"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:layout_marginStart="8dp"-->
+    <!--            android:textColor="#ff25282d"-->
+    <!--            android:textSize="15sp"-->
+    <!--            app:layout_constraintBottom_toTopOf="@+id/textView"-->
+    <!--            app:layout_constraintStart_toEndOf="@+id/img_inviter_pic"-->
+    <!--            app:layout_constraintTop_toTopOf="@+id/img_inviter_pic"-->
+    <!--            app:layout_constraintVertical_chainStyle="packed"-->
+    <!--            tools:text="185****2567" />-->
+
+    <!--        <TextView-->
+    <!--            android:id="@+id/textView"-->
+    <!--            android:layout_width="wrap_content"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:text="邀请你加入星乐桃"-->
+    <!--            android:textColor="#ff90949a"-->
+    <!--            android:textSize="12sp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView"-->
+    <!--            app:layout_constraintStart_toStartOf="@+id/tv_invited_name"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/tv_invited_name" />-->
+
+
+    <!--        <View-->
+    <!--            android:id="@+id/view"-->
+    <!--            android:layout_width="0dp"-->
+    <!--            android:layout_height="1px"-->
+    <!--            android:layout_marginStart="25dp"-->
+    <!--            android:layout_marginTop="10dp"-->
+    <!--            android:layout_marginEnd="25dp"-->
+    <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--            app:layout_constraintEnd_toEndOf="parent"-->
+    <!--            app:layout_constraintStart_toStartOf="parent"-->
+    <!--            app:layout_constraintTop_toBottomOf="@+id/appCompatImageView" />-->
+    <!--    </android.support.constraint.ConstraintLayout>-->
+
+
+</FrameLayout>

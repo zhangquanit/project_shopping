@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    tools:background="#f5f5f5"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.snqu.shopping.common.ui.LoadingStatusView
+        android:id="@+id/loadingview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="38dp"
+        android:src="@drawable/icon_account_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold"
+        android:textSize="17dp"
+        android:textColor="#25282D"
+        android:text="账号注销审核中..."
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/logout_time"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12dp"
+        android:textColor="#BEBEBE"
+        android:layout_marginTop="14dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/tv_account_cancel_btn"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="15dp"
+        android:background="@drawable/ripple_sure_withdrawal_bg"
+        android:gravity="center"
+        android:text="撤销账号注销申请"
+        android:textColor="#ffffffff"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_gravity="center_horizontal"
+        android:textColor="#A6A7A8"
+        android:textSize="12sp"
+        android:text="账号注销审核时长5日，撤销申请后，账号可继续使用"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+</LinearLayout>

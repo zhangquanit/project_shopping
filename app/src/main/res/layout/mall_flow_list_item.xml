@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/item_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textColor="#ffafafb0"
+        android:textSize="11sp"
+        tools:text="2019.05.28" />
+
+    <RelativeLayout
+        android:id="@+id/rl_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="23dp"
+        android:layout_marginRight="23dp"
+        android:layout_toRightOf="@+id/item_date">
+
+        <View
+            android:id="@+id/item_line1"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/item_icon"
+            android:background="#24000000" />
+
+        <ImageView
+            android:id="@+id/item_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true" />
+
+        <View
+            android:id="@+id/item_line2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/item_icon"
+            android:background="#24000000" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/rl_middle"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:text="货物已到达【成都应龙营业部】"
+        android:textColor="#ffafafb0"
+        android:textSize="11sp" />
+
+</RelativeLayout>

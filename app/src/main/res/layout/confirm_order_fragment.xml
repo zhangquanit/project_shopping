@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f8f8"
+    android:orientation="vertical">
+
+<!--    &lt;!&ndash; 进度加载 &ndash;&gt;-->
+    <com.snqu.shopping.common.ui.LoadingStatusView
+        android:id="@+id/loadingview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white" />
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="5dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--1.收货地址 -->
+            <LinearLayout
+                android:id="@+id/root_address_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <!-- 没有收货地址-->
+                <RelativeLayout
+                    android:id="@+id/no_address_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="56dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="14dp"
+                        android:drawableLeft="@drawable/icon_shop_location"
+                        android:drawablePadding="6dp"
+                        android:text="添加收货地址"
+                        android:textColor="#26282E"
+                        android:textSize="16dp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/shop_good_arrow" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/address_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="86dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <LinearLayout
+                        android:id="@+id/address_layout_one"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="19dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:layout_toLeftOf="@id/order_address_phone"
+                            android:src="@drawable/icon_shop_location" />
+
+                        <TextView
+                            android:id="@+id/order_address_phone"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_above="@id/order_address_name"
+                            android:layout_alignLeft="@id/order_address_name"
+                            tools:text="殷子佳  188****8686"
+                            android:textColor="#26282E"
+                            android:textSize="16dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/address_layout_two"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/address_layout_one"
+                        android:layout_marginLeft="14dp"
+                        android:layout_marginTop="12dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="6dp"
+                            android:layout_toLeftOf="@id/order_address_phone"
+                            android:src="@drawable/icon_shop_location"
+                            android:visibility="invisible" />
+
+                        <TextView
+                            android:id="@+id/order_address_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:ellipsize="end"
+                            android:maxLines="1"
+                            tools:text="地址：四川省成都市高新区仁和春天3F-021"
+                            android:textColor="#848487"
+                            android:textSize="13dp" />
+
+
+                    </LinearLayout>
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="14dp"
+                        android:src="@drawable/shop_good_arrow" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+
+            <!-- 2.输入项-->
+            <LinearLayout
+                android:id="@+id/order_user_type_layout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+
+            </LinearLayout>
+
+            <!-- 商品详情 -->
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    app:riv_corner_radius="5dp"
+                    android:id="@+id/order_good_pic"
+                    android:layout_width="85dp"
+                    android:layout_height="85dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="11dp"
+                    android:layout_marginRight="12dp"
+                    android:scaleType="centerCrop" />
+
+                <TextView
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:id="@+id/order_good_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@id/order_good_pic"
+                    android:layout_toRightOf="@+id/order_good_pic"
+                    android:textColor="#25282D"
+                    android:textSize="14dp"
+                    tools:text="香港梵蜜琳神仙贵妇膏 明膏 明星同款
+梵蜜琳神仙贵妇膏 ..." />
+
+                <TextView
+                    android:id="@+id/tv_order_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/order_good_name"
+                    android:layout_alignLeft="@id/order_good_name"
+                    android:layout_marginTop="4.5dp"
+                    android:textColor="#848487"
+                    android:textSize="12dp"
+                    tools:text="颜色：典雅灰" />
+
+                <TextView
+                    android:id="@+id/tv_order_good_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignLeft="@id/order_good_name"
+                    android:layout_alignBottom="@id/order_good_pic"
+                    android:textColor="#25282D"
+                    android:textSize="16dp"
+                    tools:text="￥879.99" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/order_good_pic">
+
+
+                    <ImageView
+                        android:id="@+id/cart_num_del"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/cart_num"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="12dp"
+                        android:src="@drawable/cart_del_n" />
+
+                    <TextView
+                        android:id="@+id/cart_num"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/cart_num_plus"
+                        android:background="@drawable/shop_goods_detail_cart_num_bg"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#141414"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/cart_num_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="20dp"
+                        android:src="@drawable/cart_plus_p" />
+
+                </RelativeLayout>
+
+
+            </RelativeLayout>
+
+
+            <!-- 4.商品总额 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="82dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="15dp"
+                        android:text="商品总额"
+                        android:textColor="#FF848487"
+                        android:textSize="16dp" />
+
+
+                    <TextView
+                        android:id="@+id/price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginRight="15dp"
+                        android:textColor="#FF25282D"
+                        android:textSize="16dp"
+                        android:textStyle="bold"
+                        tools:text="￥879.99" />
+
+                    <TextView
+                        android:id="@+id/new_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/price"
+                        android:layout_alignRight="@id/price"
+                        android:layout_marginTop="11dp"
+                        android:text="需付款：￥879.99" />
+
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+            <!--6.支付方式 -->
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="15dp"
+                    android:text="支付方式"
+                    android:textColor="#FF848487"
+                    android:textSize="16dp" />
+
+                <TextView
+                    android:drawablePadding="7dp"
+                    android:drawableLeft="@drawable/icon_order_pay"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="9dp"
+                    android:layout_toLeftOf="@id/pay_arrow"
+                    android:text="支付宝"
+                    android:textColor="#FF131413"
+                    android:textSize="16dp" />
+
+                <ImageView
+                    android:id="@+id/pay_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="15dp"
+                    android:src="@drawable/shop_good_arrow" />
+
+
+            </RelativeLayout>
+
+            <!-- 7.支持7天无理由退款-->
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/tv_return"
+                android:background="@color/white"
+                android:layout_marginTop="10dp"
+                android:text="支持7天无理由退款"
+                android:textColor="#FF848487"
+                android:textSize="16dp"
+                android:layout_marginBottom="40dp"
+                android:gravity="center_vertical"
+                android:paddingLeft="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+    <TextView
+        android:id="@+id/go_pay"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/btn_pay_bg"
+        android:gravity="center"
+        android:text="去支付"
+        android:textColor="@color/white"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+
+</LinearLayout>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:id="@+id/container"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabs"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="@color/white"
+        app:tabGravity="fill"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="2dp"
+        app:tabMode="fixed"
+        app:tabSelectedTextColor="#FF8101"
+        app:tabTextAppearance="@style/TabLayoutTextStyle_13"
+        app:tabTextColor="#838387" />
+
+    <View
+        android:id="@+id/tab_divider"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/tabs"
+        android:layout_height="1px"
+        android:background="#ffefeff4" />
+
+    <include
+        layout="@layout/community_content_include"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_divider" />
+
+    <RelativeLayout
+        android:id="@+id/rl_recommend"
+        android:layout_width="120dp"
+        android:layout_height="40dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/community_recommend_shape">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的推荐"
+            android:textColor="#ffffffff"
+            android:textSize="15sp"
+            android:drawableLeft="@drawable/community_support"
+            android:gravity="center_vertical"
+            android:drawablePadding="5dp"
+            android:layout_centerInParent="true" />
+    </RelativeLayout>
+</RelativeLayout>

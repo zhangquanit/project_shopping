@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_bg_corner_10"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingTop="15dp"
+    android:paddingRight="10dp"
+    android:paddingBottom="15dp">
+
+    <RelativeLayout
+        android:id="@+id/item_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:background="@color/divider_color"
+            app:riv_corner_radius="5dp" />
+
+        <com.snqu.shopping.ui.main.view.ItemNameView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginRight="80dp"
+            android:layout_toRightOf="@+id/item_img"
+            android:textColor="#ff25282d"
+            android:textSize="15sp"
+            tools:text="智派创科专卖店" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name"
+            android:layout_alignLeft="@+id/item_name"
+            android:layout_marginTop="10dp">
+
+            <com.snqu.shopping.ui.main.view.ShopLevelView
+                android:id="@+id/shop_level"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/item_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/shop_level"
+                android:textColor="@color/c_FF8202"
+                android:textSize="13sp"
+                tools:text="458.3万人关注" />
+        </RelativeLayout>
+
+
+        <TextView
+            android:id="@+id/item_detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="19dp"
+            android:background="@drawable/reds_shop_entry_btn"
+            android:paddingLeft="12dp"
+            android:paddingTop="3dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="3dp"
+            android:text="进店"
+            android:textColor="@color/c_FF8202"
+            android:textSize="13sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_soces"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_top"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/item_tv1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            tools:text="宝贝描述 4.8高" />
+
+        <TextView
+            android:id="@+id/item_tv2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            tools:text="宝贝描述 4.8高" />
+
+        <TextView
+            android:id="@+id/item_tv3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            tools:text="宝贝描述 4.8高" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/item_imgs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_soces"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal">
+
+        <com.snqu.shopping.ui.main.frag.channel.reds.view.RedShopItemView
+            android:id="@+id/item_img1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <com.snqu.shopping.ui.main.frag.channel.reds.view.RedShopItemView
+            android:id="@+id/item_img2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <View
+            android:layout_width="10dp"
+            android:layout_height="10dp" />
+
+        <com.snqu.shopping.ui.main.frag.channel.reds.view.RedShopItemView
+            android:id="@+id/item_img3"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_imgs"
+        android:layout_marginTop="15dp">
+
+        <RelativeLayout
+            android:id="@+id/item_user_banner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/reds_shop_gray_bg"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp">
+
+            <ViewFlipper
+                android:id="@+id/flipper"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:flipInterval="3000"
+                android:inAnimation="@anim/flipper_in"
+                android:outAnimation="@anim/flipper_out" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_goods_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            tools:text="共13件商品" />
+    </RelativeLayout>
+
+</LinearLayout>

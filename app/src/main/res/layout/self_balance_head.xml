@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#f5f5f5"
+    android:layout_height="wrap_content">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/person_order_bg"
+        android:layout_width="match_parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_notice"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="30dp"
+            android:id="@+id/tv_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="余额 (元)"
+            android:textColor="#ff25282d"
+            android:textSize="12sp"/>
+        <TextView
+            android:id="@+id/tv_money"
+            android:layout_marginTop="12dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0.00"
+            android:textColor="#FFF73737"
+            android:textSize="40sp"/>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_money"
+            android:id="@+id/tv_freeze_money"
+            android:background="@drawable/icon_freeze_money"
+            android:layout_width="wrap_content"
+            android:gravity="center"
+            android:layout_height="28dp"
+            tools:text="冻结金：0.00元"
+            android:textColor="#ff25282d"
+            android:textSize="12sp"
+            />
+        <LinearLayout
+            android:id="@+id/ll_all_money"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="30dp"
+            app:layout_constraintEnd_toStartOf="@+id/view_line1"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_freeze_money">
+
+            <TextView
+                android:id="@+id/tv_all_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="#ff25282d"
+                android:textSize="28sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="累计收益(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_line1"
+            android:layout_width="1dp"
+            android:layout_height="33dp"
+            android:background="#ECE8E9"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_all_money"
+            app:layout_constraintEnd_toStartOf="@+id/ll_future_money"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ll_all_money"
+            app:layout_constraintTop_toTopOf="@+id/ll_all_money"/>
+
+        <LinearLayout
+            android:id="@+id/ll_future_money"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_all_money"
+            app:layout_constraintEnd_toStartOf="@+id/view_line2"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/view_line1"
+            app:layout_constraintTop_toTopOf="@+id/ll_all_money">
+
+            <TextView
+                android:id="@+id/tv_future_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="#ff25282d"
+                android:textSize="28sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="已提现(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/view_line2"
+            android:layout_width="1dp"
+            android:layout_height="33dp"
+            android:background="#ECE8E9"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_future_money"
+            app:layout_constraintEnd_toStartOf="@+id/ll_today_money"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/ll_future_money"
+            app:layout_constraintTop_toTopOf="@+id/ll_future_money"/>
+
+        <LinearLayout
+            android:id="@+id/ll_today_money"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="@+id/ll_future_money"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/view_line2"
+            app:layout_constraintTop_toTopOf="@+id/ll_future_money">
+
+            <TextView
+                android:id="@+id/tv_today_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.00"
+                android:textColor="#ff25282d"
+                android:textSize="28sp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="未结算(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp"/>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    <android.support.constraint.ConstraintLayout-->
+<!--        android:visibility="gone"-->
+<!--        tools:visibility="visible"-->
+<!--        android:id="@+id/ll_vip_info"-->
+<!--        android:layout_marginStart="10dp"-->
+<!--        android:layout_marginEnd="10dp"-->
+<!--        android:background="@drawable/icon_vip_bg"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:layout_width="0dp"-->
+<!--        android:layout_height="80dp" >-->
+
+<!--        <LinearLayout-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_marginStart="13dp"-->
+<!--            android:background="@drawable/vip_description_bg"-->
+<!--            android:orientation="horizontal"-->
+<!--            android:id="@+id/ll_vip_description"-->
+<!--            android:layout_width="96dp"-->
+<!--            android:gravity="center"-->
+<!--            android:layout_height="26dp" >-->
+<!--            <TextView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="会员特权"-->
+<!--                android:textColor="#ffffffff"-->
+<!--                android:textSize="12sp"-->
+<!--                />-->
+
+<!--            <android.support.v7.widget.AppCompatImageView-->
+<!--                android:id="@+id/img_vip_info"-->
+<!--                android:layout_marginStart="6dp"-->
+<!--                android:src="@drawable/icon_balance_question"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content" />-->
+<!--        </LinearLayout>-->
+<!--        <TextView-->
+<!--            android:layout_marginStart="13dp"-->
+<!--            android:id="@+id/tv_settlement_day_num"-->
+<!--            app:layout_constraintTop_toTopOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            app:layout_constraintStart_toStartOf="parent"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="返利金结算时间：3天"-->
+<!--            android:textColor="#ffd08868"-->
+<!--            android:textSize="12sp"-->
+<!--            />-->
+<!--    </android.support.constraint.ConstraintLayout>-->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_marginTop="29dp"
+            android:layout_centerVertical="true"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:text="账户明细"
+            android:textColor="#ff25282d"
+            android:textSize="16sp" />
+        <TextView
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:background="?attr/selectableItemBackground"
+            android:padding="8dp"
+            android:id="@+id/tv_select_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="选择日期"
+            android:drawableEnd="@drawable/icon_right_arrow"
+            android:drawablePadding="8dp"
+            android:textColor="#ff333333"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</LinearLayout>

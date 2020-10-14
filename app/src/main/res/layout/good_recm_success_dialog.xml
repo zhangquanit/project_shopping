@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical">
+
+    <TextView
+        android:text="saasasasasasasasasasasasasasasasasasasasasasasasasasasasasasas"
+        android:visibility="invisible"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="1dp"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="40dp"
+        android:src="@drawable/find_order_success" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="15dp"
+        android:text="推荐成功"
+        android:textColor="#25282D"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+
+    <View
+        android:id="@+id/dialog_line_h"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="51dp"
+        android:background="@color/divider_color"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dialog_line_h"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_round_white_bg"
+            android:gravity="center"
+            android:text="关闭"
+            android:textColor="#25282D"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider_color" />
+
+        <TextView
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_round_white_bg"
+            android:gravity="center"
+            android:text="查看推荐"
+            android:textColor="#FF8202"
+            android:textSize="16dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

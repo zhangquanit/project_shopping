@@ -1,0 +1,12 @@
+include ':app',
+        ':librarys:AppUpdate',
+        ':librarys:CommonUtil',
+        ':librarys:Logger',
+        ':librarys:CommonWidget',
+        ':librarys:jiaozivideoplayer',
+        ':librarys:jdsdk_lib',
+        ':librarys:jg_ml',
+        ':librarys:BaseRecyclerViewAdapterHelper',
+        ':librarys:push',
+        ':librarys:czbwebview',
+        ':librarys:umeng'

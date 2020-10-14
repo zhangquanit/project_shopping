@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.snqu.shopping"
+    android:installLocation="internalOnly">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.EXPAND_STATUS_BAR" />
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REORDER_TASKS" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />
+    <uses-permission android:name="android.permission.GET_TASKS" />
+    <!-- 高德地图 start -->
+    <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
+    <!-- 用于申请获取蓝牙信息进行室内定位 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <!-- 高德地图 edn -->
+
+
+    <!-- 友盟 start -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 友盟 end -->
+
+    <!-- 极光魔链 start -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 允许应用程序联网，以便向我们的服务器端发送数据。 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 检测手机基本状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <!-- 缓存资源优先存入SDcard -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!--极光魔链 end -->
+
+
+    <!--腾讯bugly -->
+    <uses-permission android:name="android.permission.READ_LOGS" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:alwaysRetainTaskState="true"
+        android:debuggable="${DEBUGABLE}"
+        android:excludeFromRecents="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="${APP_NAME}"
+        android:largeHeap="true"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:noHistory="false"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:ignore="HardcodedDebugMode"
+        tools:replace="android:label,android:allowBackup">
+
+
+        <!-- 直接回呼 -->
+        <activity
+            android:name="com.kepler.jd.sdk.KeplerBackActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sdkbackc82bf597dd77946e645ea8e2b904618d" />
+            </intent-filter>
+        </activity>
+
+        <!-- 环境切换-->
+        <meta-data
+            android:name="env"
+            android:value="${DEV_ENV}" />
+        <!-- okhttp 支持https-->
+        <meta-data
+            android:name="GlideModule"
+            android:value="com.snqu.shopping.util.https.OkHttpAppGlideModule" />
+
+        <!-- 高德地图 start -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="04d149a71e4a6469494e6aeeae3f660e" />
+
+        <service android:name="com.amap.api.location.APSService" />
+        <!-- 高德地图 end -->
+
+        <!-- 极光磨链 start -->
+        <!-- Required -->
+        <meta-data
+            android:name="JPUSH_APPKEY"
+            android:value="${JPUSH_APPKEY}" /> <!-- </>值来自开发者平台取得的AppKey -->
+        <meta-data
+            android:name="JPUSH_CHANNEL"
+            android:value="${JPUSH_CHANNEL}" />
+        <!-- 极光磨链 end -->
+
+        <!-- 友盟 start -->
+        <activity
+            android:name="com.snqu.xlt.wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:launchMode="singleTask"
+            android:taskAffinity="net.sourceforge.xlt"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name="com.snqu.xlt.wxapi.WXPayEntryActivity"
+            android:exported="true"
+            android:launchMode="singleTop" />
+        <!-- 友盟end -->
+
+        <service
+            android:name="com.anroid.base.service.CoreService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.android.intent.action.active" />
+                <action android:name="com.android.intent.action.netchage" />
+            </intent-filter>
+        </service>
+
+        <receiver
+            android:name="com.anroid.base.receiver.ProguardReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="1000">
+                <action android:name="com.android.intent.action.proguard" />
+                <action android:name="android.intent.action.BATTERY_CHANGED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.TIME_SET" />
+                <action android:name="android.intent.action.DATE_CHANGED" />
+                <action android:name="android.intent.action.TIMEZONE_CHANGED" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+
+            <intent-filter android:priority="1000">
+                <action android:name="android.intent.action.MEDIA_MOUNTED" />
+                <data android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+                <action android:name="uitechno.android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+
+        <!--原Activity enabled固定为false，且不通过代码进行设置 这个MainActivity设置enabled为false后就不能再通过显式intent调用了，会有报错信息。-->
+        <activity
+            android:name=".ui.splash.SplashAct"
+            android:enabled="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme"
+            android:windowSoftInputMode="adjustUnspecified|stateAlwaysHidden">
+            <intent-filter>
+                <data android:scheme="xkd" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.splash.SplashTwoAct"
+            android:alwaysRetainTaskState="true"
+            android:enabled="true"
+            android:screenOrientation="portrait"
+            android:theme="@style/SplashTheme" />
+        <!--
+        https://juejin.im/post/5c36f2226fb9a049b7809170
+        固定设置一个默认的别名，用来替代原Activity-->
+        <activity-alias
+            android:name="com.snqu.xlt.DefaultLauncher"
+            android:enabled="true"
+            android:exported="true"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.splash.SplashAct">
+            <intent-filter>
+                <data android:scheme="xkd" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!--双11，后面要加的话按这种样式加就行了，没有什么影响，只是注意要在代码中进行切换，不要直接在清单文件中切换。-->
+        <activity-alias
+            android:name="com.snqu.xlt.Launcher11"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher11"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.splash.SplashAct">
+            <intent-filter>
+                <data android:scheme="xkd" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <!-- 双12-->
+        <activity-alias
+            android:name="com.snqu.xlt.Launcher12"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher12"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.splash.SplashAct">
+            <intent-filter>
+                <data android:scheme="xkd" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+
+        <activity-alias
+            android:name="com.snqu.xlt.Launcher13"
+            android:enabled="false"
+            android:icon="@mipmap/ic_launcher12"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.splash.SplashAct">
+            <intent-filter>
+                <data android:scheme="xkd" />
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+
+        <activity
+            android:name=".ui.main.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="stateAlwaysHidden">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.BROWSABLE" />
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:host="heatmap"
+                    android:scheme="zjxabyor" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ui.splash.GuideActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/fullScreen" />
+
+        <activity
+            android:name=".ui.splash.CallbackActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="xlts" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name=".ui.splash.HttpUrlActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
+            <!-- 当android:autoVerify设置为true后，android系统会自你的app安装后进行验证，验证所有声明的uri和对应的网站 -->
+            <intent-filter android:autoVerify="true">
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <!--android:scheme的值为“http”、“https”或者两者，并且不能声明其它的schemes。-->
+                <data
+                    android:host="m.xinletao.vip"
+                    android:pathPrefix="/app"
+                    android:scheme="https" />
+                <data
+                    android:host="m.xinletao.vip"
+                    android:pathPrefix="/app"
+                    android:scheme="http" />
+            </intent-filter>
+        </activity>
+
+
+        <activity
+            android:name="com.anroid.base.SimpleFragAct"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:excludeFromRecents="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+
+
+        <service android:name=".common.service.BackgroundTaskService" />
+        <service android:name=".util.VersionUpdate" />
+
+
+        <activity
+            android:name=".ui.video.PlayerVideoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+
+        <activity
+            android:name=".ui.splash.GuideVideoActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:theme="@style/GuideVideoPageTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name="com.snqu.shopping.ui.main.scan.ScanActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name="com.snqu.shopping.ui.goods.player.VideoImageDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name="com.snqu.shopping.ui.goods.player.VideoImageActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name=".ui.goods.GoodsDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:excludeFromRecents="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name="com.snqu.shopping.ui.mall.goods.ShopGoodsDetailActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:excludeFromRecents="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+
+        <activity
+            android:name=".ui.order.OrderActivity"
+            android:configChanges="orientation|keyboardHidden"
+            android:excludeFromRecents="false"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait"
+            android:theme="@style/MainTheme"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity android:name=".ui.goods.AliAuthActivity" />
+        <activity
+            android:name=".ui.main.UmengPushActivity"
+            android:excludeFromRecents="false"
+            android:exported="true"
+            android:launchMode="singleTask" />
+
+        <activity
+            android:name=".ui.bringgood.frag.BringVideoAct"
+            android:excludeFromRecents="false"
+            android:screenOrientation="portrait" />
+
+        <service
+            android:name=".util.location.LocationService"
+            android:exported="false" />
+
+
+        <meta-data
+            android:name="com.vivo.push.api_key"
+            android:value="5aec761a-5669-4274-a81f-812b99068e5d" />
+        <meta-data
+            android:name="com.vivo.push.app_id"
+            android:value="18789" />
+        <meta-data
+            android:name="com.huawei.hms.client.appid"
+            android:value="appid=101439675" />
+
+    </application>
+
+</manifest>

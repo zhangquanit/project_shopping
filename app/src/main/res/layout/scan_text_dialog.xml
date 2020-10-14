@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:layout_marginLeft="28dp"
+    android:layout_marginTop="16dp"
+    android:layout_marginRight="28dp"
+    android:background="@drawable/dialog_bg">
+
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:text="二维码内容:"
+        android:textColor="#ff25282d"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_tip"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="8dp"
+        android:textColor="#ff25282d"
+        android:textSize="15sp"
+        tools:text="www.taobao.com" />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/divider_color" />
+
+    <TextView
+        android:id="@+id/btn_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/divider"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:text="关 闭"
+        android:textColor="#ff25282d"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>

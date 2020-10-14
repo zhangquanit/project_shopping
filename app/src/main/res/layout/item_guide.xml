@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/guide_img"
+        android:scaleType="centerCrop"
+        android:src="@drawable/guide03"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_go_login"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:background="@drawable/ripple_send_msg_code_bg"
+        android:enabled="true"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:text="立即体验"
+        android:layout_marginBottom="25dp"
+        android:layout_above="@id/tv_go_video"
+        android:textColor="@color/send_msg_code_color"
+        android:textSize="15sp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_go_video"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center"
+        android:layout_marginBottom="100dp"
+        android:background="@drawable/ripple_send_msg_code_bg"
+        android:enabled="true"
+        android:text="省钱操作介绍"
+        android:textColor="@color/send_msg_code_color"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>

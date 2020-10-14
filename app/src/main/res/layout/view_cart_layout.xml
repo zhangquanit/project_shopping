@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#80737373" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+            <View
+                android:id="@+id/cart_close_layout"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <LinearLayout
+                android:id="@+id/shop_cart_view"
+                android:layout_width="match_parent"
+                android:layout_height="460dp"
+                android:layout_alignParentBottom="true"
+                android:background="@drawable/shop_goods_cat_bg"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="103dp">
+
+                    <ImageView
+                        android:id="@+id/cart_img"
+                        android:layout_width="103dp"
+                        android:layout_height="103dp"
+                        android:layout_marginLeft="21.5dp"
+                        android:layout_marginTop="21.5dp"
+                        android:scaleType="centerCrop" />
+
+                    <TextView
+                        android:id="@+id/cart_price"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginTop="31dp"
+                        android:layout_toRightOf="@+id/cart_img"
+                        android:text="¥9912"
+                        android:textColor="#FF2A38"
+                        android:textSize="18dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/cart_inv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/cart_price"
+                        android:layout_alignLeft="@id/cart_price"
+                        android:layout_marginTop="12dp"
+                        android:text="库存：23件"
+                        android:textColor="#848487"
+                        android:textSize="13dp" />
+
+                    <ImageView
+                        android:id="@+id/cart_close"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@drawable/shop_close" />
+
+
+                </RelativeLayout>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/cart_categorys"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp" />
+
+                <View
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    android:background="#DADADA"
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="12dp"
+                    android:layout_height="1px"/>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_above="@id/tv_sure"
+                    android:layout_marginLeft="20dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="数量"
+                        android:textColor="#25282D"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/cart_num_del"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:paddingRight="12dp"
+                        android:paddingLeft="20dp"
+                        android:layout_toLeftOf="@id/cart_num"
+                        android:src="@drawable/cart_del_n" />
+
+                    <TextView
+                        android:id="@+id/cart_num"
+                        android:layout_width="40dp"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@id/cart_num_plus"
+                        android:background="@drawable/shop_goods_detail_cart_num_bg"
+                        android:gravity="center"
+                        android:text="0"
+                        android:textColor="#141414"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/cart_num_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:paddingLeft="12dp"
+                        android:paddingRight="20dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/cart_plus_p" />
+
+                </RelativeLayout>
+
+
+                <TextView
+                    android:id="@+id/tv_sure"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:layout_margin="20dp"
+                    android:background="@drawable/ripple_vip_btn_bg"
+                    android:enabled="true"
+                    android:gravity="center"
+                    android:text="确认"
+                    android:textColor="#ffffffff"
+                    android:textSize="15sp" />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </RelativeLayout>
+
+
+</LinearLayout>

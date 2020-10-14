@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical">
+
+
+    <!-- 我的订单 -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#ffffff"
+        android:orientation="vertical">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:elevation="0dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="65dp" />
+
+                    <com.google.android.material.tabs.TabLayout
+                        android:id="@+id/order_tabs"
+                        android:layout_width="match_parent"
+                        android:layout_height="38dp"
+                        app:tabGravity="fill"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabIndicatorHeight="2dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginBottom="20dp"
+                        app:tabMode="scrollable"
+                        app:tabSelectedTextColor="@color/high_light_color"
+                        app:tabTextAppearance="@style/TabLayoutTextStyle"
+                        app:tabTextColor="@color/c_25282D"/>
+
+                </LinearLayout>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <View
+                            android:layout_width="match_parent"
+                            android:layout_height="24dp" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="?attr/actionBarSize">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_back"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="8dp"
+                                android:src="@drawable/back"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <RadioGroup
+                                android:id="@+id/rg_order"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:visibility="visible"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <RadioButton
+                                    android:id="@+id/self_order"
+                                    android:layout_width="85dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/self_order_btn_left_selector"
+                                    android:button="@null"
+                                    android:checked="true"
+                                    android:gravity="center"
+                                    android:text="我的订单"
+                                    android:textColor="@color/white"
+                                    android:textSize="14dp" />
+
+                                <RadioButton
+                                    android:id="@+id/group_order"
+                                    android:layout_width="85dp"
+                                    android:layout_height="32dp"
+                                    android:background="@drawable/self_order_btn_right_selector"
+                                    android:button="@null"
+                                    android:checked="false"
+                                    android:gravity="center"
+                                    android:text="粉丝订单"
+                                    android:textColor="@color/titlebar_title"
+                                    android:textSize="14dp" />
+
+                            </RadioGroup>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_search"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="8dp"
+                                android:src="@drawable/icon_order_search"
+                                app:layout_constraintBottom_toBottomOf="@+id/rg_order"
+                                app:layout_constraintEnd_toStartOf="@+id/img_calendar"
+                                app:layout_constraintHorizontal_bias="1.0"
+                                app:layout_constraintHorizontal_chainStyle="packed"
+                                app:layout_constraintStart_toEndOf="@+id/rg_order"
+                                app:layout_constraintTop_toTopOf="@+id/rg_order" />
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_calendar"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:background="?attr/selectableItemBackgroundBorderless"
+                                android:padding="8dp"
+                                android:src="@drawable/icon_order_calendar"
+                                app:layout_constraintBottom_toBottomOf="@+id/rg_order"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/img_search"
+                                app:layout_constraintTop_toTopOf="@+id/rg_order" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/ll_order_all"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_order_all"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ripple_order_state_bg"
+                            android:enabled="true"
+                            android:gravity="center"
+                            android:text="全部"
+                            android:textColor="#FFFF8202"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_order_future"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_order_future"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ripple_order_state_bg"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:text="即将到账"
+                            android:textColor="#25282D"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_order_already"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginEnd="10dp">
+
+                        <TextView
+                            android:id="@+id/tv_order_already"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ripple_order_state_bg"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:text="已到账"
+                            android:textColor="#25282D"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_order_failure"
+                        android:layout_width="80dp"
+                        android:layout_height="match_parent"
+                        >
+                        <TextView
+                            android:id="@+id/tv_order_failure"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/ripple_order_state_bg"
+                            android:enabled="false"
+                            android:gravity="center"
+                            android:text="已失效"
+                            android:textColor="#25282D"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:background="#FFFCF3E9"
+                    android:gravity="center">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="13dp"
+                        android:layout_height="13dp"
+                        android:layout_marginStart="10dp"
+                        android:src="@drawable/icon_notice"
+                        android:tint="#FFFF8202" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:text="温馨提示：订单付款成功后1～10分钟才会同步显示～"
+                        android:textColor="#FFFF8202"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_order_time_and_type"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#F5F5F7"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:paddingTop="20dp"
+                    android:paddingBottom="20dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <View
+                        android:layout_width="35dp"
+                        android:layout_height="1dp"
+                        android:background="#C3C4C7" />
+
+                    <TextView
+                        android:id="@+id/tv_order_time_and_type"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="11dp"
+                        android:layout_marginEnd="11dp"
+                        android:textColor="#ff25282d"
+                        android:textSize="13sp"
+                        tools:text="2019年10月全部订单" />
+
+                    <View
+                        android:layout_width="35dp"
+                        android:layout_height="1dp"
+                        android:background="#C3C4C7" />
+                </LinearLayout>
+
+                <androidx.viewpager.widget.ViewPager
+                    android:id="@+id/view_pager"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F5F5F7" />
+
+
+
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+        <LinearLayout
+            android:id="@+id/et_search"
+            android:orientation="horizontal"
+            android:layout_gravity="bottom"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#EEEBEB"
+            >
+
+            <TextView
+                android:layout_marginLeft="12.5dp"
+                android:layout_centerVertical="true"
+                android:text="找回订单"
+                android:textColor="#25282D"
+                android:layout_marginRight="10dp"
+                android:layout_gravity="center_vertical"
+                android:textSize="14dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="12.5dp"
+                >
+
+                <TextView
+                    android:enabled="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="34dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/search_input_bg"
+                    android:drawableLeft="@drawable/icon_search"
+                    android:drawablePadding="7dp"
+                    android:gravity="center_vertical"
+                    android:hint="输入商品订单信息"
+                    android:imeOptions="actionSearch"
+                    android:maxLines="1"
+                    android:paddingStart="10dp"
+                    android:paddingEnd="40dp"
+                    android:privateImeOptions="搜索"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="#131413"
+                    android:textColorHint="#C0C2C4"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

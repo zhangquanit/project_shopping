@@ -1,0 +1,948 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#ffffff">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:background="#ffffff">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <androidx.core.widget.NestedScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/constraintLayout"
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:scaleType="centerCrop"
+                            android:src="@drawable/icon_person_head_bg"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/img_head"
+                            android:layout_width="54dp"
+                            android:layout_height="54dp"
+                            android:layout_marginStart="16dp"
+                            android:layout_marginTop="80dp"
+                            android:src="@drawable/icon_default_head"
+                            android:tint="#FFFF8202"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:riv_corner_radius="27dp" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_vip_flag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/icon_person_vip"
+                            android:translationY="2dp"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_head"
+                            app:layout_constraintEnd_toEndOf="@+id/img_head"
+                            app:layout_constraintStart_toStartOf="@+id/img_head"
+                            app:layout_constraintVertical_bias="1.0" />
+
+                        <TextView
+                            android:id="@+id/tv_name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:ellipsize="end"
+                            android:maxEms="12"
+                            android:maxLines="1"
+                            android:text="登录/注册"
+                            android:textColor="#ff25282d"
+                            android:textSize="19sp"
+                            android:textStyle="bold"
+                            app:layout_constraintStart_toEndOf="@+id/img_head"
+                            app:layout_constraintTop_toTopOf="@+id/img_head"
+                            app:layout_constraintVertical_chainStyle="packed" />
+
+                        <ImageView
+                            tools:visibility="visible"
+                            android:visibility="gone"
+                            android:id="@+id/icon_teacher"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_name"
+                            android:layout_marginLeft="3dp"
+                            app:layout_constraintVertical_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@+id/tv_name"
+                            android:src="@drawable/icon_person_teacher"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginBottom="3dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_person_invite_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="邀请码："
+                            android:textColor="#848487"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="@+id/tv_name"
+                            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+                        <TextView
+                            android:id="@+id/tv_code"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:gravity="center"
+                            android:text="L32HD324"
+                            android:textColor="#25282D"
+                            android:textSize="14sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_person_invite_code"
+                            app:layout_constraintLeft_toRightOf="@+id/tv_person_invite_code" />
+
+                        <TextView
+                            android:id="@+id/tv_copy"
+                            android:layout_width="50dp"
+                            android:layout_height="22.5dp"
+                            android:layout_marginStart="10.5dp"
+                            android:background="@drawable/person_copy_bg"
+                            android:gravity="center"
+                            android:text="复制"
+                            android:textColor="#ffffffff"
+                            android:textSize="12sp"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_code"
+                            app:layout_constraintStart_toEndOf="@+id/tv_code"
+                            app:layout_constraintTop_toTopOf="@+id/tv_code" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_wechat_edit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="15dp"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="@+id/tv_copy"
+                            app:layout_constraintStart_toEndOf="@+id/tv_copy"
+                            app:layout_constraintTop_toTopOf="@+id/tv_copy">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:drawablePadding="5dp"
+                                android:text="编辑"
+                                android:textColor="#8D8D90"
+                                android:textSize="12sp" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center_vertical"
+                                android:layout_marginStart="3dp"
+                                android:src="@drawable/wechat_edit" />
+
+                        </LinearLayout>
+
+
+                        <TextView
+                            android:id="@+id/tv_checkEnvironment"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="100dp"
+                            android:background="#DACFCF"
+                            android:padding="5dp"
+                            android:text="切换环境"
+                            android:textColor="#FF5722"
+                            android:textSize="15sp"
+                            android:textStyle="bold"
+                            android:visibility="gone"
+                            app:layout_constraintStart_toEndOf="@+id/tv_name"
+                            app:layout_constraintTop_toTopOf="@+id/tv_name" />
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/rl_update"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/img_head">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/img_update_vip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:src="@drawable/icon_update_vip"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="65dp"
+                                android:layout_height="26dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginEnd="15dp"
+                                android:background="@drawable/update_vip_bg"
+                                android:gravity="center"
+                                android:text="立即参与"
+                                android:textColor="#ffffffff"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="@+id/img_update_vip"
+                                app:layout_constraintTop_toTopOf="@+id/img_update_vip" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <ImageView
+                            android:visibility="gone"
+                            android:id="@+id/banner_img"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="17dp"
+                            android:layout_marginRight="10dp"
+                            android:src="@drawable/person_banner_svip"
+                            app:layout_constraintEnd_toStartOf="@+id/view_line1"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/rl_update" />
+
+
+                        <LinearLayout
+                            android:id="@+id/ll_all_money"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toStartOf="@+id/view_line1"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/banner_img"
+                            app:layout_goneMarginTop="15dp">
+
+                            <TextView
+                                android:id="@+id/tv_all_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#ff25282d"
+                                android:textSize="28sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="今日预估(元)"
+                                android:textColor="#ff848487"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view_line1"
+                            android:layout_width="1dp"
+                            android:layout_height="33dp"
+                            android:background="#ECE8E9"
+                            app:layout_constraintBottom_toBottomOf="@+id/ll_all_money"
+                            app:layout_constraintEnd_toStartOf="@+id/ll_future_money"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/ll_all_money"
+                            app:layout_constraintTop_toTopOf="@+id/ll_all_money" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_future_money"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/ll_all_money"
+                            app:layout_constraintEnd_toStartOf="@+id/view_line2"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/view_line1"
+                            app:layout_constraintTop_toTopOf="@+id/ll_all_money">
+
+                            <TextView
+                                android:id="@+id/tv_future_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#ff25282d"
+                                android:textSize="28sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="本月预估(元)"
+                                android:textColor="#ff848487"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <View
+                            android:id="@+id/view_line2"
+                            android:layout_width="1dp"
+                            android:layout_height="33dp"
+                            android:background="#ECE8E9"
+                            app:layout_constraintBottom_toBottomOf="@+id/ll_future_money"
+                            app:layout_constraintEnd_toStartOf="@+id/ll_today_money"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/ll_future_money"
+                            app:layout_constraintTop_toTopOf="@+id/ll_future_money" />
+
+                        <LinearLayout
+                            android:id="@+id/ll_today_money"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            app:layout_constraintBottom_toBottomOf="@+id/ll_future_money"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/view_line2"
+                            app:layout_constraintTop_toTopOf="@+id/ll_future_money">
+
+                            <TextView
+                                android:id="@+id/tv_today_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="0.00"
+                                android:textColor="#ff25282d"
+                                android:textSize="28sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="4dp"
+                                android:text="上月预估(元)"
+                                android:textColor="#ff848487"
+                                android:textSize="12sp" />
+                        </LinearLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/fl_person_money"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/icon_balance"
+                            android:orientation="vertical"
+                            android:paddingStart="15dp"
+                            android:paddingBottom="16dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ll_all_money"
+                            tools:ignore="RtlSymmetry">
+
+                            <LinearLayout
+                                android:id="@+id/ll_question"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="20dp"
+                                android:paddingRight="30dp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:paddingEnd="8dp"
+                                    android:text="我的余额(元)"
+                                    android:textColor="#ffffffff"
+                                    android:textSize="13sp" />
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:id="@+id/img_notice_instructions"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:src="@drawable/icon_balance_question"
+                                    android:visibility="gone" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/tv_helptext"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:layout_marginRight="15dp"
+                                android:textColor="#B3FFFFFF"
+                                android:textSize="12sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/ll_question"
+                                tools:text="每月25日可提现上月确定收货的订单收益每月25日可提现上月确定收货的订单收益" />
+
+                            <TextView
+                                android:id="@+id/tv_self_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginTop="2dp"
+                                android:text="0.00"
+                                android:textColor="#ffffffff"
+                                android:textSize="40sp"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/tv_helptext" />
+
+                            <TextView
+                                android:id="@+id/tv_freeze_money"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="bottom"
+                                android:layout_marginStart="4dp"
+                                android:layout_marginTop="6dp"
+                                android:textColor="#ffffffff"
+                                android:textSize="12sp"
+                                android:visibility="visible"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/tv_self_money"
+                                app:layout_constraintStart_toEndOf="@+id/tv_self_money"
+                                tools:text="冻结金: ¥ 23.29"
+                                tools:visibility="visible" />
+
+                            <TextView
+                                android:id="@+id/tv_withdrawal"
+                                android:layout_width="75dp"
+                                android:layout_height="25dp"
+                                android:layout_gravity="right|bottom"
+                                android:layout_marginEnd="15dp"
+                                android:layout_marginBottom="2dp"
+                                android:background="@drawable/ripple_person_withdrawal_bg"
+                                android:gravity="center"
+                                android:text="提现"
+                                android:textColor="#ffffffff"
+                                android:textSize="12sp"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/tv_self_money"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                tools:visibility="visible" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <!-- 会员中心 -->
+
+                        <LinearLayout
+                            android:id="@+id/ll_vip_center"
+                            android:layout_width="match_parent"
+                            android:layout_height="106dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="15dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/person_vip_center_bg"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fl_person_money">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_vip_center_money"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/icon_vip_center_money" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="收益报表"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_vip_center_order"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/icon_vip_center_order" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="订单中心"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_vip_center_group"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/icon_vip_center_group" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="我的粉丝"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_vip_center_invite_person"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="27dp"
+                                        android:layout_height="27dp"
+                                        android:src="@drawable/icon_vip_center_invite_person" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="邀请好友"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="140dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/person_order_bg"
+                            android:orientation="vertical"
+                            android:visibility="gone"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/fl_person_money">
+
+                            <RelativeLayout
+
+                                android:layout_width="match_parent"
+                                android:layout_height="45dp"
+
+                                android:paddingStart="10dp"
+                                android:paddingEnd="10dp">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:text="我的订单"
+                                    android:textColor="#ff25282d"
+                                    android:textSize="16sp" />
+
+                                <!--                            <TextView-->
+                                <!--                                android:id="@+id/tv_person_self_order"-->
+                                <!--                                android:layout_width="wrap_content"-->
+                                <!--                                android:layout_height="45dp"-->
+                                <!--                                android:layout_centerVertical="true"-->
+                                <!--                                android:layout_toLeftOf="@+id/img_person_order_right"-->
+                                <!--                                android:background="?attr/selectableItemBackground"-->
+                                <!--                                android:gravity="center"-->
+                                <!--                                android:paddingStart="10dp"-->
+                                <!--                                android:paddingEnd="10dp"-->
+                                <!--                                android:text="找回订单"-->
+                                <!--                                android:textColor="#FFFF8202"-->
+                                <!--                                android:textSize="12sp" />-->
+
+                                <androidx.appcompat.widget.AppCompatImageView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:src="@drawable/icon_right_arrow"
+                                    android:tint="#FFFF8202" />
+                            </RelativeLayout>
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginStart="12dp"
+                                android:layout_marginEnd="12dp"
+                                android:background="#E0DFDF" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent">
+
+                                <LinearLayout
+                                    android:id="@+id/ll_person_all_order"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/icon_order_all" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="全部"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_person_future_order"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/icon_order_feature" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="即将到账"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_person_already_order"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/icon_order_already" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="已到账"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_person_failure_order"
+                                    android:layout_width="0dp"
+                                    android:layout_height="match_parent"
+                                    android:layout_weight="1"
+                                    android:background="?attr/selectableItemBackground"
+                                    android:gravity="center"
+                                    android:orientation="vertical">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:layout_width="30dp"
+                                        android:layout_height="30dp"
+                                        android:src="@drawable/icon_order_failure" />
+
+                                    <TextView
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_marginTop="10dp"
+                                        android:text="已失效"
+                                        android:textColor="#ff25282d"
+                                        android:textSize="12sp" />
+                                </LinearLayout>
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <common.widget.viewpager.BannerViewPager
+                            android:id="@+id/img_person_ad"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:visibility="gone"
+                            app:layout_constraintDimensionRatio="w,1:6"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/ll_vip_center"
+                            tools:visibility="visible" />
+
+                        <LinearLayout
+                            android:id="@+id/layout_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/person_vip_center_bg"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/img_person_ad">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="bottom"
+                                android:paddingStart="15dp"
+                                android:text="赚钱工具"
+                                android:textColor="#25282D"
+                                android:textSize="14sp"
+                                tools:ignore="RtlSymmetry" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recy"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="18dp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:id="@+id/layout_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/person_vip_center_bg"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/layout_one">
+
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"
+                                android:gravity="bottom"
+                                android:paddingStart="15dp"
+                                android:text="实用工具"
+                                android:textColor="#25282D"
+                                android:textSize="14sp"
+                                tools:ignore="RtlSymmetry" />
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recy_two"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="18dp" />
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="10dp"
+                            android:background="@drawable/person_vip_center_bg"
+                            android:orientation="vertical"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/layout_two">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/recy_three"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginTop="8dp"
+                                android:layout_marginBottom="18dp" />
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.core.widget.NestedScrollView>
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="#00FFFFFF"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingBottom="10dp">
+
+                        <com.makeramen.roundedimageview.RoundedImageView
+                            android:id="@+id/img_other_head"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:layout_marginStart="16dp"
+                            android:src="@drawable/icon_default_head"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_setting"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/img_setting"
+                            app:riv_corner_radius="20dp"
+                            tools:visibility="visible" />
+
+                        <TextView
+                            android:id="@+id/tv_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="我的"
+                            android:textColor="#ff25282d"
+                            android:textSize="18dp"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/img_setting"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/img_setting"
+                            tools:visibility="visible" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_setting"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="40dp"
+                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="2dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:padding="8dp"
+                            android:src="@drawable/icon_setting"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/img_message"
+                            app:layout_constraintHorizontal_bias="1.0"
+                            app:layout_constraintHorizontal_chainStyle="packed"
+                            app:layout_constraintStart_toEndOf="@+id/img_other_head"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.1" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/img_message"
+                            android:layout_width="22dp"
+                            android:layout_height="22dp"
+                            android:layout_marginStart="7dp"
+                            android:layout_marginTop="48dp"
+                            android:layout_marginEnd="23dp"
+                            android:layout_marginBottom="8dp"
+                            android:background="?attr/selectableItemBackgroundBorderless"
+                            android:src="#FF9800"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.5"
+                            app:layout_constraintStart_toEndOf="@+id/img_setting"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#F5F5F7"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_goods_left"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="专属推荐"
+                    android:textColor="#FFFF8202"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_goods_right"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="30dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="我的足迹"
+                    android:textColor="#ff25282d"
+                    android:textSize="16sp" />
+            </LinearLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <com.snqu.shopping.ui.mine.CustomViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+        <ImageView
+            android:id="@+id/scroll_to_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|bottom"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="45dp"
+            android:src="@drawable/icon_to_top"
+            android:visibility="gone" />
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+
+

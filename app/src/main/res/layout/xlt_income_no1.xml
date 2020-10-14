@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_top_white"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/item_imgbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp">
+
+        <ImageView
+            android:id="@+id/item_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/income_mvp_bg" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="2dp"
+            android:layout_centerHorizontal="true"
+            app:riv_oval="true"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/item_bg"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/income_no1" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/item_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_imgbar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:textColor="#ff25282d"
+        android:textSize="14sp"
+        tools:text="这里是用户名称" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_nickname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="3dp"
+        android:text="¥1887.26"
+        android:textColor="#FFF73737"
+        android:textSize="10sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/item_price"
+        android:layout_marginTop="25dp"
+        android:background="@color/divider_color" />
+</RelativeLayout>

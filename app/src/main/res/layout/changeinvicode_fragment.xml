@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+ >
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:background="#f5f5f7">
+
+        <TextView
+            android:id="@+id/tv_invitation_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="40dp"
+            android:text="当前邀请码：11118"
+            android:textColor="#25282D"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/tv_invitation_tip"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tv_invitation_code"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginRight="16dp"
+            android:gravity="center"
+            android:text="邀请3位有效用户（有效用户指下过单且已确认收货的用户），可获得一次更改权利"
+            android:textSize="12dp" />
+
+        <EditText
+            android:id="@+id/edit_invite_code"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_below="@+id/tv_invitation_tip"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/bg_change_invicode"
+            android:digits="0123456789qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM"
+            android:hint="只能输入数字、字母"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:maxLength="5"
+            android:maxLines="1"
+            android:paddingLeft="22dp"
+            android:textColor="#25282D"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/invite_tip"
+            android:visibility="gone"
+            android:layout_marginLeft="16dp"
+            android:layout_below="@+id/edit_invite_code"
+            android:textSize="12sp"
+            android:text="输入邀请码已被使用"
+            android:textColor="#FFFA0C0C"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_set_invitecode"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginBottom="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ripple_sure_withdrawal_bg"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="确定"
+            android:textColor="#ffffffff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/tv_tip"
+            android:textSize="12dp"
+            android:textColor="#FF8202"
+            android:text="更改之前的邀请码保留7天的有效期"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="25dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"/>
+
+        <LinearLayout
+            android:id="@+id/rand_layout"
+            android:visibility="gone"
+            android:layout_below="@+id/invite_tip"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bg_change_invicode"
+            android:layout_height="98dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_height="43dp">
+
+                <TextView
+                    android:textColor="#FF25282D"
+                    android:textSize="14sp"
+                    android:text="推荐邀请码"
+                    android:layout_centerVertical="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+
+                
+                <TextView
+                    android:id="@+id/item_rand"
+                    android:textColor="#FF25282D"
+                    android:textSize="12sp"
+                    android:text="换一组"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                
+                <ImageView
+                    android:id="@+id/item_img"
+                    android:layout_toStartOf="@id/item_rand"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="7dp"
+                    android:src="@drawable/icon_invite_n"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:scaleType="centerCrop"/>
+
+            </RelativeLayout>
+
+            <View
+                android:id="@+id/loading_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#ffe3e1e1"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                />
+
+            <TextView
+                android:id="@+id/item_invite_loading"
+                android:textColor="#FF9C9C9C"
+                android:textSize="12sp"
+                android:visibility="gone"
+                android:text="努力查找中..."
+                android:gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                android:layout_marginLeft="22dp"
+                android:layout_marginRight="22dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <com.snqu.shopping.common.ui.LoadingStatusView
+        android:id="@+id/loadingview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</FrameLayout>

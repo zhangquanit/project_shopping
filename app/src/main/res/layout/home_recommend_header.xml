@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/common_list_bg"
+    android:orientation="vertical">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:overScrollMode="never"
+        android:scrollbars="horizontal" />
+
+    <SeekBar
+        android:id="@+id/sbar_indicator"
+        android:layout_width="80dp"
+        android:layout_height="3dp"
+        android:layout_gravity="center_horizontal"
+        android:focusable="true"
+        android:progressDrawable="@drawable/seekbar_indicator_normal"
+        android:thumb="@drawable/seekbar_indicator_on"
+        android:thumbOffset="0dp"
+        android:layout_marginBottom="6dp"
+        android:visibility="gone" />
+
+
+    <ImageView
+        android:id="@+id/iv_ad"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <LinearLayout
+        android:id="@+id/home_markets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:orientation="vertical" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/container_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <include
+        layout="@layout/recommend_day_layout"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp" />
+</LinearLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="33dp">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="5dp"
+            android:src="@drawable/back" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true">
+
+            <RelativeLayout
+                android:id="@+id/leftbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/tv_title_label1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="团购收益"
+                    android:textColor="@color/earning_title_color"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/divider1"
+                    android:layout_width="35dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/tv_title_label1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="13dp"
+                    android:background="@drawable/community_category_title_bg" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rightbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="64dp"
+                android:layout_toRightOf="@+id/leftbar">
+
+                <TextView
+                    android:id="@+id/tv_title_label2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="自购收益"
+                    android:textColor="@color/earning_title_color"
+                    android:textSize="16sp" />
+
+                <View
+                    android:id="@+id/divider2"
+                    android:layout_width="35dp"
+                    android:layout_height="2dp"
+                    android:layout_below="@+id/tv_title_label2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="13dp"
+                    android:visibility="invisible"
+                    android:background="@drawable/community_category_title_bg" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <common.widget.viewpager.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        />
+</LinearLayout>

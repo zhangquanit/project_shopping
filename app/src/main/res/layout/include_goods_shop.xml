@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff">
+
+    <TextView
+        android:id="@+id/tv_goods_shop_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="4dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#ff25282d"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_goods_shop_enter"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_goods_shop_icon"
+        app:layout_constraintTop_toTopOf="@+id/img_goods_shop_pic"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="智派创科专卖店" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_icon"
+        android:layout_width="37dp"
+        android:layout_height="15dp"
+        android:layout_marginStart="8dp"
+        android:background="@drawable/shop_tag_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_goods_shop_name"
+        app:layout_constraintStart_toEndOf="@+id/img_goods_shop_pic"
+        app:layout_constraintTop_toTopOf="@+id/tv_goods_shop_name"
+        tools:text="淘宝" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_enter"
+        android:layout_width="wrap_content"
+        android:layout_height="22dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginEnd="10dp"
+        android:background="@drawable/ripple_goods_shop_enter_bg"
+        android:gravity="center"
+        android:paddingStart="13dp"
+        android:paddingEnd="13dp"
+        android:text="进店"
+        android:textColor="#FFFF8202"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="24dp"
+        android:textColor="#ff848487"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/tv_goods_shop_service"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_goods_shop_pic"
+        tools:text="宝贝描述 4.8高" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_service"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#ff848487"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_goods_shop_description"
+        app:layout_constraintEnd_toStartOf="@+id/tv_goods_shop_logistics"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_goods_shop_description"
+        app:layout_constraintTop_toTopOf="@+id/tv_goods_shop_description"
+        tools:text="宝贝描述 4.8高" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_logistics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:textColor="#ff848487"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_goods_shop_description"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/tv_goods_shop_service"
+        app:layout_constraintTop_toTopOf="@+id/tv_goods_shop_description"
+        tools:text="宝贝描述 4.8高" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_recommended_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="15dp"
+        android:text="店铺推荐"
+        android:textColor="#ff25282d"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_line7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_goods_shop_recommended_look_all"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="1dp"
+        android:background="@drawable/ripple_white_bg"
+        android:drawableRight="@drawable/icon_red_right_arrow"
+        android:drawableTint="#FFFF8202"
+        android:padding="4dp"
+        android:text="查看全部"
+        android:textColor="#FFFF8202"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_goods_shop_recommended_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_goods_shop_recommended_title" />
+
+    <View
+        android:id="@+id/view_line7"
+        android:layout_width="0dp"
+        android:layout_height="1px"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="22dp"
+        android:layout_marginEnd="10dp"
+        android:background="#EBEBED"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_description" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_goods_shop_pic"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="18dp"
+        android:src="#ff0077"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="5dp" />
+
+    <com.snqu.shopping.ui.goods.view.ShopRecommendedGoodsView
+        android:id="@+id/goods_shop_recommended_goods1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/goods_shop_recommended_goods2"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_chainStyle="spread_inside"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_recommended_title"
+        app:riv_corner_radius="5dp"
+        tools:visibility="visible" />
+
+    <com.snqu.shopping.ui.goods.view.ShopRecommendedGoodsView
+        android:id="@+id/goods_shop_recommended_goods2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintEnd_toStartOf="@+id/goods_shop_recommended_goods3"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintTop_toTopOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintVertical_bias="0.0"
+        app:riv_corner_radius="5dp"
+        tools:visibility="visible" />
+
+    <com.snqu.shopping.ui.goods.view.ShopRecommendedGoodsView
+        android:id="@+id/goods_shop_recommended_goods3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/goods_shop_recommended_goods2"
+        app:layout_constraintTop_toTopOf="@+id/goods_shop_recommended_goods1"
+        app:layout_constraintVertical_bias="0.0"
+        app:riv_corner_radius="5dp"
+        tools:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@+id/img_goods_shop_pic"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_name">
+
+        <com.snqu.shopping.ui.main.view.ShopLevelView
+            android:id="@+id/shop_level"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_hot_person"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textColor="#fff34264"
+            android:textSize="11sp"
+            tools:text="45.3万人关注" />
+
+        <TextView
+            android:id="@+id/shop_pdd_sellcount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="已拼45.3万件"
+            android:visibility="gone"
+            android:textColor="#ff25282d"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/shop_pdd_fans"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
+            android:text="45.3万人关注"
+            android:textColor="#fff73737"
+            android:textSize="11sp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

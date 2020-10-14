@@ -1,0 +1,2 @@
+-keep class com.kepler.**{*;}
+-dontwarn com.kepler.**

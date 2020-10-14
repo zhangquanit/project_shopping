@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <RelativeLayout
+        android:id="@+id/teacher_tutor_icon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="116dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/teacher_tutor_icon"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="15dp"
+            android:scaleType="centerCrop"
+            app:riv_oval="true" />
+
+        <LinearLayout
+            android:id="@+id/teacher_tutor_tv_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="13.5dp"
+            android:layout_toRightOf="@id/teacher_tutor_icon"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:id="@+id/teacher_tutor_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#25282D"
+                android:textSize="16dp"
+                android:textStyle="bold"
+                tools:text="Zhao Hua" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13.5dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/teacher_tutor_wechat_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#25282D"
+                    android:textSize="14dp"
+                    tools:text="518181818180" />
+
+                <TextView
+                    android:id="@+id/item_copy"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="25dp"
+                    android:background="@drawable/fans_copy_bg"
+                    android:gravity="center"
+                    android:text="复制"
+                    android:textColor="#FF8202"
+                    android:textSize="14sp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+
+
+</FrameLayout>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/dialog_bg"
+    android:orientation="vertical">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/icon_inviter"
+        android:layout_width="70dp"
+        android:visibility="gone"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="28dp"
+        android:scaleType="centerCrop"
+        />
+
+    <TextView
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="18dp"
+        android:text="这里是导师微信名称"
+        android:textColor="#25282D"
+        android:textSize="16sp" />
+
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="19.5dp"
+        android:layout_marginRight="22dp"
+        android:gravity="center"
+        android:text="我是你的专属导师，加我微信可领专属
+红包和免费课程噢~快来加我的微信吧"
+        android:textColor="#25282D"
+        android:textSize="14dp" />
+
+    <ImageView
+        android:layout_marginTop="25dp"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/dialog_usercancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:textStyle="bold"
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="22dp"
+        android:layout_marginTop="19.5dp"
+        android:layout_marginRight="22dp"
+        android:gravity="center"
+        android:text="我会变得让您更满意！您真的要离开\n我了吗？"
+        android:textColor="#25282D"
+        android:textSize="16sp" />
+
+    <View
+        android:id="@+id/dialog_line_h"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="33dp"
+        android:background="@color/divider_color"
+        android:visibility="visible" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/dialog_line_h"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/btn_left"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_round_white_bg"
+            android:gravity="center"
+            android:text="算了吧"
+            android:textColor="#25282D"
+            android:textSize="17dp" />
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/divider_color" />
+
+        <TextView
+            android:id="@+id/btn_right"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/ripple_round_white_bg"
+            android:gravity="center"
+            android:text="再给个机会"
+            android:textColor="#FF8202"
+            android:textSize="17dp"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>

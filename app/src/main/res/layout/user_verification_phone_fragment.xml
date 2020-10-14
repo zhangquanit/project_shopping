@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="#ffffff">
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="94dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:background="@null"
+        android:digits="0123456789"
+        android:gravity="center_vertical"
+        android:hint="请输入手机号"
+        android:inputType="phone"
+        android:maxLength="13"
+        android:textColor="#ff25282d"
+        android:textColorHint="#C3C4C7"
+        android:textSize="16sp"
+        />
+
+    <View
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#EBEBED"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginEnd="44dp"
+        android:background="@color/white"
+        android:layout_marginTop="37dp"
+        >
+
+        <EditText
+            android:id="@+id/et_msg_code"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@null"
+            android:digits="0123456789"
+            android:hint="请输入验证码"
+            android:inputType="number"
+            android:maxLength="6"
+            android:textColor="#ff25282d"
+            android:textColorHint="#ffc3c4c7"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tv_send_code"
+            android:layout_width="110dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/ripple_vericication_phone_bg"
+            android:enabled="true"
+            android:gravity="center"
+            android:text="获取验证码"
+            android:textColor="@color/send_msg_code_color"
+            android:textSize="14sp" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/tv_sure"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="37dp"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:background="@drawable/ripple_sure_withdrawal_bg"
+        android:enabled="false"
+        android:gravity="center"
+        android:text="确认注销"
+        android:textColor="#ffffffff"
+        android:textSize="15sp" />
+
+
+
+
+</LinearLayout>

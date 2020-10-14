@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bg_top"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:background="@drawable/self_balance_bg" />
+
+    <ImageView
+        android:id="@+id/bg_cover"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/bg_top"
+        android:scaleType="fitXY"
+        android:src="@drawable/icon_home_top_bg" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/bg_top"
+        android:background="@color/common_list_bg" />
+</RelativeLayout>

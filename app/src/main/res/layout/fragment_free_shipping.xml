@@ -1,0 +1,89 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.snqu.shopping.ui.main.frag.FreeShippingFrag">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:background="@drawable/bg_free_yellow_bg"
+        android:layout_height="35dp">
+
+        <TextView
+            android:id="@+id/item_tabobao"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bg_free_white_left"
+            android:gravity="center"
+            android:text="淘宝"
+            android:textColor="#FFFF8202"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/item_bg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF8202"
+            android:src="@drawable/icon_free_left" />
+
+        <TextView
+            android:id="@+id/item_pdd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="拼多多"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp" />
+
+        <ImageView
+            android:id="@+id/item_bg2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FFFF8202"
+            android:src="@drawable/icon_free_left" />
+
+        <TextView
+            android:id="@+id/item_jd"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="京东"
+            android:textColor="#FFFFFFFF"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/free_tabs"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:tabGravity="center"
+        android:background="#f5f5f7"
+        app:tabIndicator="@color/transparent"
+        android:paddingTop="14dp"
+        android:paddingBottom="14dp"
+        android:paddingLeft="14dp"
+        android:paddingRight="14dp"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorHeight="0dp"
+        app:tabMode="scrollable"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextAppearance="@style/TabLayoutTextStyle_14"
+        app:tabTextColor="@color/black" />
+
+    <common.widget.viewpager.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fadingEdge="none"
+        android:overScrollMode="never" />
+
+
+</LinearLayout>

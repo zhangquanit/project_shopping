@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.jd.jdsdk">
+
+
+    <application android:allowBackup="true">
+
+        <!-- 直接回呼 -->
+        <activity
+            android:name="com.kepler.jd.sdk.KeplerBackActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:scheme="sdkbackc82bf597dd77946e645ea8e2b904618d" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.kepler.jd.sdk.WebViewActivity"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name="com.kepler.jd.sdk.KeplerMidActivity"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen"
+            android:windowSoftInputMode="adjustPan|stateHidden" />
+
+        <activity
+            android:name="com.kepler.jd.login.AuthSuccessActivity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
+    </application>
+
+
+</manifest>

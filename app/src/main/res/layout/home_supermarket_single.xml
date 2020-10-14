@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="180dp"
+    android:paddingTop="12dp"
+    android:background="@drawable/white_bg_corner_10"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/item_title1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ff25282d"
+            android:textSize="15sp"
+            tools:text="天猫超市"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_tag1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item_title1"
+            android:background="@drawable/home_supermarket_tag_bg3"
+            android:paddingLeft="7dp"
+            android:paddingTop="2dp"
+            android:paddingRight="7dp"
+            android:singleLine="true"
+            android:paddingBottom="2dp"
+            android:textColor="@color/c_FF8202"
+            android:textSize="10sp"
+            tools:text="包邮" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/items"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal" />
+
+</LinearLayout>

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/icon_coupon_item_bg"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
+        android:paddingRight="13dp"
+        android:paddingLeft="10dp"
+        android:layout_weight="255">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="5dp"
+            tools:src="@mipmap/ic_launcher" />
+
+        <com.snqu.shopping.ui.main.view.ItemNameView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/item_img" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name"
+            android:layout_alignLeft="@+id/item_name"
+            android:layout_marginTop="12dp"
+            android:textColor="@color/c_FF8202"
+            android:textSize="16sp"
+            tools:text="券后 ￥3215.60 ￥3215.60" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="90">
+
+        <TextView
+            android:id="@+id/item_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:text="优惠券"
+            android:textColor="@color/c_FF8202"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/item_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_text"
+            android:layout_centerHorizontal="true"
+            tools:text="50"
+            android:textColor="@color/c_FF8202"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="80dp"
+            android:layout_height="25dp"
+            android:layout_below="@+id/item_coupon"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="6dp"
+            android:background="@drawable/btn_channel_list_coupon_buy"
+            android:text="领券购买"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="14sp" />
+    </RelativeLayout>
+</LinearLayout>

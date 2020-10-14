@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="70dp"
+    android:layout_height="70dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:riv_corner_radius="35dp"
+        android:src="@drawable/d_1a0000" />
+
+    <com.snqu.shopping.util.statistics.ui.CircularProgressView
+        android:id="@+id/progressbar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:backColor="#7fffffff"
+        app:backWidth="5dp"
+        app:progColor="#FFA902"
+        app:progWidth="5dp"
+
+        />
+
+    <TextView
+        android:id="@+id/reward"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:textColor="#ffffa902"
+        android:textSize="25sp" />
+
+</RelativeLayout>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <include layout="@layout/goods_share_dialog_item" android:id="@+id/cos_center"/>
+
+    <ViewStub
+        android:id="@+id/cos_er_code"
+        android:layout="@layout/share_er_code_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</FrameLayout>

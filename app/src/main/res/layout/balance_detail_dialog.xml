@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#80000000">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginStart="38dp"
+        android:layout_marginEnd="38dp"
+        android:background="@drawable/withdrawal_dialog_bg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:text="余额说明"
+            android:textColor="#ff25282d"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="24dp"
+            android:textColor="#ff000000"
+            android:textSize="13sp"
+            tools:text="余额：指已结算的返利金，可进行提现冻结金额：即提现中的返利金，提现到账时间1~7天" />
+
+        <TextView
+            android:id="@+id/tv_know"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="19dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/ripple_withdrawal_know_bg"
+            android:gravity="center"
+            android:text="知道了"
+            android:textColor="#ffffffff"
+            android:textSize="13sp" />
+    </LinearLayout>
+</FrameLayout>

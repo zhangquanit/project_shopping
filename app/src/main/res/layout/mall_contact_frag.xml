@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:background="#F8F8F8" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="扫码关注星乐桃公众号"
+            android:layout_centerHorizontal="true"
+            android:textColor="#ff26282e"
+            android:layout_marginTop="63dp"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:layout_width="136dp"
+            android:layout_height="136dp"
+            android:id="@+id/iv_qrcode"
+            android:src="@drawable/icon_gzh"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@+id/text1"
+            android:layout_marginTop="15dp" />
+
+        <TextView
+            android:id="@+id/tv_save"
+            android:layout_width="122dp"
+            android:layout_height="38dp"
+            android:layout_below="@+id/iv_qrcode"
+            android:layout_marginTop="15dp"
+            android:text="保存二维码"
+            android:textColor="#ff26282e"
+            android:background="@drawable/mall_contact_add_bg"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:textSize="14sp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="38dp"
+            android:layout_marginTop="62dp"
+            android:background="@drawable/mall_contact_add_bg"
+            android:layout_marginLeft="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_below="@+id/tv_save">
+
+            <TextView
+                android:id="@+id/tv_wechat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="客服微信号：xingletao2020"
+                android:textColor="#ff26282e"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="14dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tv_copy"
+                android:layout_width="75dp"
+                android:layout_height="match_parent"
+                android:text="复制"
+                android:layout_alignParentRight="true"
+                android:gravity="center"
+                android:textColor="#ffffffff"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:background="@drawable/mall_contact_copy_bg" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+</LinearLayout>

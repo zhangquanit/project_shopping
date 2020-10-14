@@ -1,0 +1,27 @@
+apply plugin: 'com.android.library'
+def config = rootProject.ext
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 19
+        targetSdkVersion 28
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation config.kotlin
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    api 'cn.jiguang.sdk:jmlink:1.1.0'  // 此处以JMlink 1.0.0 版本为例。
+    api 'cn.jiguang.sdk:jcore:2.3.4'  // 此处以JCore 2.1.2 版本为例。
+}

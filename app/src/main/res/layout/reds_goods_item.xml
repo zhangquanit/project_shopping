@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/white_bg_corner_10"
+    android:paddingTop="15dp"
+    android:paddingBottom="15dp">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_img"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_marginLeft="10dp"
+        app:riv_corner_radius="5dp" />
+
+    <TextView
+        android:id="@+id/item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_toRightOf="@+id/item_img"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#ff25282d"
+        android:textSize="14sp"
+        tools:text="香港梵蜜琳神仙贵妇膏 明星同款专柜官方网正品肤套装化妆品..." />
+
+    <include
+        android:id="@+id/item_fan_banner"
+        layout="@layout/include_fan_item"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_name"
+        android:layout_alignLeft="@+id/item_name"
+        android:layout_marginTop="12dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_fan_banner"
+        android:layout_alignLeft="@+id/item_name"
+        android:layout_marginTop="6dp">
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/c_FF8202"
+            android:textSize="16sp"
+            tools:text="券后 ￥3215.60 ￥3215.60" />
+
+        <TextView
+            android:id="@+id/item_pay_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:textColor="#848487"
+            android:textSize="12sp"
+            tools:text="8974付款" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/item_img"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="12dp"
+        android:background="@color/divider_color" />
+
+    <TextView
+        android:id="@+id/item_intro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_line"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="#ff484848"
+        android:textSize="13sp"
+        tools:text="种草理由：就像热恋中的少女，明朗的心境伴随着酸涩的担忧，孑然一身奔赴爱恋。用过之后感觉形容的很贴切，真的有一种初恋的感觉。前调酸涩热烈，中调没有酸涩清新甜美，后调清雅温润，让人一闻倾心的味道，丝毫不会有脂粉气息。" />
+
+</RelativeLayout>

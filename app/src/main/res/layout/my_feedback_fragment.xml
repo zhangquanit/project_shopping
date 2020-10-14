@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f5f5f7"
+    android:orientation="vertical">
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="193dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/bg_my_feedback"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/text_feeback_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginTop="18.5dp"
+                        android:text="问题和建议"
+                        android:textColor="#FF25282D"
+                        android:textSize="14sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="4dp"
+                        android:layout_toRightOf="@id/text_feeback_tip"
+                        android:text="*"
+                        android:textColor="#FFF90E0E"
+                        android:textSize="13sp" />
+
+                </RelativeLayout>
+
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="130dp"
+                    android:layout_marginLeft="13dp"
+                    android:layout_marginRight="13dp"
+                    android:background="@drawable/bg_my_feedback_input">
+
+                    <EditText
+                        android:id="@+id/my_feedback_input"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:fadeScrollbars="true"
+                        android:gravity="top"
+                        android:hint="请填写3字以上的问题描述，我们将尽快解决"
+                        android:maxLength="500"
+                        android:paddingLeft="12dp"
+                        android:paddingTop="12dp"
+                        android:nestedScrollingEnabled="true"
+                        android:paddingRight="2dp"
+                        android:paddingBottom="27dp"
+                        android:scrollbars="vertical"
+                        android:textColor="#FF25282D"
+                        android:textColorHint="#FFC0C1C2"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:id="@+id/my_feedback_input_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="right|bottom"
+                        android:layout_marginEnd="10dp"
+                        android:layout_marginBottom="10dp"
+                        android:text="0/500"
+                        android:textColor="#FFC0C1C2"
+                        android:textSize="12sp" />
+
+
+                </FrameLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:minHeight="160dp"
+                android:background="@drawable/bg_my_feedback"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="13.5dp"
+                    android:layout_marginTop="18dp"
+                    android:layout_marginBottom="18dp"
+                    android:text="添加图片（选填，提供问题截图或视频）"
+                    android:textColor="#FF25282D"
+                    android:textSize="14sp" />
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/feedback_listview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13.5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginRight="13.5dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="图片格式为jpg/png，小于3M，视频小于100M"
+                        android:textColor="#FFC0C1C2"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/image_tip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="0/6"
+                        android:textColor="#FFC0C1C2"
+                        android:textSize="12sp" />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/phone_layout"
+                android:layout_width="match_parent"
+                android:layout_height="78dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/bg_my_feedback"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                android:paddingLeft="12.5dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="12.5dp"
+                    android:text="手机号"
+                    android:textColor="#FF25282D"
+                    android:textSize="14sp" />
+
+
+                <EditText
+                    android:id="@+id/input_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:digits="0123456789"
+                    android:hint="请输入手机号"
+                    android:inputType="phone"
+                    android:nestedScrollingEnabled="true"
+                    android:maxLength="11"
+                    android:scrollbars="vertical"
+                    android:textColor="#FF25282D"
+                    android:textColorHint="#FFC0C1C2"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/rl_feedback"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="27dp"
+            android:background="@drawable/ripple_sure_withdrawal_bg">
+
+            <TextView
+                android:id="@+id/text_feeback"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginLeft="7.5dp"
+                android:text="提交"
+                android:textColor="#ffffffff"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+</LinearLayout>

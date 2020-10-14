@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/dialog_paddingLeft"
+    android:paddingTop="@dimen/dialog_paddingTop"
+    android:paddingRight="@dimen/dialog_paddingLeft"
+    android:paddingBottom="@dimen/dialog_paddingTop">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_centerInParent="true"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="15dp">
+
+        <TextView
+            android:id="@+id/api_online"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="正式环境"
+            android:textColor="@color/filter_text_color" />
+
+        <TextView
+            android:id="@+id/api_test"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="测试环境"
+            android:textColor="@color/filter_text_color" />
+
+        <TextView
+            android:id="@+id/api_dev"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="开发环境"
+            android:textColor="@color/filter_text_color" />
+
+        <TextView
+            android:id="@+id/api_predev"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="预发环境"
+            android:textColor="@color/filter_text_color" />
+    </LinearLayout>
+
+</RelativeLayout>
+
+

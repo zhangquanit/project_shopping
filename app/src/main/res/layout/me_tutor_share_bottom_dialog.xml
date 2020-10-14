@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/bg_view"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        android:clickable="true"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/item_tv_three"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:gravity="center"
+            android:text="编辑"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="#DCDADA"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp" />
+
+
+        <TextView
+            android:id="@+id/item_tv_one"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:gravity="center"
+            android:text="取消展示"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="#DCDADA"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp" />
+
+        <TextView
+            android:id="@+id/item_tv_two"
+            android:layout_width="match_parent"
+            android:layout_height="61dp"
+            android:gravity="center"
+            android:text="置顶/取消置顶"
+            android:textColor="#000000"
+            android:textSize="16dp" />
+
+        <TextView
+            android:id="@+id/btn_cancel"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="29dp"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textColor="#000000"
+            android:text="取消"
+            android:background="@drawable/tutor_share_bottom_dialog_bg"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"/>
+
+    </LinearLayout>
+</LinearLayout>

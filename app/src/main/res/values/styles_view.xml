@@ -1,0 +1,29 @@
+<resources>
+
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="TabLayoutTextStyle_14">
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="TabLayoutTextStyle_13">
+        <item name="android:textSize">13sp</item>
+    </style>
+
+    <style name="Home_Empower">
+        <item name="android:background">@drawable/bg_home_empower</item>
+        <item name="android:shadowColor">#26000000</item>
+        <item name="android:shadowDx">0</item>
+        <item name="android:shadowDy">2</item>
+    </style>
+
+    <style name="checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/cb_style</item>
+    </style>
+
+    <style name="cart_checkbox" parent="@android:style/Widget.CompoundButton.CheckBox">
+        <item name="android:button">@drawable/shop_cb_style</item>
+    </style>
+</resources>

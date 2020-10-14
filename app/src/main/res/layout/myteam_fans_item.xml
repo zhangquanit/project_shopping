@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginRight="10dp"
+    android:background="@drawable/bg_fans_list_header"
+    android:minHeight="152dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="98dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:visibility="gone"
+            android:src="@drawable/icon_user_cancel"
+            android:id="@+id/icon_user_cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="24dp"
+            tools:src="@drawable/icon_coupon_label" />
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:layout_toEndOf="@+id/item_img"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_recent"
+                    android:layout_width="wrap_content"
+                    android:layout_height="17dp"
+                    android:layout_marginRight="7dp"
+                    android:background="@drawable/shape_invidate_bg"
+                    android:gravity="center"
+                    android:paddingLeft="7dp"
+                    android:paddingRight="7dp"
+                    android:text="有效"
+                    android:textColor="#ffffffff"
+                    android:textSize="11sp"
+                    android:visibility="visible" />
+
+                <TextView
+                    android:id="@+id/tv_nickname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:maxWidth="200dp"
+                    android:singleLine="true"
+                    android:textColor="#ff000000"
+                    android:textSize="13sp"
+                    tools:text="会飞的佩琦会会飞的佩会飞的佩琦会会飞的佩asaasassasas" />
+
+                <ImageView
+                    android:id="@+id/iv_vip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    app:layout_constraintBottom_toBottomOf="@+id/item_img"
+                    app:layout_constraintLeft_toLeftOf="@+id/nickname_bar"
+                    tools:src="@drawable/vip_level2" />
+
+            </LinearLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp">
+
+                    <TextView
+                        android:id="@+id/item_inviater"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="5dp"
+                        android:ellipsize="end"
+                        android:maxWidth="190dp"
+                        android:maxLines="1"
+                        android:textColor="#A5A5A6"
+                        android:textSize="12sp"
+                        tools:text="邀请人 dff" />
+
+                    <TextView
+                        android:id="@+id/view_recommend"
+                        android:layout_width="50dp"
+                        android:layout_height="16dp"
+                        android:layout_gravity="center_vertical"
+                        android:background="@drawable/bg_team_fans"
+                        android:gravity="center"
+                        android:paddingBottom="1dp"
+                        android:text="官方推荐"
+                        android:textColor="#FFFFFF"
+                        android:textSize="11dp" />
+
+
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/item_arrow"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/myteam_arrow" />
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/fans_onetwo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ff25282d"
+                    android:textSize="12sp"
+                    app:layout_constraintRight_toLeftOf="@+id/item_arrow_bar"
+                    app:layout_constraintTop_toTopOf="@+id/item_img"
+                    tools:text="下级数：2344" />
+
+                <TextView
+                    android:id="@+id/item_income"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="13.5dp"
+                    android:ellipsize="end"
+                    android:maxWidth="155dp"
+                    android:maxLines="1"
+                    android:textColor="#ff25282d"
+                    android:textSize="12sp"
+                    tools:text="累计预估收益 ¥23121.21222222222222222" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="#ffebebed" />
+
+    <TextView
+        android:id="@+id/wechat_tip"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginLeft="13.5dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:minHeight="54dp"
+        android:text="微信成员"
+        android:textColor="#A5A5A6"
+        android:textSize="12sp" />
+
+    <RelativeLayout
+        android:id="@+id/progress_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:minHeight="74dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/tip_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="11dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/item_tip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:maxLines="1"
+                    android:text="运营总监进度"
+                    android:textColor="#25282D"
+                    android:textSize="12sp" />
+
+                <ProgressBar
+                    android:id="@+id/progress"
+                    style="@android:style/Widget.ProgressBar.Horizontal"
+                    android:layout_width="110dp"
+                    android:layout_height="7dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="8dp"
+                    android:max="100"
+                    android:progressDrawable="@drawable/myteam_seekbar_indicator_on" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/item_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/item_tip"
+                android:textColor="#A5A5A6"
+                android:textSize="11sp"
+                tools:text=" dffsdsdfsdf" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/item_btn"
+            android:layout_width="55dp"
+            android:layout_height="25dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="12dp"
+            android:background="@drawable/bg_myteam_btn"
+            android:gravity="center"
+            android:text="查看"
+            android:textColor="#FF8202"
+            android:textSize="13sp" />
+
+    </RelativeLayout>
+
+
+</LinearLayout>

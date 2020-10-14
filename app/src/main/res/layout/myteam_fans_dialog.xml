@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_centerInParent="true"
+    android:paddingBottom="20dp"
+    android:background="@drawable/dialog_bg">
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_img"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="22dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="24dp"
+        tools:src="@drawable/icon_qq" />
+
+    <TextView
+        android:id="@+id/item_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_img"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#ff25282d"
+        android:textSize="15sp"
+        tools:text="会飞的佩会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦会飞的佩琦琦" />
+
+    <TextView
+        android:id="@+id/item_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_nickname"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="#ff25282d"
+        android:textSize="12sp"
+        tools:text="注册时间：2019-09-12  15:35:20" />
+
+    <RelativeLayout
+        android:id="@+id/phone_banner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_time"
+        android:layout_alignLeft="@+id/item_time"
+        android:layout_marginTop="8dp"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:id="@+id/item_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#ff25282d"
+            android:textSize="12sp"
+            tools:text="注册手机：1111111111111" />
+
+        <TextView
+            android:id="@+id/item_copy"
+            android:layout_width="60dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="12dp"
+            android:layout_toRightOf="@+id/item_phone"
+            android:background="@drawable/fans_copy_bg"
+            android:gravity="center"
+            android:text="复制"
+            android:textColor="#ffff8202"
+            android:textSize="12sp" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_tip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="自注册起3天可见"
+        android:textColor="#ffc6c6c6"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/phone_banner"
+        android:textSize="11sp"
+        android:layout_marginTop="10dp"
+        android:visibility="gone"
+        />
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/tv_tip"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="15dp"
+        android:background="@color/divider_color" />
+
+    <LinearLayout
+        android:id="@+id/rl1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/divider"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label1"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="今日预估收益(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label2"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="昨日预估收益(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl1"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label3"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="上月预估收益(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label4"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="累计预估收益(元)"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/rl3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rl2"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label5"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="有效/无效付款笔数"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/label6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:textColor="#fff73737"
+                android:textSize="25sp"
+                android:textStyle="bold"
+                tools:text="45.23" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/label6"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:text="有效专属粉丝"
+                android:textColor="#ff848487"
+                android:textSize="12sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <TextView
+        android:id="@+id/tv_know"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_below="@+id/rl3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/ripple_withdrawal_know_bg"
+        android:gravity="center"
+        android:text="知道了"
+        android:textColor="#ffffffff"
+        android:textSize="15sp" />
+
+</RelativeLayout>

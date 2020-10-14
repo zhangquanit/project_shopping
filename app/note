@@ -1,0 +1,98 @@
+
+Spanned.SPAN_INCLUSIVE_EXCLUSIVE 从起始下标到终了下标，包括起始下标
+Spanned.SPAN_INCLUSIVE_INCLUSIVE 从起始下标到终了下标，同时包括起始下标和终了下标
+
+1、文字大小
+new AbsoluteSizeSpan(fontSizeSP, true), start, end, flag)
+
+文字颜色
+SpannableString spannableString = new SpannableString("设置文字的前景色为淡蓝色");
+ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#0099EE"));
+spannableString.setSpan(colorSpan, 9, spannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setText(spannableString);
+
+2、加粗、斜体
+SpannableString spannableString = new SpannableString("为文字设置粗体、斜体风格");
+StyleSpan styleSpan_B  = new StyleSpan(Typeface.BOLD);
+StyleSpan styleSpan_I  = new StyleSpan(Typeface.ITALIC);
+spannableString.setSpan(styleSpan_B, 5, 7, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+spannableString.setSpan(styleSpan_I, 8, 10, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setHighlightColor(Color.parseColor("#36969696"));
+textView.setText(spannableString);
+4、下划线
+SpannableString spannableString = new SpannableString("为文字设置下划线");
+UnderlineSpan underlineSpan = new UnderlineSpan();
+spannableString.setSpan(underlineSpan, 5, spannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setText(spannableString);
+5、中划线
+SpannableString spannableString = new SpannableString("为文字设置删除线");
+StrikethroughSpan strikethroughSpan = new StrikethroughSpan();
+spannableString.setSpan(strikethroughSpan, 5, spannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setText(spannableString);
+
+6、图片
+SpannableString spannableString = new SpannableString("在文本中添加表情（表情）");
+Drawable drawable = getResources().getDrawable(R.mipmap.a9c);
+drawable.setBounds(0, 0, 42, 42);
+ImageSpan imageSpan = new ImageSpan(drawable);
+spannableString.setSpan(imageSpan, 6, 8, Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setText(spannableString);
+
+7、ClickableSpan
+SpannableString spannableString = new SpannableString("为文字设置点击事件");
+MyClickableSpan clickableSpan = new MyClickableSpan("http://www.jianshu.com/users/dbae9ac95c78");
+spannableString.setSpan(clickableSpan, 5, spannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setMovementMethod(LinkMovementMethod.getInstance());
+textView.setHighlightColor(Color.parseColor("#36969696"));
+textView.setText(spannableString);
+
+/***************************************************************/
+
+class MyClickableSpan extends ClickableSpan {
+
+    private String content;
+
+    public MyClickableSpan(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public void updateDrawState(TextPaint ds) {
+        ds.setUnderlineText(false);
+    }
+
+    @Override
+    public void onClick(View widget) {
+        //TODO 在这里写点击事件！！！！！
+    }
+}
+使用ClickableSpan的文本如果想真正实现点击作用，必须为TextView设置setMovementMethod方法，否则没有点击相应，至于setHighlightColor方法则是控制点击时的背景色。
+
+8、超链接
+SpannableString spannableString = new SpannableString("为文字设置超链接");
+MyURLSpan urlSpan= new MyURLSpan ("http://blog.csdn.net/fan7983377");
+spannableString.setSpan(urlSpan, 5, spannableString.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+textView.setMovementMethod(LinkMovementMethod.getInstance());
+textView.setHighlightColor(Color.parseColor("#FF0000"));
+textView.setText(spannableString);
+class MyURLSpan extends URLSpan{
+
+        public MyURLSpan(String url) {
+            super(url);
+        }
+
+        public void onClick(View widget) {
+            Uri uri = Uri.parse(getURL());
+            Context context = widget.getContext();
+            Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+            intent.putExtra(Browser.EXTRA_APPLICATION_ID, context.getPackageName());
+            try {
+                context.startActivity(intent);
+            } catch (ActivityNotFoundException e) {
+                Log.w("URLSpan", "Actvity was not found for intent, " + intent.toString());
+            }
+        }
+
+    }
+
+注意：使用URLSpan的文本如果想真正实现点击作用，必须为TextView设置setMovementMethod方法，否则没有点击相应，至于setHighlightColor方法则是控制点击时的背景色。

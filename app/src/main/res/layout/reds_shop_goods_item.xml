@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="105dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/divider_color"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="5dp" />
+
+        <TextView
+            android:id="@+id/item_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:layout_alignLeft="@+id/item_img"
+            android:layout_alignRight="@+id/item_img"
+            android:layout_alignBottom="@+id/item_img"
+            android:background="@drawable/coupon_img_bg"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="12sp"
+            tools:text="优惠券：50元" />
+    </RelativeLayout>
+
+
+    <TextView
+        android:id="@+id/item_fan"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_below="@+id/item_img"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/rebate_bg"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="@color/c_FF8202"
+        android:textSize="10sp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:gravity="center"
+        tools:text="返￥32.58" />
+
+    <TextView
+        android:id="@+id/item_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_fan"
+        android:layout_marginTop="6dp"
+        android:textColor="@color/c_FF8202"
+        android:textSize="14sp"
+        tools:text="￥1265.60" />
+
+    <TextView
+        android:id="@+id/item_old_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_price"
+        android:textColor="#848487"
+        android:textSize="11sp"
+        tools:text="￥5226.95" />
+</LinearLayout>

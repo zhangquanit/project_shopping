@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#80000000">
+
+    <View
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <RelativeLayout
+        android:layout_weight="7"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/parameter_dialog_bg"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/tv_title"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginEnd="8dp"
+            android:text="产品保障"
+            android:textColor="#ff25282d"
+            android:textSize="16sp" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正品保障"
+                    android:textColor="#ff25282d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="正品保障，购物无忧"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_marginTop="12dp"
+                    android:background="#FFEBEBED"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+                <TextView
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="售后无忧"
+                    android:textColor="#ff25282d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="为您提供售后无忧保障"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_marginTop="12dp"
+                    android:background="#FFEBEBED"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+                <TextView
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="包邮"
+                    android:textColor="#ff25282d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="产品包邮"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_marginTop="12dp"
+                    android:background="#FFEBEBED"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+                <TextView
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="购买注意事项"
+                    android:textColor="#ff25282d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="8dp"
+                    android:text="此类商品不支持开具发票"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+
+                <View
+                    android:layout_marginTop="12dp"
+                    android:background="#FFEBEBED"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+                <TextView
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="物流时效规则"
+                    android:textColor="#ff25282d"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1）跨境商品实际付款后72小时发出，148小时内有第一条链路信息。仓库发出的时间，不包括清关、快速配送时间。仓库发出的时间以快递公司揽件的时间为准。"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2）预售及特殊商品除外，如有相关发货、物流时效以公告为准。国家法定节假日，保税仓和海外仓周六周日不包含在内。"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3）因个人信息填写错误或因自然灾害等不可抗力因素所造成的延迟发货我司不予承担责任。"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4）非跨境商品实际付款后72小时内发出，以快递公司揽件的时间为准，不包括配送以及到货时间。"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+                <TextView
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginStart="15dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5）72小时发货时效不包含预售、特殊商品，如有相关发货、物流时效以公告为准。"
+                    android:textColor="#ff848487"
+                    android:textSize="13sp" />
+                <View
+                    android:layout_marginTop="12dp"
+                    android:background="#FFEBEBED"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1px" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+       <LinearLayout
+           android:layout_alignParentBottom="true"
+           android:gravity="center"
+           android:layout_width="match_parent"
+           android:layout_height="80dp">
+           <TextView
+               android:id="@+id/tv_complete"
+               android:layout_width="match_parent"
+               android:layout_height="45dp"
+               android:layout_marginStart="15dp"
+               android:layout_marginEnd="15dp"
+               android:background="@drawable/ripple_radio_high_color"
+               android:gravity="center"
+               android:text="知道了"
+               android:textColor="#ffffffff"
+               android:textSize="13sp"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"/>
+       </LinearLayout>
+
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,28 @@
+<resources>
+    <string name="app_name">星乐桃</string>
+    <string name="app_name_test">星乐桃</string>
+    <!-- common -->
+    <string name="net_noconnection">网络异常，请稍后再试</string>
+    <string name="img_desc">img_desc</string>
+    <string name="version_checking">版本检测中</string>
+    <string name="version_newest">已是最新版本</string>
+
+
+    <string name="wx_appid">wxc86d77c4531c88df</string>
+    <string name="tip_relogin">请重新登录</string>
+
+    <string name="search_hint">搜索商品标题 领优惠券拿返现</string>
+    <string name="ali_pid">mm_492050103_687500054_109800700144</string>
+    <string name="jd_app_key">c82bf597dd77946e645ea8e2b904618d</string>
+    <string name="jd_app_secret">3247e8e1f1ca4ddcb5730609900e87ac</string>
+    <string name="user_agreement"><u>用户协议</u></string>
+    <string name="privacy_policy"><u>隐私政策</u></string>
+    <string name="alipay_not_support">未安装支付宝</string>
+    <string name="vip_tip">升级后，最高可返 ¥ %1$s</string>
+    <string name="watch_more">查看更多</string>
+    <string name="tb_install_alert">请下载淘宝app购买，避免漏单，若漏单请通过"找回订单"找回</string>
+    <string name="good_recm_tip"><u>推荐好物教程 &amp; 奖励规则</u></string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+</resources>

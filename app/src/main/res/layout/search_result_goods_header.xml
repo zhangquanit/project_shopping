@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/rl_coupon_layout"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:visibility="gone"
+        android:paddingLeft="15dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:drawableLeft="@drawable/icon_coupon_label"
+            android:drawablePadding="5dp"
+            android:text="仅显示优惠券商品"
+            android:textColor="#ff000000"
+            android:textSize="13sp" />
+
+        <ImageView
+            android:id="@+id/iv_coupon_switch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:paddingRight="15dp"
+            android:src="@drawable/switch_btn_selector" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/empty_banner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#F5F5F7"
+        android:orientation="vertical"
+        android:paddingLeft="15dp"
+        android:visibility="gone"
+        android:paddingTop="11dp"
+        android:paddingBottom="15dp">
+
+        <TextView
+            android:id="@+id/tv_emtpy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/icon_notice"
+            android:drawablePadding="5dp"
+            android:gravity="center_vertical"
+            android:text="暂没找到相关商品，看看下面的推荐商品吧。"
+            android:textColor="#ff25282d"
+            android:textSize="13sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="您还可以精确搜索:"
+            android:textColor="@color/c_FF8202"
+            android:textSize="12sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="复制淘宝、京东、拼多多、唯品会商品链接/口令，打开星乐桃搜索"
+            android:textColor="#ff25282d"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <View
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:background="#F5F5F7" />
+</LinearLayout>

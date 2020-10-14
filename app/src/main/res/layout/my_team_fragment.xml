@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F7">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/bottom_bar"
+            android:overScrollMode="never" />
+
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#ffffffff"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="#ffebebed" />
+
+            <TextView
+                android:id="@+id/tv_team_orders"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="粉丝贡献榜单"
+                android:textColor="#FF8202"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_wechat_teacher"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="#fff8f8f8"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/wechat_icon_teacher"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="12dp"
+                android:src="@drawable/icon_wechat_teacher" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:layout_toRightOf="@id/wechat_icon_teacher"
+                android:text="添加导师微信，享更多福利"
+                android:textColor="#25282D"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/wechat_teacher_btn"
+                android:layout_width="80dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/empty_btn_selector"
+                android:gravity="center"
+                android:text="添加Ta微信"
+                android:textColor="@color/btn_reload_text_color"
+                android:textSize="13sp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_wechat"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_alignParentTop="true"
+            android:background="#fff8f8f8"
+            android:visibility="gone">
+
+            <ImageView
+                android:id="@+id/wechat_icon"
+                android:layout_width="22dp"
+                android:layout_height="17dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="15dp"
+                android:src="@drawable/wechat_icon" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="8dp"
+                android:layout_toRightOf="@id/wechat_icon"
+                android:text="填写微信号,让下级联系我"
+                android:textColor="#25282D"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/wechat_btn"
+                android:layout_width="75dp"
+                android:layout_height="25dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="15dp"
+                android:background="@drawable/empty_btn_selector"
+                android:gravity="center"
+                android:text="立即填写"
+                android:textColor="@color/btn_reload_text_color"
+                android:textSize="13sp"
+                android:visibility="visible" />
+
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

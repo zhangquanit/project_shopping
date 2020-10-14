@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/imageview"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius_top_left="9dp"
+        app:riv_corner_radius_top_right="9dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageview"
+        android:background="@drawable/mall_shape_white_bottom"
+        android:orientation="vertical"
+        android:paddingLeft="9dp"
+        android:paddingTop="10dp"
+        android:paddingRight="9dp"
+        android:paddingBottom="25dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_tag"
+                android:layout_width="30dp"
+                android:layout_height="19dp"
+                android:layout_centerVertical="true"
+                android:text="直供"
+                android:gravity="center"
+                android:background="@drawable/mall_recom_tag_bg"
+                android:textColor="#ffffffff"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/item_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/item_tag"
+                android:layout_marginLeft="5dp"
+                android:maxLines="1"
+                android:singleLine="true"
+                android:textColor="#ff25282d"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:ellipsize="end"
+                tools:text="【健康品质】现货新鲜应季水果树莓500g..." />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/item_desc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_title"
+            android:layout_marginTop="8dp"
+            android:textColor="#ffff8202"
+            android:textSize="11sp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="限时直降10元 现摘现发 果香浓郁 脆甜多汁 甜嫩爽口" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_marginTop="8dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/item_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff81605"
+                android:textSize="10sp"
+                tools:text="¥ 19.00" />
+
+            <TextView
+                android:id="@+id/item_sell_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/item_price"
+                android:layout_marginBottom="3dp"
+                android:layout_toRightOf="@+id/item_price"
+                android:layout_marginLeft="20dp"
+                android:textColor="#ffb2b0b0"
+                android:textSize="11sp"
+                tools:text="已抢278件" />
+        </RelativeLayout>
+
+    </LinearLayout>
+    >
+
+
+</RelativeLayout>

@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_img"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="5dp"
+        tools:src="@mipmap/ic_launcher" />
+
+    <TextView
+        android:id="@+id/item_coupon"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_alignLeft="@+id/item_img"
+        android:layout_alignRight="@+id/item_img"
+        android:layout_alignBottom="@+id/item_img"
+        android:background="@drawable/coupon_img_bg"
+        android:gravity="center"
+        android:textColor="#ffffffff"
+        android:textSize="10sp"
+        tools:text="优惠券：50元" />
+
+    <com.snqu.shopping.ui.main.view.ItemNameView
+        android:id="@+id/item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@+id/item_img"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#ff25282d"
+        android:textSize="14sp"
+        tools:text="瑕疵特价美国品牌外贸陶瓷马克杯..." />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_name"
+        android:layout_alignLeft="@+id/item_name"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/c_FF8202"
+            android:textSize="16sp"
+            tools:text="券后 ￥3215.60 ￥3215.60" />
+
+        <TextView
+            android:id="@+id/item_pay_count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            tools:text="55万人付款"
+            android:textColor="#ff848487"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:background="#ffffff">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_evaluation_item_head"
+        android:layout_width="32dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="21dp"
+        android:src="@drawable/icon_default_head"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="20dp"/>
+
+    <TextView
+        android:id="@+id/tv_evaluation_item_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        tools:text="智派DFS"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_evaluation_item_detail"
+        app:layout_constraintStart_toEndOf="@+id/img_evaluation_item_head"
+        app:layout_constraintTop_toTopOf="@+id/img_evaluation_item_head"
+        app:layout_constraintVertical_chainStyle="packed"/>
+
+    <TextView
+        android:id="@+id/tv_evaluation_item_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="15dp"
+        tools:text="2019-07-06  颜色分类：L L适合105-115穿"
+        android:textColor="#ff848487"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_evaluation_item_head"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_evaluation_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_evaluation_item_name"/>
+
+    <TextView
+        android:id="@+id/tv_evaluation_item_content"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:lineSpacingMultiplier="1.2"
+        tools:text="衣服收到了立马穿上了，超级漂亮，面料很好也很舒服，拍之前担心自己不能穿，联系客服后客服建议我选的尺码，穿上简直是再合适不过了，非常满意的一次购物，以后还会选择你们家的衣服"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_evaluation_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/img_evaluation_item_head"/>
+
+    <include
+        android:id="@+id/include_evaluation_item_media_type_one"
+        layout="@layout/include_evaluation_item_media_type_one"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_evaluation_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/tv_evaluation_item_content"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view_evaluation_item_add"
+        android:layout_width="0dp"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="20dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_evaluation_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/include_evaluation_item_media_type_one"/>
+
+    <TextView
+        android:layout_marginTop="15dp"
+        android:id="@+id/tv_evaluation_item_scan_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="浏览516次"
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:textColor="#ff848487"
+        android:textSize="11sp"
+        app:layout_constraintStart_toStartOf="@+id/tv_evaluation_item_name"
+        app:layout_constraintTop_toBottomOf="@+id/recycler_view_evaluation_item_add"/>
+
+    <View
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_evaluation_item_scan_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#F5F5F7"
+        android:layout_width="0dp"
+        android:layout_height="5dp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

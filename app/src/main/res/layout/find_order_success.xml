@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:background="@color/color_f5">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="61dp"
+        android:src="@drawable/find_order_success" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="17.5dp"
+        android:text="订单找回成功"
+        android:textColor="#25282D"
+        android:textSize="18dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="请到【我】-【订单中心】查看找回的订单信息"
+        android:textColor="#555555"
+        android:layout_marginTop="18.5dp"
+        android:layout_gravity="center_horizontal"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_to_order"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/btn_find_order"
+        android:gravity="center"
+        android:text="立即查看"
+        android:textColor="#ffffffff"
+        android:textSize="15sp" />
+
+
+</LinearLayout>

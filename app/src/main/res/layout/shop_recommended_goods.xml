@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/ripple_white_bg">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_goods_shop_recommended_goods"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="h,1:1"
+        android:scaleType="centerCrop"
+        android:src="@drawable/icon_min_default_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="5dp"/>
+
+    <TextView
+        android:id="@+id/tv_goods_shop_recommended_goods_coupon"
+        android:layout_width="0dp"
+        android:layout_height="20dp"
+        android:background="@drawable/coupon_img_bg"
+        tools:text="优惠券：50元"
+        android:textColor="#ffffffff"
+        android:textSize="12sp"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="@+id/img_goods_shop_recommended_goods"
+        app:layout_constraintEnd_toEndOf="@+id/img_goods_shop_recommended_goods"
+        app:layout_constraintStart_toStartOf="@+id/img_goods_shop_recommended_goods"/>
+
+    <TextView
+        android:id="@+id/tv_goods_shop_recommended_goods_rebate_money"
+        android:layout_width="wrap_content"
+        android:layout_height="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/rebate_bg"
+        android:gravity="center"
+        android:paddingStart="5dp"
+        android:paddingEnd="5dp"
+        tools:text="返￥1243.58"
+        android:textColor="#FFFF8202"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_recommended_goods_coupon"/>
+
+    <TextView
+        android:id="@+id/tv_goods_shop_recommended_goods_rebate_after_money"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        tools:text="券后1265.60"
+        android:textColor="#ff25282d"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_recommended_goods_rebate_money"/>
+    <TextView
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_goods_shop_recommended_goods_rebate_after_money"
+        android:id="@+id/tv_goods_shop_recommended_goods_price"
+        android:layout_width="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="14dp"
+        android:layout_height="wrap_content"
+        android:text="￥5226.95"
+        android:textColor="#ff848487"
+        android:textSize="11sp"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/refresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/c_f5f5f7">
+
+
+        <com.snqu.shopping.common.ui.LoadingStatusView
+            android:id="@+id/loadingStatusView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone" />
+
+        <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/c_f5f5f7"
+            android:orientation="vertical">
+
+            <com.snqu.shopping.ui.main.view.FansStatusView
+                android:id="@+id/list_statusView"
+                android:layout_gravity="bottom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/good_listview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <ImageView
+                android:visibility="gone"
+                android:id="@+id/scroll_to_top"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="5dp"
+                android:layout_gravity="right|bottom"
+                android:layout_marginBottom="50dp"
+                android:src="@drawable/icon_to_top"
+                 />
+
+        </FrameLayout>
+
+
+
+    </FrameLayout>
+
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>

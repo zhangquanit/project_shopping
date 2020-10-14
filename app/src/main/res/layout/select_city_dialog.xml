@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#80000000">
+    <View
+        android:layout_weight="3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="7"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <TextView
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="选择地区"
+                android:textColor="#ff131413"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_close"
+                android:padding="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_close"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="horizontal"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_marginStart="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="4dp"
+                android:id="@+id/tv_province"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="请选择"
+                android:textColor="#FFFF8202"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_marginStart="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:visibility="invisible"
+                android:paddingBottom="4dp"
+                android:id="@+id/tv_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="四川省"
+                android:textColor="#ff131413"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_marginStart="8dp"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:visibility="invisible"
+                android:paddingBottom="4dp"
+                android:paddingTop="2dp"
+                android:id="@+id/tv_country"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="四川省"
+                android:textColor="#ff131413"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <View
+            android:id="@+id/view_line"
+            android:background="@drawable/icon_vip_selected_indication"
+            android:layout_width="41dp"
+            android:layout_height="2dp" />
+        <View
+            android:background="#FFEBEBED"
+            android:layout_width="match_parent"
+            android:layout_height="1px" />
+
+     <FrameLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:id="@+id/recycler_view_province"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:visibility="gone"
+             android:id="@+id/recycler_view_city"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+
+         <androidx.recyclerview.widget.RecyclerView
+             android:visibility="gone"
+             android:id="@+id/recycler_view_county"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent" />
+     </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

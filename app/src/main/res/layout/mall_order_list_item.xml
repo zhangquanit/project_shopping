@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_bg_corner_10"
+    android:orientation="vertical"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="47dp">
+
+        <TextView
+            android:id="@+id/item_orderNo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="#ff848488"
+            android:textSize="13sp"
+            tools:text="订单编号：189924068203" />
+
+        <TextView
+            android:id="@+id/item_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:textColor="#ffff8202"
+            android:textSize="13sp"
+            tools:text="待发货" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            app:riv_corner_radius="5dp"
+            android:scaleType="centerCrop"
+            tools:src="@drawable/icon_min_default_pic" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="25dp"
+            android:layout_toLeftOf="@+id/item_price"
+            android:layout_toRightOf="@+id/item_img"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="香港梵蜜琳神仙贵妇膏 明星同款  专柜官方网正品..."
+            android:textColor="#ff26282e"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:textColor="#ff26282e"
+            android:textSize="14sp"
+            tools:text="￥879.99" />
+
+        <TextView
+            android:id="@+id/item_stand"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="500ml"
+            android:layout_below="@+id/item_name"
+            android:textColor="#ff848488"
+            android:textSize="12sp"
+            android:layout_marginTop="10dp"
+            android:layout_alignLeft="@+id/item_name" />
+
+        <TextView
+            android:id="@+id/inv_add_sub"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="x1"
+            android:textColor="#ff848488"
+            android:textSize="13sp"
+            android:layout_alignBottom="@+id/item_stand"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="17dp">
+
+        <TextView
+            android:id="@+id/item_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="共1件商品"
+            android:layout_toLeftOf="@+id/item_price_now"
+            android:textColor="#ff848488"
+            android:layout_marginRight="10dp"
+            android:layout_centerVertical="true"
+            android:textSize="13sp" />
+
+        <TextView
+            android:id="@+id/item_price_now"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="应付 ￥879.99"
+            android:textColor="#26282E"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/item_operationBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/item_btn_cancel"
+            android:layout_width="70dp"
+            android:layout_height="28dp"
+            android:text="取消订单"
+            android:textColor="#ff26282e"
+            android:textSize="14sp"
+            android:background="@drawable/mall_order_list_cancel_bg"
+            android:layout_toLeftOf="@+id/item_btn_pay"
+            android:layout_marginRight="15dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/item_btn_pay"
+            android:layout_width="70dp"
+            android:layout_height="28dp"
+            android:text="去支付"
+            android:textColor="#ffff8202"
+            android:textSize="14sp"
+            android:background="@drawable/mall_order_list_pay_bg"
+            android:layout_alignParentRight="true"
+            android:gravity="center" />
+    </RelativeLayout>
+</LinearLayout>

@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_marginStart="38dp"
+    android:layout_marginEnd="38dp"
+    android:background="@drawable/withdrawal_dialog_bg"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="分享规则"
+        android:textColor="#ff25282d"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/tv_content1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="21dp"
+        android:text="1、下单成功后，分享给一位新用户"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/tv_content2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="21dp"
+        android:text="2、新用户需在截止时间内，下载星乐桃APP注册登录，输入订单分享码即分享成功，同时该新用户也可以获得购买任一商品得相同比例返利的优惠"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:id="@+id/tv_content3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="31dp"
+        android:layout_marginEnd="21dp"
+        android:text="3、每单仅仅只需要邀请一个新用户即可获得高返"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"/>
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/img_check"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_content3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/icon_rule_unselected"/>
+
+    <TextView
+        android:id="@+id/tv_notice"
+        app:layout_constraintBottom_toBottomOf="@+id/img_check"
+        app:layout_constraintStart_toEndOf="@+id/img_check"
+        app:layout_constraintTop_toTopOf="@+id/img_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="不再提示"
+        android:textColor="#ff848487"
+        android:textSize="13sp"/>
+
+    <TextView
+        android:id="@+id/tv_know"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_notice"
+        android:layout_width="100dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="21dp"
+        android:background="@drawable/ripple_withdrawal_know_bg"
+        android:gravity="center"
+        android:text="知道了"
+        android:textColor="#ffffffff"
+        android:textSize="13sp"/>
+</androidx.constraintlayout.widget.ConstraintLayout>

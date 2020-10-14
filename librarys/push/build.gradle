@@ -1,0 +1,65 @@
+apply plugin: 'com.android.library'
+
+android {
+
+    //（更高的编译器版本，向低版本兼容的能力是逐步增强的，建议及时跟进）
+    compileSdkVersion 28
+
+    defaultConfig {
+        //请谨慎修改该配置，SDK在这个环境下经过了多流程测试
+        // 不保证在更高的版本下兼容性良好 ，已知如：（比如：在Android5.0 下https，http页面兼容需代码级兼容）（phone权限申请兼容）
+        //请使用独立module工程编译（尤其是多module 版本目标不同的情况下）
+        minSdkVersion 14
+        //（升级该配置，带来AndroidAPI的更新，需在严格的全面用例测试  需要error级别的容错）
+        //(SDK 主要涉及webivew，在更高版本（25）开发测试中，发现向低版本兼容能力在各厂商之间差别较大，暂时稳定在19)
+        targetSdkVersion 28
+
+        consumerProguardFiles 'consumer-rules.pro'
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src']
+            resources.srcDirs = ['src']
+            aidl.srcDirs = ['src']
+            renderscript.srcDirs = ['src']
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+            jniLibs.srcDirs = ['libs']
+        }
+
+        debug.setRoot('build-types/debug')
+        release.setRoot('build-types/release')
+    }
+
+    android {
+        lintOptions {
+            abortOnError false
+        }
+    }
+}
+
+dependencies {
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    api 'com.umeng.umsdk:huawei-basetb:2.6.3.306'
+    api 'com.umeng.umsdk:huawei-pushtb:2.6.3.306'
+    api 'com.umeng.umsdk:huawei-umengaccs:1.2.4'
+    api 'com.umeng.umsdk:meizu-push:3.8.7'
+    api 'com.umeng.umsdk:meizu-umengaccs:1.1.1'
+    api 'com.umeng.umsdk:oppo-push:2.0.2'
+    api 'com.umeng.umsdk:oppo-umengaccs:1.0.6'
+    api 'com.umeng.umsdk:vivo-push:2.3.5'
+    api 'com.umeng.umsdk:vivo-umengaccs:1.1.0'
+    api 'com.umeng.umsdk:xiaomi-push:3.7.0'
+    api 'com.umeng.umsdk:xiaomi-umengaccs:1.1.4'
+}
+
+

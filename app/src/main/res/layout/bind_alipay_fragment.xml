@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:background="#f5f5f5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="真实姓名"
+                    android:textColor="#ff25282d"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:background="@null"
+                    android:hint="请输入真实姓名"
+                    android:inputType="text"
+                    android:maxLength="20"
+                    android:singleLine="true"
+                    android:textColor="#ff25282d"
+                    android:textColorHint="#ffc3c4c7"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="1px"
+                android:background="@color/white"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="支付宝账号"
+                    android:textColor="#ff25282d"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_alipay_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:background="@null"
+                    android:hint="请输入支付宝账号"
+                    android:inputType="textEmailAddress"
+                    android:maxLength="30"
+                    android:singleLine="true"
+                    android:textColor="#ff25282d"
+                    android:textColorHint="#ffc3c4c7"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="1px"
+                android:background="@color/white"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="手机号码"
+                    android:textColor="#ff25282d"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/tv_phone"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:background="@null"
+                    android:gravity="center_vertical"
+                    android:text="157****0848"
+                    android:textColor="#ff25282d"
+                    android:textColorHint="#ffc3c4c7"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_marginTop="1px"
+                android:background="@color/white"
+                android:paddingStart="15dp"
+                android:paddingEnd="15dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:text="验证码"
+                    android:textColor="#ff25282d"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/et_msg_code"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="100dp"
+                    android:layout_marginEnd="110dp"
+                    android:background="@null"
+                    android:digits="0123456789"
+                    android:hint="请输入验证码"
+                    android:inputType="number"
+                    android:maxLength="6"
+                    android:textColor="#ff25282d"
+                    android:textColorHint="#ffc3c4c7"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_send_code"
+                    android:layout_width="110dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/ripple_send_msg_code_bg"
+                    android:enabled="true"
+                    android:gravity="center"
+                    android:text="获取验证码"
+                    android:textColor="@color/send_msg_code_color"
+                    android:textSize="14sp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:drawableLeft="@drawable/icon_notice"
+                android:drawablePadding="7dp"
+                android:drawableTint="#FFFF8202"
+                android:gravity="center"
+                android:text="温馨提示：请输入正确的支付宝账号和真实姓名，否则无法提现"
+                android:textColor="#FFFF8202"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_sure"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_gravity="bottom"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="33dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/ripple_sure_withdrawal_bg"
+            android:enabled="false"
+            android:gravity="center"
+            android:text="提交"
+            android:textColor="#ffffffff"
+            android:textSize="15sp" />
+
+        <TextView
+            android:layout_marginBottom="12.5dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="41dp"
+            android:text="如何在支付宝APP中查看支付宝账号？"
+            android:textColor="#25282D"
+            android:textSize="16dp" />
+
+        <LinearLayout
+            tools:visibility="visible"
+            android:id="@+id/kefu_layout"
+            android:visibility="gone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+
+            <TextView
+                android:id="@+id/kefu_tip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="若有疑问，请联系客服微信：xingletao001"
+                android:textColor="#8F9296"
+                android:textSize="13dp" />
+
+
+            <TextView
+                android:id="@+id/item_copy"
+                android:layout_width="60dp"
+                android:layout_height="23dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/fans_copy_bg"
+                android:gravity="center"
+                android:text="复制"
+                android:textColor="#FF8202"
+                android:textSize="13sp" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_marginTop="22.5dp"
+            android:layout_gravity="center_horizontal"
+            android:src="@drawable/alipay_tip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

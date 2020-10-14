@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="10dp"
+    android:background="@drawable/ripple_self_order_item_bg">
+
+    <!--常规layout -->
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/layout_one"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/tv_order_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="8dp"
+            android:drawableEnd="@drawable/icon_robot"
+            android:drawablePadding="5dp"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="订单编号：" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:textColor="#fff34264"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_order_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_order_number"
+            tools:text="即将到账" />
+
+
+        <RelativeLayout
+            android:id="@+id/img_pic_layout"
+            android:layout_width="85dp"
+            android:layout_height="97dp"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/ll_rebate"
+            app:layout_constraintStart_toStartOf="@+id/tv_order_number"
+            app:layout_constraintTop_toBottomOf="@+id/tv_order_number"
+            app:layout_constraintVertical_bias="0.0">
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/img_pic"
+                android:layout_width="85dp"
+                android:layout_height="85dp"
+                app:riv_corner_radius="5dp" />
+
+            <TextView
+                android:id="@+id/xb_order_item"
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="10dp"
+                android:background="#f73737"
+                android:gravity="center"
+                android:text="5元满100可用"
+                android:textColor="@color/white"
+                android:textSize="11dp" />
+
+        </RelativeLayout>
+
+
+        <com.snqu.shopping.ui.main.view.ItemNameView
+            android:id="@+id/tv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="10dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="#ff25282d"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/img_pic_layout"
+            app:layout_constraintTop_toTopOf="@+id/img_pic_layout"
+            tools:text="瑕疵特价美国lang品牌外瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺贸陶瓷马克杯防烫带杯盖茶勺瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺" />
+
+        <TextView
+            android:id="@+id/tv_parameter"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:paddingTop="3dp"
+            android:textColor="#ff848487"
+            android:textSize="11sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            app:layout_constraintVertical_bias="1.0"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:text="商品价格：￥15.60 数量：2" />
+
+        <LinearLayout
+            android:id="@+id/ll_rebate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingTop="18dp"
+            android:orientation="horizontal"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            app:layout_constraintTop_toBottomOf="@+id/tv_parameter">
+
+            <TextView
+                android:id="@+id/tv_estimated_rebate_amount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="8dp"
+                android:textColor="#ff25282d"
+                android:textSize="11sp"
+                android:visibility="visible"
+                tools:text="预估返：¥ 2.46"
+                tools:visibility="visible" />
+
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#fff34264"
+                android:textSize="11sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/img_pic_layout"
+                tools:text="退款/售后中，收益暂时冻结" />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_create_order_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:paddingBottom="12dp"
+            android:textColor="#ffc0c2c4"
+            android:lineSpacingMultiplier="0.8"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="@+id/img_pic_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/tv_title"
+            tools:text="下单时间：" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</FrameLayout>

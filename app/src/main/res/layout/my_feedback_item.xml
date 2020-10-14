@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/item_layout"
+    android:layout_width="55dp"
+    android:layout_height="55dp"
+    android:layout_marginBottom="10dp"
+    android:background="#ffffff">
+
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/icon_pic"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_my_feedback_input_pic_view"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="7dp" />
+
+    <ImageView
+        android:id="@+id/icon_pic_empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icon_pic" />
+
+    <ImageView
+        android:id="@+id/icon_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@drawable/icon_feedback_play"
+        android:visibility="gone" />
+
+
+    <ImageView
+        android:id="@+id/icon_close"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:src="@drawable/feedback_question_close"
+        android:visibility="gone" />
+
+
+</RelativeLayout>

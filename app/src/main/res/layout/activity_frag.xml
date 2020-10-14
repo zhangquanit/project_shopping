@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <View
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/divider_color" />
+
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/top_divider">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:paddingBottom="20dp"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/iv"
+                android:layout_width="match_parent"
+                android:layout_height="320dp"
+                android:scaleType="centerCrop" />
+
+            <common.widget.OvalCoverBar
+                android:id="@+id/coverBar"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_alignBottom="@+id/iv"
+                android:visibility="invisible" />
+
+            <TextView
+                android:id="@+id/btn_enter"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/coverBar"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="23dp"
+                android:layout_marginRight="25dp"
+                android:gravity="center"
+                android:text="前往活动"
+                android:textColor="#EF362E"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/btn_copy"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/btn_enter"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="25dp"
+                android:gravity="center"
+                android:text="复制活动文案"
+                android:textColor="#EF362E"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/btn_copy"
+                android:layout_marginLeft="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="25dp"
+                android:background="@drawable/white_bg_corner_6"
+                android:paddingLeft="15dp"
+                android:paddingTop="25dp"
+                android:paddingRight="15dp"
+                android:paddingBottom="25dp"
+                android:textColor="#333333"
+                android:textSize="13dp"
+                android:textIsSelectable="true"
+                android:visibility="gone" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <com.snqu.shopping.common.ui.LoadingStatusView
+        android:id="@+id/loadingBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_divider"
+        android:layout_marginTop="150dp" />
+</RelativeLayout>

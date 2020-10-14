@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_bg_corner_10"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp">
+
+    <RelativeLayout
+        android:id="@+id/item_top"
+        android:layout_width="match_parent"
+        android:paddingTop="15dp"
+        android:paddingBottom="10dp"
+        android:layout_height="wrap_content">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="25dp" />
+
+        <TextView
+            android:id="@+id/item_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/item_img"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="9dp"
+            android:layout_toRightOf="@+id/item_img"
+            android:textColor="#ff25282d"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            tools:text="Saya—" />
+
+        <TextView
+            android:id="@+id/item_intro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_name"
+            android:layout_alignLeft="@+id/item_name"
+            android:textColor="#ff848487"
+            android:textSize="12sp"
+            tools:text="微博大V博主" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/item_intro"
+            android:layout_alignParentRight="true"
+            android:text="推荐的商品"
+            android:textColor="#ff848487"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <View
+        android:id="@+id/item_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@+id/item_top"
+        android:background="@color/divider_color" />
+
+    <com.snqu.shopping.ui.main.frag.channel.reds.view.BigVItemView
+        android:id="@+id/item_goods1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_line"
+        android:layout_marginTop="15dp" />
+
+    <com.snqu.shopping.ui.main.frag.channel.reds.view.BigVItemView
+        android:id="@+id/item_goods2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_goods1"
+        android:layout_marginTop="20dp" />
+
+    <TextView
+        android:id="@+id/item_more"
+        android:layout_width="match_parent"
+        android:layout_height="37dp"
+        android:layout_below="@+id/item_goods2"
+        android:gravity="right"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:text="查看更多＞"
+        android:textColor="#FF8202"
+        android:textSize="12sp" />
+</RelativeLayout>

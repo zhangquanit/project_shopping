@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/item_imgbar"
+        android:layout_width="89dp"
+        android:layout_height="75dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/item_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_min_default_pic"
+            android:scaleType="centerCrop" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/item_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/item_imgbar"
+        android:layout_marginTop="9dp"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#ff25282d"
+        android:textSize="12sp"
+        tools:text="SK-II大红瓶面..." />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:layout_below="@+id/item_title">
+
+        <TextView
+            android:id="@+id/item_tag"
+            android:layout_width="30dp"
+            android:layout_height="19dp"
+            android:layout_centerVertical="true"
+            android:background="@drawable/mall_recom_tag_bg"
+            android:text="直供"
+            android:gravity="center"
+            android:textColor="#ffffffff"
+            android:textSize="11sp" />
+
+        <TextView
+            android:id="@+id/item_price"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dp"
+            android:layout_toRightOf="@+id/item_tag"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:textColor="#fff81605"
+            tools:text="¥1.89W" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

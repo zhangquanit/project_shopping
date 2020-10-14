@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="9.5dp"
+    android:layout_marginRight="9.5dp"
+    android:orientation="vertical">
+
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bg_home_white"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/six_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="11.5dp"
+            android:layout_marginTop="13.5dp"
+            android:text="大额神券"
+            android:textColor="#25282D"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/six_sub_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6dp"
+            android:layout_alignTop="@id/six_title"
+            android:layout_toRightOf="@+id/six_title"
+            android:background="@drawable/bg_six_sub_title"
+            android:paddingLeft="2.75dp"
+            android:paddingTop="2.25dp"
+            android:paddingRight="4.25dp"
+            android:paddingBottom="1.75dp"
+            android:text="天天领神券"
+            android:textColor="#FF8202"
+            android:textSize="11sp"
+            android:visibility="invisible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/six_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/six_title"
+            android:layout_marginLeft="11.5dp"
+            android:layout_marginTop="14.5dp"
+            android:layout_marginBottom="15.5dp" />
+
+    </RelativeLayout>
+</FrameLayout>

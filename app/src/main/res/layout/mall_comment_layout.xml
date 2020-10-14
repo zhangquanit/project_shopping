@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/container"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_mall_comment"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:padding="23dp"
+                android:text="取消"
+                android:textColor="#ff848487"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:text="商品评价"
+                android:textColor="#ff25282d"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/tv_sure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:padding="23dp"
+                android:text="提交"
+                android:textColor="#ffff8202"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_good"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="38dp">
+
+            <TextView
+                android:id="@+id/tv_label_good"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="商品"
+                android:textColor="#ff25282d"
+                android:textSize="15sp" />
+
+            <common.widget.ratingbar.CommonRationBar xmlns:rb="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rb_goods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/tv_label_good"
+                rb:normalStar="@drawable/mall_icon_star_n"
+                rb:numStars="5"
+                rb:selStar="@drawable/mall_icon_star_p"
+                rb:starPadding="15dp"
+                rb:stepSize="1"
+                rb:targetH="25dp"
+                rb:targetW="25dp" />
+
+            <TextView
+                android:id="@+id/tv_good_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/rb_goods"
+                tools:text="好"
+                android:textColor="#ff848487"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_flow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="38dp">
+
+            <TextView
+                android:id="@+id/tv_label_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="物流"
+                android:textColor="#ff25282d"
+                android:textSize="15sp" />
+
+            <common.widget.ratingbar.CommonRationBar xmlns:rb="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rb_flow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/tv_label_flow"
+                rb:normalStar="@drawable/mall_icon_star_n"
+                rb:numStars="5"
+                rb:selStar="@drawable/mall_icon_star_p"
+                rb:starPadding="15dp"
+                rb:stepSize="1"
+                rb:targetH="25dp"
+                rb:targetW="25dp" />
+
+            <TextView
+                android:id="@+id/tv_flow_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/rb_flow"
+                tools:text="好"
+                android:textColor="#ff848487"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_service"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:paddingLeft="38dp">
+
+            <TextView
+                android:id="@+id/tv_label_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="客服"
+                android:textColor="#ff25282d"
+                android:textSize="15sp" />
+
+            <common.widget.ratingbar.CommonRationBar xmlns:rb="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/rb_service"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_toRightOf="@+id/tv_label_service"
+                rb:normalStar="@drawable/mall_icon_star_n"
+                rb:numStars="5"
+                rb:selStar="@drawable/mall_icon_star_p"
+                rb:starPadding="15dp"
+                rb:stepSize="1"
+                rb:targetH="25dp"
+                rb:targetW="25dp" />
+
+            <TextView
+                android:id="@+id/tv_service_result"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:layout_toRightOf="@+id/rb_service"
+                tools:text="好"
+                android:textColor="#ff848487"
+                android:textSize="13sp" />
+        </RelativeLayout>
+
+        <EditText
+            android:id="@+id/et_comment"
+            android:layout_width="match_parent"
+            android:layout_height="140dp"
+            android:layout_marginLeft="19dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="19dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/bg_mall_comment_et"
+            android:gravity="top|left"
+            android:hint="分享商品使用感受"
+            android:textColorHint="#B2B2B4"
+            android:paddingLeft="18dp"
+            android:paddingTop="13dp"
+            android:paddingRight="18dp"
+            android:paddingBottom="5dp"
+            android:textColor="#25282D"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_height="wrap_content">
+
+    <View
+        android:background="#EBEBED"
+        android:layout_width="match_parent"
+        android:layout_height="1px"/>
+    <TextView
+        android:layout_marginTop="14dp"
+        android:id="@+id/tv_include_evaluation_item_add_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="用户12天后追评"
+        android:textColor="#fff32e3f"
+        android:textSize="13sp"
+        />
+    <TextView
+        android:layout_marginTop="9dp"
+        android:id="@+id/tv_include_evaluation_item_add_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="穿上简直是再合适不过了，非常满意的一次购物，以后还会选择你们家的衣服"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"/>
+</LinearLayout>

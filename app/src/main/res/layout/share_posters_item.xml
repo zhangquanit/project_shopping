@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="285dp">
+
+    <!-- <RelativeLayout
+         android:id="@+id/item_content"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+
+         <ImageView
+             android:id="@+id/item_img"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:scaleType="centerCrop" />
+
+
+         <ImageView
+             android:id="@+id/iv_qrcode"
+             android:layout_width="42dp"
+             android:layout_height="42dp"
+             android:layout_alignParentBottom="true"
+             android:layout_centerHorizontal="true"
+             android:layout_marginBottom="37dp"
+             android:src="@drawable/invite_code" />
+
+         <TextView
+             android:id="@+id/item_code"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_above="@+id/iv_qrcode"
+             android:layout_centerHorizontal="true"
+             android:layout_marginBottom="15dp"
+             android:background="@drawable/share_white_bg"
+             android:gravity="center"
+             android:paddingLeft="10dp"
+             android:paddingTop="3dp"
+             android:paddingRight="10dp"
+             android:paddingBottom="3dp"
+             android:text="邀请口令：12HF2GD"
+             android:textColor="@color/white"
+             android:textSize="6sp" />
+
+     </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/item_img"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <ImageView
+        android:id="@+id/item_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="5dp"
+        android:src="@drawable/share_check_btn_selector" />
+</RelativeLayout>

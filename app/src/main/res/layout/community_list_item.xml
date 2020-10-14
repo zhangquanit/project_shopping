@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/top_divider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/community_list_divider" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:paddingTop="20dp"
+        android:paddingBottom="15dp">
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/item_img"
+            android:layout_width="33dp"
+            android:layout_height="33dp"
+            android:layout_marginLeft="10dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="16dp"
+            tools:src="@mipmap/ic_launcher" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/item_recom"
+                    android:layout_width="140dp"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ff25282d"
+                    android:textSize="16dp"
+                    android:textStyle="bold"
+                    tools:text="美逛小喇叭美逛小喇叭美逛小喇叭美逛小喇叭美逛小喇叭" />
+
+                <TextView
+                    android:id="@+id/item_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/item_recom"
+                    android:layout_alignLeft="@+id/item_recom"
+                    android:layout_marginTop="4dp"
+                    android:textColor="#ff848487"
+                    android:textSize="10sp"
+                    tools:text="2019-11-20 09:54:00" />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true">
+
+                    <RelativeLayout
+                        android:id="@+id/item_download"
+                        android:layout_width="80dp"
+                        android:layout_height="22dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:background="@drawable/community_download_btn_bg"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableLeft="@drawable/community_download"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:text="下载发圈"
+                            android:textColor="#ffff8202"
+                            android:textSize="11sp" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/item_countbar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="22dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="5dp"
+                        android:layout_toLeftOf="@+id/item_download"
+                        android:background="@drawable/shape_corner_ff8202"
+                        android:minWidth="75dp"
+                        android:paddingLeft="17dp"
+                        android:paddingRight="17dp">
+
+                        <TextView
+                            android:id="@+id/item_count"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:drawableLeft="@drawable/communityu_share"
+                            android:drawablePadding="5dp"
+                            android:gravity="center_vertical"
+                            android:textColor="#ffffffff"
+                            android:textSize="11sp"
+                            tools:text="2541" />
+                    </RelativeLayout>
+
+                </RelativeLayout>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/item_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="5dp"
+                android:text="Lancome兰蔻套装 女士护肤化妆品Lancome兰蔻套装 女士护肤化妆品Lancome兰蔻套装 女士护肤化妆品Lancome兰蔻套装 女士护肤化妆品"
+                android:textColor="#ff25282d"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/item_switch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="全文"
+                android:textColor="#ffff8202"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+
+            <View
+                android:id="@+id/item_view"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/item_pics"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:overScrollMode="never"
+                android:visibility="gone" />
+
+            <LinearLayout
+                android:id="@+id/item_goodbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible">
+
+                <RelativeLayout
+                    android:id="@+id/goods_detail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_community"
+                    android:padding="10dp">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/item_good_img"
+                        android:layout_width="91dp"
+                        android:layout_height="91dp"
+                        android:scaleType="centerCrop"
+                        app:riv_corner_radius="5dp" />
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/item_cover"
+                        android:layout_width="91dp"
+                        android:layout_height="91dp"
+                        android:background="@drawable/black_bg_corner_5"
+                        app:riv_corner_radius="5dp" />
+
+                    <TextView
+                        android:id="@+id/item_invalide"
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/communit_invalide_good_bg"
+                        android:gravity="center"
+                        tools:text="已抢完 \n 121212"
+                        android:maxLines="2"
+                        android:ellipsize="end"
+                        android:textColor="#ffffffff"
+                        android:textSize="12sp" />
+
+
+                    <TextView
+                        android:id="@+id/item_good_title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_toRightOf="@+id/item_good_img"
+                        android:ellipsize="end"
+                        android:maxLines="2"
+                        android:textColor="#ff25282d"
+                        android:textSize="14sp"
+                        tools:text="Lancome兰蔻套装兰蔻套装 女士护肤护
+兰蔻套装兰蔻套装 女士护兰蔻套装......." />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/item_good_title"
+                        android:layout_alignLeft="@+id/item_good_title"
+                        android:layout_marginTop="5dp">
+
+                        <include
+                            layout="@layout/include_fan_normal_item"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                        <TextView
+                            android:id="@+id/item_old_price"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textColor="#848487"
+                            android:textSize="12dp"
+                            tools:text="fasfa" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/item_earn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@+id/item_good_title"
+                        android:layout_alignBottom="@+id/item_good_img"
+                        android:text="分享赚"
+                        android:textColor="#ff25282d"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/item_goods_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignBottom="@+id/item_good_img"
+                        android:layout_alignParentRight="true"
+                        android:textColor="#ff848487"
+                        android:textSize="12sp"
+                        tools:text="1.3万人购买" />
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_community"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/label1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="点击抢购地址https://u.jd.com/bTv4sR进入"
+                        android:textColor="#ff25282d"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/item_copy"
+                        android:layout_width="50dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="right"
+                        android:background="@drawable/shape_corner_ff8202"
+                        android:gravity="center"
+                        android:text="复制"
+                        android:textColor="#ffffffff"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

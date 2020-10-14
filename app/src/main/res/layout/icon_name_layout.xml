@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/title_label"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="#ff25282d"
+        android:textSize="13sp"
+        tools:text="香港梵蜜琳神仙贵妇膏 明星同款 专柜官方网正品...肤套装化妆品套装淡化细纹 斑点 痘印 修护改善肌肤 臻活凝肌柔" />
+
+    <TextView
+        android:id="@+id/item_shop_label"
+        android:layout_width="wrap_content"
+        android:layout_height="15dp"
+        android:layout_marginTop="3dp"
+        android:layout_centerVertical="true"
+        android:background="@drawable/shop_tag_bg"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:textColor="#ffffffff"
+        android:gravity="center"
+        android:textSize="10sp"
+        tools:text="淘宝" />
+</FrameLayout>

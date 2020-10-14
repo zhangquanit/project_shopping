@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/ripple_self_order_item_bg">
+
+    <TextView
+        android:id="@+id/tv_order_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="14dp"
+        android:textColor="#ff848487"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="订单编号：" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="10dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="#ff25282d"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/img_pic"
+        app:layout_constraintTop_toTopOf="@+id/img_pic"
+        app:layout_constraintVertical_chainStyle="spread_inside"
+        tools:text="瑕疵特价美国lang品牌外瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺贸陶瓷马克杯防烫带杯盖茶勺瑕疵特价美国lang品牌外贸陶瓷马克杯防烫带杯盖茶勺" />
+
+    <TextView
+        android:id="@+id/tv_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:textColor="#ff848487"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toTopOf="@+id/tv_create_order_time"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_title"
+        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="商品价格：￥15.60" />
+
+    <TextView
+        android:id="@+id/tv_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="10dp"
+        android:textColor="#ff848487"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_price"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/tv_price"
+        app:layout_constraintTop_toTopOf="@+id/tv_price"
+        tools:text="数量：2" />
+
+    <TextView
+        android:id="@+id/tv_create_order_time"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:textColor="#ffc0c2c4"
+        android:textSize="11sp"
+        app:layout_constraintBottom_toBottomOf="@+id/img_pic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/tv_title"
+        app:layout_constraintTop_toBottomOf="@+id/tv_price"
+        tools:text="下单时间：" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/img_pic"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="25dp"
+        android:src="#ff0077"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tv_order_number"
+        app:layout_constraintTop_toBottomOf="@+id/tv_order_number"
+        app:layout_constraintVertical_bias="0.0"
+        app:riv_corner_radius="5dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
