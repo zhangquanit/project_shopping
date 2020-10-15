@@ -563,7 +563,7 @@ public class CommonUtil {
     public static void jumpToEarningPage(Context ctx) {
         if (UserClient.isLogin()) { //先登录
             WebViewFrag.WebViewParam webViewParam = new WebViewFrag.WebViewParam();
-            webViewParam.url = Constant.WebPage.EARNING_PAGE + UserClient.getToken();
+            webViewParam.url = Constant.WebPage.EARNING_PAGE;
             WebViewFrag.start(ctx, webViewParam);
         } else {
             LoginFragment.Companion.start(ctx);

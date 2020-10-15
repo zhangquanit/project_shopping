@@ -22,6 +22,7 @@ import com.snqu.shopping.App
 import com.snqu.shopping.R
 import com.snqu.shopping.common.Constant
 import com.snqu.shopping.common.event.PushEvent
+import com.snqu.shopping.common.ui.LoadingStatusView
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.home.entity.AdvertistEntity
 import com.snqu.shopping.data.user.UserClient
@@ -906,6 +907,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             StatusBar.setStatusBar(mContext, false)
             refreshData()
             showTeacherDialog()
+            if (null != tv_title) tv_title.performClick()
         }
     }
 
@@ -955,10 +957,12 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
                 toolbar.setBackgroundColor(evaluate)
                 tv_title.visibility = View.GONE
                 img_other_head.visibility = View.GONE
+                StatusBar.setStatusBar(mContext, false)
             } else {
                 toolbar.setBackgroundColor(Color.parseColor("#FFffffff"))
                 tv_title.visibility = View.VISIBLE
                 img_other_head.visibility = View.VISIBLE
+                StatusBar.setStatusBar(mContext, true)
             }
         }
     }

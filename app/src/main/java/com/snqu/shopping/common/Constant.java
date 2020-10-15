@@ -130,21 +130,22 @@ public class Constant {
     }
 
     public interface WebPage {
-        String GROUND_PUSH = DataConfig.H5_ACT_HOST + "activity/ac202004dtwl/index.html"; //个人中心-地推
+
+        //----------------H5_HOST
         String NORMAL_QUESTION = DataConfig.H5_HOST + "help.html"; //个人中心--常见问题
         String CUSTOMER_SERVICE = DataConfig.H5_HOST + "service.html"; //个人中心-在线客服
-        String BUSINESS_COOPERATION = DataConfig.H5_ACT_HOST + "h5s/ac202004business/index.html";//个人中心商家合作
-        String CHUDAN = DataConfig.H5_ACT_HOST + "h5s/ac202005orderrank/index.html?hideTitlebar=1&lightModel=1"; //出单榜
         String SHARE_INVITE_URL = DataConfig.H5_HOST + "activity/ushare.html?code=";
-        String SHARE_WX_MINI_PATH = "/pages/helpFree/index?code=";
-        String SHARE_WX_MINI_ID = "gh_a29e4b885ecf";
         String SHARE_GOODS_URL = DataConfig.H5_HOST + "item/";
         String USER_AGREEMENT = DataConfig.H5_HOST + "article-service.html"; //用户协议
         String PRIVACY_PROTOCAL = DataConfig.H5_HOST + "article-privacy.html"; //隐私政策
         String PROMOTE = DataConfig.H5_HOST + "popula-rule.html"; //推广规则
-        String EARNING_PAGE = DataConfig.H5_HOST + "user/my-income.html?Authorization=";//我的收益
+
+        //----------------H5_ACT_HOST
+        String EARNING_PAGE = DataConfig.H5_ACT_HOST + "h5s/ac202010earnings?hideTitlebar=1";//我的收益
+        String GROUND_PUSH = DataConfig.H5_ACT_HOST + "activity/ac202004dtwl/index.html"; //个人中心-地推
+        String BUSINESS_COOPERATION = DataConfig.H5_ACT_HOST + "h5s/ac202004business/index.html";//个人中心商家合作
+        String CHUDAN = DataConfig.H5_ACT_HOST + "h5s/ac202005orderrank/index.html?hideTitlebar=1&lightModel=1"; //出单榜
         String TASK_PAGE = DataConfig.H5_ACT_HOST + "h5s/ac202002missionactivity/index.html?hideTitlebar=1&lightModel=0&needLogin=1";//任务中心
-        //        String TASK_PAGE = DataConfig.H5_ACT_HOST + "user/task/main/index.html?hideTitlebar=1&lightModel=0&needLogin=1";//任务中心
         String TRANSFORM_URL = DataConfig.H5_ACT_HOST + "h5s/ac202004turnlink/index.html?parseClipboard=0";//批量转链
         String ORDER_ASSISTANT = DataConfig.H5_ACT_HOST + "h5s/ac202005yfd/index.html?hideTitlebar=1&lightModel=1"; //发单助手
         String REWARD_RULE = DataConfig.H5_ACT_HOST + "h5s/feed-recommend";//奖励规则
@@ -154,8 +155,7 @@ public class Constant {
 
         String PRIVILEGE = DataConfig.H5_ACT_HOST + "h5s/ac202008privilege/index.html";//特权页面
         String TUTORSHARE = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1";//新建文档页
-//        String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/#/?share_id=";
-String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1&share_id="; //编辑文档
+        String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1&share_id="; //编辑文档
         String ORDER_TIP = DataConfig.H5_ACT_HOST + "h5s/ac202010ordertip"; //我的订单提示
     }
 
