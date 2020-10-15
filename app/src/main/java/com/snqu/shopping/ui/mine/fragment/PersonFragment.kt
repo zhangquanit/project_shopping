@@ -904,10 +904,13 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
         super.onHiddenChanged(hidden)
         mContext ?: return
         if (!hidden) {
-            StatusBar.setStatusBar(mContext, false)
             refreshData()
             showTeacherDialog()
-            if (null != tv_title) tv_title.performClick()
+            if (tv_title.visibility == View.VISIBLE) {
+                StatusBar.setStatusBar(mContext, true)
+            } else {
+                StatusBar.setStatusBar(mContext, false)
+            }
         }
     }
 
