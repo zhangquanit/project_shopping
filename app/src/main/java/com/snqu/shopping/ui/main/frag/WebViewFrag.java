@@ -137,6 +137,7 @@ public class WebViewFrag extends SimpleFrag {
         public boolean isAuthJump;
         public boolean toMain;
         public boolean checkNetwork = true; //入口检查网络
+        public boolean sensorOriention; //自动旋转屏幕方向
 
         /*
          * 是否支持分享
@@ -187,7 +188,7 @@ public class WebViewFrag extends SimpleFrag {
             } else {
                 SimpleFragAct.SimpleFragParam startParam = getStartParam(param);
                 startParam.mutliPage = true;
-                SimpleFragAct.start(ctx, startParam);
+                SimpleFragAct.start(ctx, startParam, param.sensorOriention);
             }
         } catch (Exception e) {
             e.printStackTrace();

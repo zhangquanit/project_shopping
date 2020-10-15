@@ -8,16 +8,17 @@ import com.snqu.shopping.util.NumberUtil
  * @author 银进
  */
 
-data class CollectionListGoodsEntity(
-        val fail_list:List<CollectionGoodsEntity>,
-        val list:List<CollectionGoodsEntity>,
-        val frugal:Long?=null//省了多少钱
+//data class CollectionListGoodsEntity(
+//        val fail_list:List<CollectionGoodsEntity>,
+//        val list:List<CollectionGoodsEntity>,
+//        val frugal:Long?=null//省了多少钱
+//
+//){
+//    val frugalMoney: String?
+//        //省了多少钱
+//        get() = NumberUtil.saveTwoPoint(frugal)
+//}
 
-){
-    val frugalMoney: String?
-        //省了多少钱
-        get() = NumberUtil.saveTwoPoint(frugal)
-}
 data class CollectionGoodsEntity(
        val _id:String?=null,
        var isSelected:Boolean=false,

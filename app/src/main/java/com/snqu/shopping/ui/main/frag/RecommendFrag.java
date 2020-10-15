@@ -80,6 +80,7 @@ import com.snqu.shopping.ui.main.adapter.HomeTypeHalfAdapter;
 import com.snqu.shopping.ui.main.adapter.HomeTypeSevenAdapter;
 import com.snqu.shopping.ui.main.adapter.HomeTypeSixAdapter;
 import com.snqu.shopping.ui.main.frag.channel.adapter.PlatePagerAdapter;
+import com.snqu.shopping.ui.main.view.BottomTextView;
 import com.snqu.shopping.ui.main.view.HomeViewType;
 import com.snqu.shopping.ui.main.viewmodel.HomeViewModel;
 import com.snqu.shopping.ui.mall.goods.adapter.FlowLayoutManager;
@@ -130,8 +131,9 @@ public class RecommendFrag extends LazyFragment {
     private List<AdvertistEntity> centerEntities;
     private List<AdvertistEntity> alertEntitys;
     private List<AdvertistEntity> freeEntitys;
+    private List<AdvertistEntity> bottomEntitys;
     private List<RecommendDayEntity> recommendDayEntities;
-    private View mTbEmpowerLayout;
+    private View mTbEmpowerLayout,bottomTipLayout;
     private int mIndicW = 0;
     private ImageView mRed_envelope;
     private AdvertistEntity mTaskAdvertistEntity;
@@ -249,7 +251,9 @@ public class RecommendFrag extends LazyFragment {
                             centerEntities = responseDataObject.data.cetnerAdEntity;
                             alertEntitys = responseDataObject.data.alertAdEntity;
                             freeEntitys = responseDataObject.data.freeAdEntity;
+                            bottomEntitys = responseDataObject.data.bottomEntity;
                             showAlertDialog(alertEntitys, freeEntitys);
+                            showBottomTip();
                         }
                     }
                 } else if (TextUtils.equals(HomeViewModel.TAG_DAY_RECOMMEND, netReqResult.tag)) {
@@ -261,6 +265,33 @@ public class RecommendFrag extends LazyFragment {
             }
         });
 
+    }
+
+    /**
+     * 显示底部通知栏
+     *
+     */
+    private void showBottomTip() {
+        bottomTipLayout.setVisibility(View.GONE);
+        if (UserClient.isLogin() && UserClient.getUser().has_bind_tb == 1) {
+            if (bottomEntitys != null && bottomEntitys.size() > 0) {
+                AdvertistEntity advertistEntity = bottomEntitys.get(0);
+                bottomTipLayout.setVisibility(View.VISIBLE);
+                BottomTextView bottom_tip_msg = findViewById(R.id.bottom_tip_msg);
+                TextView bottom_tip_jump = findViewById(R.id.bottom_tip_jump);
+                if (!TextUtils.isEmpty(advertistEntity.show_text)) {
+                    bottom_tip_msg.setText(advertistEntity.show_text);
+                    bottom_tip_msg.requestFocus();
+                }else{
+                    bottom_tip_msg.setText("");
+                }
+                if (TextUtils.equals("0", advertistEntity.direct)) {
+                    bottom_tip_jump.setText("知道了");
+                } else {
+                    bottom_tip_jump.setText("查看详情");
+                }
+            }
+        }
     }
 
 
@@ -282,12 +313,26 @@ public class RecommendFrag extends LazyFragment {
     private void initView() {
         mContainerLayout = findViewById(R.id.container_layout);
         mTbEmpowerLayout = findViewById(R.id.tb_empower_layout);
+        bottomTipLayout = findViewById(R.id.bottom_tip_layout);
         mRed_envelope = findViewById(R.id.icon_red_envelope);
         mRed_envelope.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (mTaskAdvertistEntity != null) {
                     homeStart(getActivity(), mTaskAdvertistEntity);
+                }
+            }
+        });
+
+        bottomTipLayout.setOnClickListener(v -> {
+            if(bottomEntitys!=null&&bottomEntitys.size()>0) {
+                AdvertistEntity advertistEntity = bottomEntitys.get(0);
+                mHomeViewModel.adClick(advertistEntity._id);
+                if (TextUtils.equals("0", advertistEntity.direct)) {
+                    bottomEntitys.remove(0);
+                    showBottomTip();
+                } else {
+                    CommonUtil.startWebFrag(mContext, advertistEntity);
                 }
             }
         });
@@ -1239,6 +1284,10 @@ public class RecommendFrag extends LazyFragment {
 
     @Override
     public void onLazyResume() {
+
+        // 隐藏底部通知栏
+        findViewById(R.id.bottom_tip_layout).setVisibility(View.GONE);
+
         // 判断是否授权，没有则显示淘宝授权
         if (mTbEmpowerLayout != null) {
             TextView tv_emp = mTbEmpowerLayout.findViewById(R.id.tv_emp);
@@ -1271,13 +1320,6 @@ public class RecommendFrag extends LazyFragment {
         }
 
 
-        //TODO 如果授权界面不可见，且登录
-        TextView bottom_tip_msg = findViewById(R.id.bottom_tip_msg);
-        TextView bottom_tip_jump = findViewById(R.id.bottom_tip_jump);
-        bottom_tip_msg.setText("asasasasasasas122112121212121221121212121212121212assasasasaassaasasas");
-        bottom_tip_msg.requestFocus();
-
-
         //距离上次刷新超过30分钟后 自动刷新
         long now = System.currentTimeMillis();
         if (lastRefreshTime > 0 && (now - lastRefreshTime) >= AlarmManager.INTERVAL_HALF_HOUR) {
@@ -1303,7 +1345,7 @@ public class RecommendFrag extends LazyFragment {
             }
         }
 
-
+        showBottomTip();
     }
 
     @Override

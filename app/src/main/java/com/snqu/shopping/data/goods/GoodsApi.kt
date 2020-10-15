@@ -3,6 +3,7 @@ package com.snqu.shopping.data.goods
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.base.ResponseDataArray
 import com.snqu.shopping.data.base.ResponseDataObject
+import com.snqu.shopping.data.goods.bean.CollectionEntity
 import com.snqu.shopping.data.goods.entity.*
 import com.snqu.shopping.data.home.entity.CommunityEntity
 import com.snqu.shopping.util.pay.OrderPayResponse
@@ -94,11 +95,17 @@ interface GoodsApi {
 
     /**
      * 获取收藏列表
-     *
-     * @return
      */
-    @GET(ApiHost.COLLECTION_GOODS_LIST)
-    fun collectionGoodsList(): Observable<ResponseDataObject<CollectionListGoodsEntity>>
+    @GET(ApiHost.FAV_LIST)
+    fun favList(): Observable<ResponseDataObject<CollectionEntity>>
+
+//    /**
+//     * 获取收藏列表
+//     *
+//     * @return
+//     */
+//    @GET(ApiHost.COLLECTION_GOODS_LIST)
+//    fun collectionGoodsList(): Observable<ResponseDataObject<CollectionListGoodsEntity>>
 
     /**
      * 获取商品基础详情数据

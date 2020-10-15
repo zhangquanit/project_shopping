@@ -27,6 +27,8 @@ import java.io.Serializable;
 import me.yokeyword.fragmentation.ISupportFragment;
 
 /**
+ * 竖屏的Activity容器
+ *
  * @author 张全
  */
 public class SimpleFragAct extends BaseActivity {
@@ -138,11 +140,15 @@ public class SimpleFragAct extends BaseActivity {
     }
 
     public static void start(Context ctx, SimpleFragParam param) {
+        start(ctx, param, false);
+    }
+
+    public static void start(Context ctx, SimpleFragParam param, boolean sensorOriention) {
         if (!param.mutliPage && TextUtils.equals(lastClass, param.targetCls)) {
             return;
         }
         lastClass = param.targetCls;
-        Intent intent = getStartIntent(ctx, param);
+        Intent intent = getStartIntent(ctx, param, sensorOriention);
         ctx.startActivity(intent);
     }
 
@@ -152,13 +158,18 @@ public class SimpleFragAct extends BaseActivity {
             return;
         }
         lastClass = param.targetCls;
-        Intent intent = getStartIntent(ctx, param);
+        Intent intent = getStartIntent(ctx, param, false);
         ctx.startActivity(intent);
         ctx.overridePendingTransition(inEnterAnim, inExitAnim);
     }
 
-    public static Intent getStartIntent(Context ctx, SimpleFragParam param) {
-        Intent intent = new Intent(ctx, SimpleFragAct.class);
+    private static Intent getStartIntent(Context ctx, SimpleFragParam param, boolean sensorOriention) {
+        Intent intent;
+        if (sensorOriention) {
+            intent = new Intent(ctx, SimpleOrientionFragAct.class);
+        } else {
+            intent = new Intent(ctx, SimpleFragAct.class);
+        }
         // 给SimpleFragAct传递的数据
         intent.putExtra(PARAM, param);
         // 给fragment传递的数据

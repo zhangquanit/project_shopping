@@ -22,4 +22,7 @@ public class HomeAdEntity {
 
     @SerializedName("20001")
     public List<AdvertistEntity> searchAdEntity; //搜索页引导广告
+
+    @SerializedName("19")
+    public List<AdvertistEntity> bottomEntity; //底部通知栏
 }

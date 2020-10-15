@@ -355,8 +355,15 @@
             android:name="com.anroid.base.SimpleFragAct"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:excludeFromRecents="false"
-            android:screenOrientation="portrait"
             android:theme="@style/MainTheme"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
+        <activity
+            android:name="com.anroid.base.SimpleOrientionFragAct"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:excludeFromRecents="false"
+            android:theme="@style/MainTheme"
+            android:screenOrientation="sensor"
             android:windowSoftInputMode="adjustPan|stateAlwaysHidden" />
 
 

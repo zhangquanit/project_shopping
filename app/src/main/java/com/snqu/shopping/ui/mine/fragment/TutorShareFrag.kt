@@ -17,12 +17,10 @@ import com.anroid.base.ui.StatusBar
 import com.blankj.utilcode.util.ToastUtils
 import com.snqu.shopping.App
 import com.snqu.shopping.R
-import com.snqu.shopping.common.Constant
 import com.snqu.shopping.common.ui.LoadingStatusView
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.base.ResponseDataArray
 import com.snqu.shopping.data.user.UserClient
-import com.snqu.shopping.data.user.entity.FeedbackEntity
 import com.snqu.shopping.data.user.entity.TutorShareContract
 import com.snqu.shopping.ui.goods.util.JumpUtil
 import com.snqu.shopping.ui.login.vm.UserViewModel
@@ -31,10 +29,7 @@ import com.snqu.shopping.ui.mine.adapter.TutorShareAdapter
 import com.snqu.shopping.util.GlideUtil
 import com.snqu.shopping.util.ext.onClick
 import com.snqu.shopping.util.statistics.UmengAnalysisUtil
-import kotlinx.android.synthetic.main.feedback_fragment.*
 import kotlinx.android.synthetic.main.tutor_share_frag.*
-import kotlinx.android.synthetic.main.tutor_share_frag.loadingBar
-import kotlinx.android.synthetic.main.tutor_share_frag.refresh_layout
 import kotlinx.android.synthetic.main.tutor_share_header_view.view.*
 
 /**
@@ -136,6 +131,7 @@ class TutorShareFrag : SimpleFrag() {
                 data?.url.let { url ->
                     val webViewParam = WebViewFrag.WebViewParam()
                     webViewParam.url = url
+                    webViewParam.sensorOriention = true
                     WebViewFrag.start(mContext, webViewParam)
                     //数据统计，查看详情
                     UmengAnalysisUtil.onEvent("tutor_share_detail")

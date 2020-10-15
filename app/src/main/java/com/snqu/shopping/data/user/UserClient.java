@@ -348,8 +348,8 @@ public class UserClient {
      *
      * @return
      */
-    public static Observable<ResponseDataArray<BalanceRecodeEntity>> doBalanceRecode(String yearMonth, int page, int pageSize) {
-        return getService(UserApi.class).balanceRecode(yearMonth, page, pageSize);
+    public static Observable<ResponseDataArray<BalanceRecodeEntity>> doBalanceRecode(String yearMonth, int page, int pageSize,String type) {
+        return getService(UserApi.class).balanceRecode(yearMonth, page, pageSize,type);
     }
 
     /**

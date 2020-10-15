@@ -106,6 +106,8 @@
                     android:src="@drawable/icon_to_top" />
 
                 <LinearLayout
+                    tools:visibility="visible"
+                    android:visibility="gone"
                     android:id="@+id/bottom_tip_layout"
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
@@ -114,7 +116,7 @@
                     android:background="@drawable/shape_bottom_tip_bg"
                     android:orientation="horizontal">
 
-                    <TextView
+                    <com.snqu.shopping.ui.main.view.BottomTextView
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="10dp"
                         android:id="@+id/bottom_tip_msg"

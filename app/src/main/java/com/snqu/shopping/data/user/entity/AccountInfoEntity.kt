@@ -12,7 +12,7 @@ data class AccountInfoEntity(
         val today_total: Long? = null,//今日收益
         val today_estimate: Long? = null,//今日预估收益
         val yesterday_total: Long? = null,//昨日收益
-        val yesterday_estimate: Long? = null,//昨日预估收益
+        var yesterday_estimate: Long? = null,//昨日预估收益
         val nowmonth_estimate: Long = 0L,//当月预估收益
         val nowmonth_total: Long = 0L,//当月收益
         val lastmonth_total: Long = 0L,//上月收益

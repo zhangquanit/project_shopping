@@ -370,7 +370,12 @@ public final class ApiHost {
     /**
      * 获取收藏列表
      */
-    public static final String COLLECTION_GOODS_LIST = "fav/list";
+    public static final String FAV_LIST = "/v2/fav/list";
+
+//    /**
+//     * 获取收藏列表
+//     */
+//    public static final String COLLECTION_GOODS_LIST = "fav/list";
     /**
      * 获取商品基础详情数据
      */

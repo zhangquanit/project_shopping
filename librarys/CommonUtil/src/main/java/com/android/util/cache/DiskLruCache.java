@@ -221,7 +221,6 @@ public final class DiskLruCache implements Closeable {
      *                             character.
      */
     public static String readAsciiLine(InputStream in) throws IOException {
-        // TODO: support UTF-8 here instead
 
         StringBuilder result = new StringBuilder(STRINGBUILDERSIZE);
         while (true) {

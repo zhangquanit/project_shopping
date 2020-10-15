@@ -556,8 +556,8 @@ class UserViewModel : BaseAndroidViewModel {
     /**
      * 我的余额 - 账户明细
      */
-    fun doBalanceRecode(yearMonth: String, page: Int, pageSize: Int) {
-        executeNoMapHttp(UserClient.doBalanceRecode(yearMonth, page, pageSize), object : BaseResponseObserver<ResponseDataArray<BalanceRecodeEntity>>() {
+    fun doBalanceRecode(yearMonth: String, page: Int, pageSize: Int,type: String?) {
+        executeNoMapHttp(UserClient.doBalanceRecode(yearMonth, page, pageSize,type), object : BaseResponseObserver<ResponseDataArray<BalanceRecodeEntity>>() {
             override fun onSuccess(value: ResponseDataArray<BalanceRecodeEntity>?) {
                 dataResult.value = NetReqResult(ApiHost.BALANCE_RECODE, "", true, value?.dataList
                         ?: arrayListOf<BalanceRecodeEntity>()).apply {

@@ -29,12 +29,10 @@ import com.snqu.shopping.util.statistics.UmengAnalysisUtil
 import common.widget.dialog.EffectDialogBuilder
 import common.widget.dialog.loading.LoadingDialog
 import kotlinx.android.synthetic.main.me_tutor_share_bottom_dialog.view.*
-import kotlinx.android.synthetic.main.me_tutor_share_frag.*
 import kotlinx.android.synthetic.main.me_tutor_share_page_frag.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
-import java.util.*
 
 
 class MeTutorPageFrag : SimpleFrag() {
@@ -229,6 +227,7 @@ class MeTutorPageFrag : SimpleFrag() {
                 data?.url.let { url ->
                     val webViewParam = WebViewFrag.WebViewParam()
                     webViewParam.url = url
+                    webViewParam.sensorOriention = true
                     WebViewFrag.start(mContext, webViewParam)
                     //数据统计，查看详情
                     UmengAnalysisUtil.onEvent("tutor_share_detail")
@@ -282,7 +281,7 @@ class MeTutorPageFrag : SimpleFrag() {
                             //编辑
                             this.item_tv_three.onClick {
                                 val webViewParam = WebViewFrag.WebViewParam()
-                                webViewParam.url = Constant.WebPage.TUTOR_SHARE_EDIT+data._id
+                                webViewParam.url = Constant.WebPage.TUTOR_SHARE_EDIT + data._id
                                 WebViewFrag.start(mContext, webViewParam)
                                 isJumpWeb = true
                                 bottomInDialog.cancel()

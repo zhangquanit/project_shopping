@@ -6,6 +6,7 @@ import com.snqu.shopping.data.DataConfig
 import com.snqu.shopping.data.base.ResponseDataArray
 import com.snqu.shopping.data.base.ResponseDataObject
 import com.snqu.shopping.data.base.RestClient.getService
+import com.snqu.shopping.data.goods.bean.CollectionEntity
 import com.snqu.shopping.data.goods.bean.GoodsParamBean
 import com.snqu.shopping.data.goods.entity.*
 import com.snqu.shopping.data.home.entity.CommunityEntity
@@ -120,10 +121,17 @@ object GoodsClient {
 
     /**
      * 获取收藏列表
-     *
-     * @return
      */
-    fun doCollectionGoodsList(): Observable<ResponseDataObject<CollectionListGoodsEntity>> = getService<GoodsApi>(GoodsApi::class.java).collectionGoodsList()
+    fun favList(): Observable<ResponseDataObject<CollectionEntity>> {
+        return getService<GoodsApi>(GoodsApi::class.java).favList()
+    }
+
+//    /**
+//     * 获取收藏列表
+//     *
+//     * @return
+//     */
+//    fun doCollectionGoodsList(): Observable<ResponseDataObject<CollectionListGoodsEntity>> = getService<GoodsApi>(GoodsApi::class.java).collectionGoodsList()
 
     /**
      * 获取商品基础详情数据

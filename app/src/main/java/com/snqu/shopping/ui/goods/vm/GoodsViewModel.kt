@@ -3,10 +3,12 @@ package com.snqu.shopping.ui.goods.vm
 import android.annotation.SuppressLint
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
+import com.blankj.utilcode.util.LogUtils
 import com.snqu.shopping.common.viewmodel.BaseAndroidViewModel
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.base.*
 import com.snqu.shopping.data.goods.GoodsClient
+import com.snqu.shopping.data.goods.bean.CollectionEntity
 import com.snqu.shopping.data.goods.entity.*
 import com.snqu.shopping.data.home.entity.CommunityEntity
 import com.snqu.shopping.data.mall.MallClient
@@ -239,19 +241,19 @@ class GoodsViewModel : BaseAndroidViewModel {
     /**
      * 获取收藏列表
      */
-    fun doCollectionGoodsList() {
-        executeNoMapHttp(GoodsClient.doCollectionGoodsList(), object : BaseResponseObserver<ResponseDataObject<CollectionListGoodsEntity>>() {
-            override fun onSuccess(value: ResponseDataObject<CollectionListGoodsEntity>?) {
+    fun favList(){
+        executeNoMapHttp(GoodsClient.favList(), object : BaseResponseObserver<ResponseDataObject<CollectionEntity>>() {
+            override fun onSuccess(value: ResponseDataObject<CollectionEntity>?) {
                 if (value?.data == null) {
-                    dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, value?.message, false)
+                    dataResult.value = NetReqResult(ApiHost.FAV_LIST, value?.message, false)
                 } else {
-                    dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, "", true, value.data)
+                    dataResult.value = NetReqResult(ApiHost.FAV_LIST, "", true, value.data)
                 }
 
             }
 
             override fun onError(e: HttpResponseException?) {
-                dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, e?.alert, false)
+                dataResult.value = NetReqResult(ApiHost.FAV_LIST, e?.alert, false)
             }
 
             override fun onEnd() {
@@ -259,36 +261,29 @@ class GoodsViewModel : BaseAndroidViewModel {
         })
     }
 
-    //TODO 后面会吧详情页进行接口替换
-    @SuppressLint("AutoDispose")
-    fun doGoods(id: String, item_source: String?) {
-
-//        val detail = GoodsClient.doGoodsDetail(id, item_source).observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io())
-//        val desc = GoodsClient.doGoodsDetailDesc(id, item_source).observeOn(AndroidSchedulers.mainThread())
-//                .subscribeOn(Schedulers.io())
+//    /**
+//     * 获取收藏列表
+//     */
+//    fun doCollectionGoodsList() {
+//        executeNoMapHttp(GoodsClient.doCollectionGoodsList(), object : BaseResponseObserver<ResponseDataObject<CollectionListGoodsEntity>>() {
+//            override fun onSuccess(value: ResponseDataObject<CollectionListGoodsEntity>?) {
+//                if (value?.data == null) {
+//                    dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, value?.message, false)
+//                } else {
+//                    dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, "", true, value.data)
+//                }
 //
-//
-//        Observable.zip(detail, desc, BiFunction<ResponseDataObject<GoodsEntity?>, ResponseDataObject<GoodsEntity?>, GoodsEntity> { t1, t2 ->
-//
-//            t1.data!!
-//        }).subscribe(object : Observer<GoodsEntity> {
-//            override fun onNext(t: GoodsEntity) {
-//                onComplete()
 //            }
 //
-//            override fun onError(e: Throwable) {
+//            override fun onError(e: HttpResponseException?) {
+//                dataResult.value = NetReqResult(ApiHost.COLLECTION_GOODS_LIST, e?.alert, false)
 //            }
 //
-//            override fun onComplete() {
-//            }
-//
-//            override fun onSubscribe(d: Disposable) {
+//            override fun onEnd() {
 //            }
 //        })
+//    }
 
-
-    }
 
     /**
      * 获取商品基础详情数据
@@ -530,6 +525,7 @@ class GoodsViewModel : BaseAndroidViewModel {
 
             override fun onError(e: HttpResponseException?) {
                 LogClient.log(GoodsDetailActivity.TAG, "doPromotionLink失败，参数=" + (e?.alert + "," + e?.msg))
+                //需要用户授权操作
                 if (e?.resultCode == 423 || e?.resultCode == 500002) {
                     if ((e.data as ResponseDataObject<PromotionLinkEntity>).data == null) {
                         dataResult.value = NetReqResult(ApiHost.PROMOTION_LINK, e.alert, false)

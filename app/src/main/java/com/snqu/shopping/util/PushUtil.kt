@@ -68,7 +68,6 @@ object PushUtil {
             }
 //            LogUtils.d("push=" + pushEntity.toString())
             if (pushEntity != null) {
-                //TODO 暂时屏蔽id
                 pushEntity._id = pushEntity.id
 //                if (!PushClient.repeatMessage(pushEntity._id)) {
                 if (mNotificationManager == null) {

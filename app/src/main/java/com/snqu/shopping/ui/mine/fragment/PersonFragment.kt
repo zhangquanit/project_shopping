@@ -45,9 +45,7 @@ import com.snqu.shopping.util.CommonUtil
 import com.snqu.shopping.util.GlideUtil
 import com.snqu.shopping.util.NumberUtil
 import com.snqu.shopping.util.ext.onClick
-import com.snqu.shopping.util.statistics.AnalysisUtil
 import com.snqu.shopping.util.statistics.SndoData
-import com.snqu.shopping.util.statistics.UmengAnalysisUtil
 import common.widget.dialog.EffectDialogBuilder
 import common.widget.viewpager.BannerImageLoader
 import kotlinx.android.synthetic.main.person_fragment.*
@@ -146,12 +144,19 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
         addAction(Constant.Event.BIND_WX_SUCCESS)
         addAction(Constant.Event.PERSON_TAP_TOP)
         val typeFace = Typeface.createFromAsset(activity?.assets, "fonts/withdrawal_font.ttf")
-        tv_all_money.typeface = typeFace
-        tv_future_money.typeface = typeFace
-        tv_today_money.typeface = typeFace
+//        tv_all_money.typeface = typeFace
+//        tv_future_money.typeface = typeFace
+//        tv_today_money.typeface = typeFace
         tv_self_money.typeface = typeFace
 
         initUserView()
+        ll_money_layout.onClick {
+            if (!UserClient.isLogin()) {
+                LoginFragment.start(activity)
+            } else {
+                CommonUtil.jumpToEarningPage(mContext)
+            }
+        }
         refresh_layout.setOnRefreshListener {
             refresh_layout.finishRefresh(1000)
             personGoodsCommendItemFragment.refreshData()
@@ -347,15 +352,6 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
                 switchEnvrionmentDialog.setCancelable(true)
                 switchEnvrionmentDialog.show()
             }
-        }
-        ll_all_money.onClick {
-            ll_vip_center_money.performClick()
-        }
-        ll_future_money.onClick {
-            ll_vip_center_money.performClick()
-        }
-        ll_today_money.onClick {
-            ll_vip_center_money.performClick()
         }
         ll_wechat_edit.onClick {
             ChangeInviCodeFragment.start(activity)
@@ -715,7 +711,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             GlideUtil.loadPic(img_other_head, user.avatar, R.drawable.icon_default_head, R.drawable.icon_default_head)
             tv_copy.visibility = View.VISIBLE
             tv_name.text = user.username
-            if (TextUtils.equals(user.isTutor,"1")) {
+            if (TextUtils.equals(user.isTutor, "1")) {
                 icon_teacher.visibility = View.VISIBLE
             } else {
                 icon_teacher.visibility = View.GONE
@@ -729,26 +725,31 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             img_notice_instructions.visibility = View.VISIBLE
             //今日预估
             if (accountInfoEntity?.today_estimate == 0L) {
-                tv_all_money.setTextColor(Color.parseColor("#25282D"))
                 tv_all_money.text = "0.00"
             } else {
-                tv_all_money.setTextColor(Color.parseColor("#FFF73737"))
+//                tv_all_money.setTextColor(Color.parseColor("#FFF73737"))
                 tv_all_money.text = NumberUtil.saveTwoPoint(accountInfoEntity?.today_estimate)
+            }
+            //昨日预估
+            if (accountInfoEntity?.yesterday_estimate == 0L) {
+                yesterday_estimate.text = "0.00"
+            } else {
+                yesterday_estimate.text = NumberUtil.saveTwoPoint(accountInfoEntity?.yesterday_estimate)
             }
             //本月预估
             if (accountInfoEntity?.nowmonth_estimate == 0L) {
-                tv_future_money.setTextColor(Color.parseColor("#25282D"))
+//                tv_future_money.setTextColor(Color.parseColor("#25282D"))
                 tv_future_money.text = "0.00"
             } else {
-                tv_future_money.setTextColor(Color.parseColor("#FFF73737"))
+//                tv_future_money.setTextColor(Color.parseColor("#FFF73737"))
                 tv_future_money.text = NumberUtil.saveTwoPoint(accountInfoEntity?.nowmonth_estimate)
             }
             //上月预估
             if (accountInfoEntity?.lastmonth_estimate == 0L) {
-                tv_today_money.setTextColor(Color.parseColor("#25282D"))
+//                tv_today_money.setTextColor(Color.parseColor("#25282D"))
                 tv_today_money.text = "0.00"
             } else {
-                tv_today_money.setTextColor(Color.parseColor("#FFF73737"))
+//                tv_today_money.setTextColor(Color.parseColor("#FFF73737"))
                 tv_today_money.text = NumberUtil.saveTwoPoint(accountInfoEntity?.lastmonth_estimate)
             }
 
@@ -789,6 +790,8 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
                 }
             }
 
+            head_bg.visibility = View.VISIBLE
+
         } else {
             banner_img.visibility = View.GONE
             img_head.setImageResource(R.drawable.icon_default_head)
@@ -798,6 +801,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             tv_person_invite_code.text = "美好生活，从这里开始"
             tv_code.visibility = View.GONE
             tv_all_money.text = "0.00"
+            yesterday_estimate.text = "0.00"
             tv_future_money.text = "0.00"
             tv_today_money.text = "0.00"
             tv_self_money.text = "0.00"
@@ -807,9 +811,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             img_vip_flag.visibility = View.GONE
             img_notice_instructions.visibility = View.GONE
             tv_freeze_money.visibility = View.GONE
-            tv_all_money.setTextColor(Color.parseColor("#25282D"))
-            tv_future_money.setTextColor(Color.parseColor("#25282D"))
-            tv_today_money.setTextColor(Color.parseColor("#25282D"))
+            head_bg.visibility = View.GONE
             ll_wechat_edit.visibility = View.GONE
         }
         initMandatoryService()
@@ -831,18 +833,21 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
         when (UserClient.getUser().level) {
             2 -> {
                 img_vip_flag.setImageResource(R.drawable.icon_person_vip)
-                tv_copy.setBackgroundResource(R.drawable.vip_level2_right_bg)
-                tv_copy.setTextColor(Color.parseColor("#FFFFFFFF"))
+                head_bg.setImageResource(R.drawable.person_vip_bg)
+//                tv_copy.setBackgroundResource(R.drawable.vip_level2_right_bg)
+//                tv_copy.setTextColor(Color.parseColor("#FFFFFFFF"))
             }
             3 -> {
                 img_vip_flag.setImageResource(R.drawable.icon_person_svip)
-                tv_copy.setBackgroundResource(R.drawable.vip_level3_right_bg)
-                tv_copy.setTextColor(Color.parseColor("#FFFFFFFF"))
+                head_bg.setImageResource(R.drawable.person_svip_bg)
+//                tv_copy.setBackgroundResource(R.drawable.vip_level3_right_bg)
+//                tv_copy.setTextColor(Color.parseColor("#FFFFFFFF"))
             }
             4 -> {
                 img_vip_flag.setImageResource(R.drawable.icon_person_md)
-                tv_copy.setBackgroundResource(R.drawable.vip_level4_right_bg)
-                tv_copy.setTextColor(Color.parseColor("#FFE8C48B"))
+                head_bg.setImageResource(R.drawable.person_cfo_bg)
+//                tv_copy.setBackgroundResource(R.drawable.vip_level4_right_bg)
+//                tv_copy.setTextColor(Color.parseColor("#FFE8C48B"))
             }
         }
     }
@@ -898,7 +903,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
         super.onHiddenChanged(hidden)
         mContext ?: return
         if (!hidden) {
-            StatusBar.setStatusBar(mContext, true)
+            StatusBar.setStatusBar(mContext, false)
             refreshData()
             showTeacherDialog()
         }

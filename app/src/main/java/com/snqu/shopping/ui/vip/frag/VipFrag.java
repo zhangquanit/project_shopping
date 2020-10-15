@@ -576,7 +576,7 @@ public class VipFrag extends SimpleFrag {
         super.onHiddenChanged(hidden);
         if (!hidden) {
 //            UserClient.verifyInviter(getActivity());
-            StatusBar.setStatusBar(mContext, true);
+            StatusBar.setStatusBar(mContext, false);
             initViewAndData();
         }
     }

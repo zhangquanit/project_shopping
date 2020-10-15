@@ -163,9 +163,6 @@ class GoodsDetailActivity : BaseActivity() {
         mutableListOf<androidx.fragment.app.Fragment>()
     }
 
-    //总滑动距离
-    private var totalDy = 0
-
     //推荐商品的一页个数
     private val rowRecommended = 99
 
@@ -534,6 +531,7 @@ class GoodsDetailActivity : BaseActivity() {
                             refresh_layout.finishRefresh(true)
                             val goodsEntity = it.data as GoodsEntity
                             this.goodsEntity = goodsEntity
+                            // 预付时间计算
                             val timestamp = System.currentTimeMillis() / 1000
                             if ((timestamp > (goodsEntity?.presale?.end_time
                                             ?: 0L))) {
@@ -902,7 +900,6 @@ class GoodsDetailActivity : BaseActivity() {
         goodsEnable = true
         bannerSource.clear()
 
-
         tv_goods_detail_share.isEnabled = true
         tv_goods_detail_rebate.isEnabled = true
 
@@ -972,6 +969,7 @@ class GoodsDetailActivity : BaseActivity() {
             //价格
             val price = SpanUtils()
             price.setVerticalAlign(SpanUtils.ALIGN_TOP)
+
             //优惠券
             if (goodsEntity?.getCouponPrice()?.isBlank() == true) {
                 cos_coupons.visibility = View.GONE
@@ -1080,19 +1078,6 @@ class GoodsDetailActivity : BaseActivity() {
                     RebateDescriptionDialog().show(supportFragmentManager, "RebateDescriptionDialog")
                 }
 
-//                priceText.append("\n")
-//                priceText.append("(平台返利+奖励)")
-
-                if (TextUtils.equals(goodsEntity?.hight_rebate, "1")) {
-//                    tv_img_rebate.text = "下单高返约"
-//                    tv_img_rebate_text.background.setTintList(ContextCompat.getColorStateList(this@GoodsDetailActivity, R.color.c_7046E0))
-//                    priceText.appendLine()
-//                    priceText.append("(平台返利+奖励)")
-//                            .setFontSize(11, true)
-//                    tv_jd_rebate_des.text = "(平台返利+奖励)"
-                } else {
-//                    tv_img_rebate_text.background.setTintList(ContextCompat.getColorStateList(this@GoodsDetailActivity, R.color.c_FF8202))
-                }
                 tv_img_rebate_text.text = priceText
                         .create()
             }
@@ -1152,7 +1137,6 @@ class GoodsDetailActivity : BaseActivity() {
                                     ?: "0").setForegroundColor(Color.parseColor("#FFFF8202"))
                             .append("人关注").setForegroundColor(Color.parseColor("#25282D"))
                             .create()
-//                    }
                     tv_goods_shop_icon.text = ItemSourceClient.getItemSourceName(goodsEntity?.item_source)
 
                     tv_goods_shop_name.text = goodsEntity?.seller?.seller_shop_name
@@ -1455,7 +1439,7 @@ class GoodsDetailActivity : BaseActivity() {
                 include_goods_detail_foot.tv_goods_detail_rebate.background.setTintList(ContextCompat.getColorStateList(this@GoodsDetailActivity, R.color.c_F34264))
                 herald_tip.visibility = View.VISIBLE
                 val time = DateFormatUtil.MM_dd_HH_mm().format(goodsEntity?.presale?.end_time?.times(1000L)?.let { Date(it) })
-                herald_tip.text = time + " 付定金结束"
+                herald_tip.text = "$time 付定金结束"
                 herald_tip.setBackgroundColor(Color.parseColor("#FDF1F3"))
                 herald_tip.setTextColor(Color.parseColor("#F34264"))
                 tv_goods_detail_rebate.text =
@@ -1633,21 +1617,6 @@ class GoodsDetailActivity : BaseActivity() {
     }
 
     /**
-     * 产品需求如果没有推荐商品，就不需要添加推荐商品得header，为了防止重复添加就先判断是否已经添加了这个header，防止刷新得时候重复添加
-     *
-     * 是否将推荐得header添加到适配器了
-     */
-    private fun judgeIsAddHeader(headView: View): Boolean {
-        val childCount = detailGoodsPicAdapter.headerLayout.childCount
-        for (i in 0 until childCount) {
-            if (detailGoodsPicAdapter.headerLayout.getChildAt(i) == headView) {
-                return true
-            }
-        }
-        return false
-    }
-
-    /**
      * 刷新店铺推荐UI
      */
     private fun refreshShopRecommendView(it: NetReqResult) {
@@ -1730,7 +1699,6 @@ class GoodsDetailActivity : BaseActivity() {
     private fun jumpToTB(it: NetReqResult) {
 
         if (it.successful) {
-//            val tbPromotionLinkEntity = it.data as TBPromotionLinkEntity
             if (it.extra == true) {
                 //代表授权
 //                this@GoodsDetailActivity.tbPromotionLinkEntity = tbPromotionLinkEntity
@@ -1753,12 +1721,8 @@ class GoodsDetailActivity : BaseActivity() {
             } else {
                 //先去授权
                 val promotionLinkEntity = it.data as PromotionLinkEntity
-                if (promotionLinkEntity != null) {
-                    LogClient.log(TAG, "跳转淘宝授权，平台=$item_source,商品id=$goodsId,转链信息=$promotionLinkEntity")
-                } else {
-                    LogClient.log(TAG, "跳转淘宝授权，平台=$item_source,商品id=$goodsId")
-                }
-                if (promotionLinkEntity?.auth_url != null) {
+                LogClient.log(TAG, "跳转淘宝授权，平台=$item_source,商品id=$goodsId,转链信息=$promotionLinkEntity")
+                if (promotionLinkEntity.auth_url != null) {
                     AliAuthActivity.start(this@GoodsDetailActivity, promotionLinkEntity.auth_url)
                 }
             }
@@ -1803,13 +1767,6 @@ class GoodsDetailActivity : BaseActivity() {
     }
 
     /**
-     *加载更多推荐商商品
-     */
-    private fun loadMoreRecommendedData() {
-        goodsViewModel.doGoodsDetailRecommend(goodsId, rowRecommended, pageRecommended, item_source)
-    }
-
-    /**
      * 添加浏览记录，不关心结果
      */
     private fun addGoodsRecode() {
@@ -1828,8 +1785,8 @@ class GoodsDetailActivity : BaseActivity() {
      * 初始化View
      */
     private fun initView() {
-        val datas = arrayListOf<DetailImageContentBean>()
-        detailGoodsPicAdapter = DetailGoodsPicAdapter(datas)
+        val data = arrayListOf<DetailImageContentBean>()
+        detailGoodsPicAdapter = DetailGoodsPicAdapter(data)
         recycler_view.adapter = detailGoodsPicAdapter
         // 对recycler_view相关参数进行初始化
         var layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@GoodsDetailActivity, 2)
@@ -1937,11 +1894,6 @@ class GoodsDetailActivity : BaseActivity() {
             recycler_view.scrollToPosition(0)
             img_back_top.visibility = View.GONE
         })
-
-
-//        RecycleViewScrollToTop.addScroolToTop(recycler_view, img_back_top)
-
-
     }
 
 

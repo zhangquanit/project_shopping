@@ -155,7 +155,8 @@ public class Constant {
         String PRIVILEGE = DataConfig.H5_ACT_HOST + "h5s/ac202008privilege/index.html";//特权页面
         String TUTORSHARE = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1";//新建文档页
 //        String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/#/?share_id=";
-        String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1&share_id="; //编辑文档
+String TUTOR_SHARE_EDIT = DataConfig.H5_ACT_HOST + "h5s/ac202009tutor/index.html?hideTitlebar=1&lightModel=1&share_id="; //编辑文档
+        String ORDER_TIP = DataConfig.H5_ACT_HOST + "h5s/ac202010ordertip"; //我的订单提示
     }
 
     public interface BusinessType {

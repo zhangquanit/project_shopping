@@ -284,7 +284,7 @@ public interface UserApi {
      * @return
      */
     @GET(ApiHost.BALANCE_RECODE)
-    Observable<ResponseDataArray<BalanceRecodeEntity>> balanceRecode(@Query("month") String month, @Query("page") int page, @Query("limit") int limit);
+    Observable<ResponseDataArray<BalanceRecodeEntity>> balanceRecode(@Query("month") String month, @Query("page") int page, @Query("limit") int limit,@Query("type")String type);
 
     /**
      * 我的余额页面-提现

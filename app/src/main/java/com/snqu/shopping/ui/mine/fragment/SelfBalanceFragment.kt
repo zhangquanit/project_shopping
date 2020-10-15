@@ -45,6 +45,8 @@ class SelfBalanceFragment : SimpleFrag() {
         ViewModelProviders.of(this).get(UserViewModel::class.java)
     }
 
+    private var type: String? = null //金额明细 type=null， 结算收益 type = 100 ，提现记录 type = 20
+
     private var mLoadingDialog: LoadingDialog? = null
 
     private val row = 20
@@ -182,14 +184,14 @@ class SelfBalanceFragment : SimpleFrag() {
             if (hashMapRecode[yearMonth]?.hasNext == true) {
                 //网络请求就去加载下一页，然后添加缓存里面
                 userViewModel.doBalanceRecode(yearMonth, hashMapRecode[yearMonth]?.page
-                        ?: return, row)
+                        ?: return, row, type)
             } else {
                 //加载完成了
                 accountDetailAdapter.loadMoreEnd(false)
             }
         } else {
             //这种情况基本上不存在，但是为了安全还是要写(默认加载第一页)
-            userViewModel.doBalanceRecode(yearMonth, 1, row)
+            userViewModel.doBalanceRecode(yearMonth, 1, row, type)
         }
     }
 
@@ -222,7 +224,11 @@ class SelfBalanceFragment : SimpleFrag() {
      */
     private fun refreshData() {
         userViewModel.doBalanceInfo()
-        userViewModel.doBalanceRecode(yearMonth, 1, row)
+        if (TextUtils.isEmpty(type)) {
+            userViewModel.doBalanceRecode(yearMonth, 1, row, type)
+        } else {
+            userViewModel.doBalanceRecode("", 1, row, type)
+        }
     }
 
     /**
@@ -238,7 +244,62 @@ class SelfBalanceFragment : SimpleFrag() {
             tv_all_money.typeface = typeFace
             tv_future_money.typeface = typeFace
             tv_today_money.typeface = typeFace
+
+            money_detail_layout.onClick {
+                money_detail_layout.isSelected = !money_detail_layout.isSelected
+                if (money_detail_layout.isSelected) {
+                    withdraw_layout.isSelected = false
+                    settle_account_layout.isSelected = false
+                    tv_settle_account.background = null
+                    tv_withdraw.background = null
+                    tv_settle_account.setTextColor(Color.parseColor("#25272D"))
+                    tv_withdraw.setTextColor(Color.parseColor("#25272D"))
+                    tv_money_detail.setTextColor(Color.parseColor("#FFFFFF"))
+                    tv_money_detail.setBackgroundResource(R.drawable.self_balance_select_bg)
+                    account_layout.visibility = View.VISIBLE
+                    type = null
+                    userViewModel.doBalanceRecode(yearMonth, 1, row, type)
+                }
+            }
+
+            settle_account_layout.onClick {
+                settle_account_layout.isSelected = !settle_account_layout.isSelected
+                if (settle_account_layout.isSelected) {
+                    withdraw_layout.isSelected = false
+                    money_detail_layout.isSelected = false
+                    tv_money_detail.background = null
+                    tv_withdraw.background = null
+                    tv_money_detail.setTextColor(Color.parseColor("#25272D"))
+                    tv_withdraw.setTextColor(Color.parseColor("#25272D"))
+                    tv_settle_account.setTextColor(Color.parseColor("#FFFFFF"))
+                    tv_settle_account.setBackgroundResource(R.drawable.self_balance_select_bg)
+                    account_layout.visibility = View.GONE
+                    type = "100"
+                    userViewModel.doBalanceRecode("", 1, row, type)
+                }
+            }
+
+            withdraw_layout.onClick {
+                withdraw_layout.isSelected = !withdraw_layout.isSelected
+                if (withdraw_layout.isSelected) {
+                    settle_account_layout.isSelected = false
+                    money_detail_layout.isSelected = false
+                    tv_money_detail.background = null
+                    tv_settle_account.background = null
+                    tv_money_detail.setTextColor(Color.parseColor("#25272D"))
+                    tv_settle_account.setTextColor(Color.parseColor("#25272D"))
+                    tv_withdraw.setTextColor(Color.parseColor("#FFFFFF"))
+                    tv_withdraw.setBackgroundResource(R.drawable.self_balance_select_bg)
+                    account_layout.visibility = View.GONE
+                    type = "20"
+                    userViewModel.doBalanceRecode("", 1, row, type)
+                }
+            }
         }
+
+
+
+
         refresh_layout.setOnRefreshListener {
             refreshData()
         }
@@ -276,7 +337,7 @@ class SelfBalanceFragment : SimpleFrag() {
 //                            }
                         }
                     } else {
-                        userViewModel.doBalanceRecode(yearMonth, 1, row)
+                        userViewModel.doBalanceRecode(yearMonth, 1, row, type)
                     }
 //                    }
 

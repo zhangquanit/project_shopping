@@ -44,6 +44,7 @@ public class AdvertistEntity implements Serializable {
     public int per;//间隔时间 秒
     public int height;
     public int width;
+    public String show_text;
 
     public class Attribute {
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.SpannableStringBuilder;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.lifecycle.ViewModelProviders;
@@ -24,8 +25,8 @@ import com.snqu.shopping.common.Constant;
 import com.snqu.shopping.common.event.PushEvent;
 import com.snqu.shopping.data.ApiHost;
 import com.snqu.shopping.data.base.ResponseDataArray;
+import com.snqu.shopping.data.goods.bean.CollectionEntity;
 import com.snqu.shopping.data.goods.entity.CollectionGoodsEntity;
-import com.snqu.shopping.data.goods.entity.CollectionListGoodsEntity;
 import com.snqu.shopping.data.goods.entity.GoodsEntity;
 import com.snqu.shopping.ui.goods.GoodsDetailActivity;
 import com.snqu.shopping.ui.goods.vm.GoodsViewModel;
@@ -69,9 +70,14 @@ public class CollectionFrag extends SimpleFrag {
     private GoodsViewModel goodsViewModel;
     private HomeViewModel homeViewModel;
     private TextView tv_operator;
+    //已失效，三个月前，无优惠券按钮
+    private ImageView iv_expired, iv_threeMonthsAgo, iv_no_coupon;
+    private TextView tv_expired, tv_threeMonthsAgo, tv_no_coupon;
+    private View editLayout;
     //删除的数据源用来做删除用
     ArrayList<CollectionGoodsEntity> deleteData = new ArrayList<>();
     private View recommendHeadView;
+    private CollectionEntity collectionListGoodsEntity;
     private boolean initData;
     private int page = 1;
     private int row = 20;
@@ -90,15 +96,17 @@ public class CollectionFrag extends SimpleFrag {
     @Override
     protected void init(Bundle savedInstanceState) {
         StatusBar.setStatusBar(mContext, false, getTitleBar());
+
         getTitleBar().setVisibility(View.GONE);
         initView();
         initData();
         refreshData();
+        goodsViewModel.favList();
     }
 
     private void refreshData() {
         recommendListAdapter.setEnableLoadMore(false);
-        goodsViewModel.doCollectionGoodsList();
+        goodsViewModel.favList();
         page = 1;
         homeViewModel.likeGoods(page, row);
     }
@@ -110,8 +118,8 @@ public class CollectionFrag extends SimpleFrag {
 
     private void setPrice(String price) {
         SpannableStringBuilder priceBuilder = new SpanUtils()
-                .append(price).setForegroundColor(Color.parseColor("#FF8202")).setFontSize(20, true)
-                .append("元").setForegroundColor(Color.parseColor("#ff848487")).setFontSize(14, true)
+                .append(price).setForegroundColor(Color.parseColor("#F34163")).setFontSize(20, true)
+                .append("元").setForegroundColor(Color.parseColor("#838387")).setFontSize(14, true)
                 .create();
         tv_price.setText(priceBuilder);
     }
@@ -121,41 +129,48 @@ public class CollectionFrag extends SimpleFrag {
         homeViewModel = ViewModelProviders.of(this).get(HomeViewModel.class);
         goodsViewModel.getDataResult().observe(this, netReqResult -> {
             switch (netReqResult.tag) {
-                case ApiHost.COLLECTION_GOODS_LIST:
+                case ApiHost.FAV_LIST:
                     if (netReqResult.successful) {
                         smartRefreshLayout.finishRefresh(true);
-                        CollectionListGoodsEntity collectionListGoodsEntity = (CollectionListGoodsEntity) netReqResult.data;
+                        collectionListGoodsEntity = (CollectionEntity) netReqResult.data;
                         //未失效
-                        if (collectionListGoodsEntity.getFail_list().isEmpty() && collectionListGoodsEntity.getList().isEmpty()) {
+                        if (collectionListGoodsEntity.list.isEmpty() && collectionListGoodsEntity.expired.list.isEmpty()) {
                             //请求成功但是没有数据展示空页面
                             showEmptyStatus();
                             tv_collection_num.setText("我的收藏");
                         } else {
-                            tv_collection_num.setText("我的收藏(" + (collectionListGoodsEntity.getList().size() + collectionListGoodsEntity.getFail_list().size()) + ")");
+                            tv_collection_num.setText("我的收藏(" + (collectionListGoodsEntity.list.size() + collectionListGoodsEntity.expired.list.size()) + ")");
                             //是否有失效商品
                             showNormalStatus();
-                            if (collectionListGoodsEntity.getFail_list().isEmpty()) {
+                            if (collectionListGoodsEntity.expired.list.isEmpty()) {
                                 invalidateListView.setVisibility(View.GONE);
                                 invalidateListAdapter.setNewData(null);
                             } else {
-                                invalidateListView.setVisibility(View.VISIBLE);
+//                                if (editable) {
+                                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                                    invalidateListView.setVisibility(View.VISIBLE);
+                                }
+//                                } else {
+//                                    invalidateListView.setVisibility(View.GONE);
+//                                }
                                 //失效宝贝
-                                invalidateListAdapter.setNewData(collectionListGoodsEntity.getFail_list());
-                                setOInvalidateCount(collectionListGoodsEntity.getFail_list().size() + "");
+                                invalidateListAdapter.setNewData(collectionListGoodsEntity.expired.list);
+                                setOInvalidateCount(collectionListGoodsEntity.expired.count + "");
                                 tv_del.setEnabled(false);
                                 tvSel.setSelected(false);
                             }
                             //是否有未失效商品
-                            if (collectionListGoodsEntity.getList().isEmpty()) {
+                            if (collectionListGoodsEntity.list.isEmpty()) {
                                 collectionListView.setVisibility(View.GONE);
                                 collectionListAdapter.setNewData(null);
                             } else {
                                 collectionListView.setVisibility(View.VISIBLE);
-                                collectionListAdapter.setNewData(collectionListGoodsEntity.getList());
+                                collectionListAdapter.setNewData(collectionListGoodsEntity.list);
                                 tv_del.setEnabled(false);
                                 tvSel.setSelected(false);
                             }
-                            setPrice(collectionListGoodsEntity.getFrugalMoney());
+                            setPrice(collectionListGoodsEntity.getFrugal());
+                            setDataCount();
                         }
                     } else {
                         smartRefreshLayout.finishRefresh(false);
@@ -173,7 +188,7 @@ public class CollectionFrag extends SimpleFrag {
                 case ApiHost.DELETE_COLLECTION_GOODS:
                     if (netReqResult.successful) {
                         changeButtonSelectStatus();
-                        goodsViewModel.doCollectionGoodsList();
+                        goodsViewModel.favList();
                     }
                     showToastShort(netReqResult.message);
                     break;
@@ -215,6 +230,17 @@ public class CollectionFrag extends SimpleFrag {
         });
     }
 
+    /**
+     * 设置已失效，无优惠券，三个月前
+     */
+    private void setDataCount() {
+        if (collectionListGoodsEntity != null) {
+            tv_expired.setText("已失效(" + collectionListGoodsEntity.expired.list.size() + ")");
+            tv_no_coupon.setText("无优惠券(" + collectionListGoodsEntity.noCoupon.list.size() + ")");
+            tv_threeMonthsAgo.setText("三个月前(" + collectionListGoodsEntity.threeMonthsAgo.list.size() + ")");
+        }
+    }
+
     private void initView() {
         addAction(Constant.Event.LOGIN_SUCCESS);
         addAction(Constant.Event.COLLECTION_CHANGE);
@@ -229,8 +255,16 @@ public class CollectionFrag extends SimpleFrag {
                 invalidateListAdapter.setEditable();
                 tv_operator.setText(editable ? "完成" : "管理");
                 bottomBar.setVisibility(editable ? View.VISIBLE : View.GONE);
+
                 if (editable) {
+                    editLayout.setVisibility(View.VISIBLE);
                     recommendListView.scrollToPosition(0);
+                    invalidateListView.setVisibility(View.GONE);
+                } else {
+                    editLayout.setVisibility(View.GONE);
+                    if (collectionListGoodsEntity.expired.list.size() > 0) {
+                        invalidateListView.setVisibility(View.VISIBLE);
+                    }
                 }
                 //这里不做记录
                 unSelectedAll();
@@ -249,18 +283,19 @@ public class CollectionFrag extends SimpleFrag {
             public void onClick(View v) {
 
                 ArrayList<CollectionGoodsEntity> collectionListAdapterData = (ArrayList<CollectionGoodsEntity>) collectionListAdapter.getData();
-                ArrayList<CollectionGoodsEntity> invalidateListAdapterData = (ArrayList<CollectionGoodsEntity>) invalidateListAdapter.getData();
+//                ArrayList<CollectionGoodsEntity> invalidateListAdapterData = (ArrayList<CollectionGoodsEntity>) invalidateListAdapter.getData();
+                deleteData.clear();
                 for (int i = 0; i < collectionListAdapterData.size(); i++) {
                     if (collectionListAdapterData.get(i).isSelected()) {
                         deleteData.add(collectionListAdapterData.get(i));
                     }
                 }
 
-                for (int i = 0; i < invalidateListAdapterData.size(); i++) {
-                    if (invalidateListAdapterData.get(i).isSelected()) {
-                        deleteData.add(invalidateListAdapterData.get(i));
-                    }
-                }
+//                for (int i = 0; i < invalidateListAdapterData.size(); i++) {
+//                    if (invalidateListAdapterData.get(i).isSelected()) {
+//                        deleteData.add(invalidateListAdapterData.get(i));
+//                    }
+//                }
 
                 StringBuilder ids = new StringBuilder();
                 for (int i = 0; i < deleteData.size(); i++) {
@@ -305,6 +340,111 @@ public class CollectionFrag extends SimpleFrag {
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         collection_header = layoutInflater.inflate(R.layout.collection_list_header, null);
         tv_price = collection_header.findViewById(R.id.tv_price);
+
+        editLayout = collection_header.findViewById(R.id.edit_layout);
+        iv_expired = collection_header.findViewById(R.id.iv_expired);
+        iv_no_coupon = collection_header.findViewById(R.id.iv_no_coupon);
+        iv_threeMonthsAgo = collection_header.findViewById(R.id.iv_threeMonthsAgo);
+        tv_expired = collection_header.findViewById(R.id.tv_expired);
+        tv_no_coupon = collection_header.findViewById(R.id.tv_no_coupon);
+        tv_threeMonthsAgo = collection_header.findViewById(R.id.tv_threeMonthsAgo);
+
+        iv_expired.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_expired.setSelected(!iv_expired.isSelected());
+                iv_no_coupon.setSelected(false);
+                iv_threeMonthsAgo.setSelected(false);
+                tvSel.setSelected(false);
+                tv_del.setEnabled(false);
+                invalidateListView.setVisibility(View.GONE);
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
+                        entity.setSelected(false);
+                    }
+                    if (collectionListGoodsEntity.expired.list.size() > 0) {
+                        invalidateListView.setVisibility(View.VISIBLE);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.list);
+                } else {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.expired.list) {
+                        entity.setSelected(false);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.expired.list);
+                }
+            }
+        });
+        tv_expired.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_expired.performClick();
+            }
+        });
+
+        iv_no_coupon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_no_coupon.setSelected(!iv_no_coupon.isSelected());
+                iv_expired.setSelected(false);
+                iv_threeMonthsAgo.setSelected(false);
+                tvSel.setSelected(false);
+                tv_del.setEnabled(false);
+                invalidateListView.setVisibility(View.GONE);
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
+                        entity.setSelected(false);
+                    }
+                    if (collectionListGoodsEntity.expired.list.size() > 0) {
+                        invalidateListView.setVisibility(View.VISIBLE);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.list);
+                } else {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.noCoupon.list) {
+                        entity.setSelected(false);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.noCoupon.list);
+                }
+            }
+        });
+        tv_no_coupon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_no_coupon.performClick();
+            }
+        });
+
+        iv_threeMonthsAgo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_threeMonthsAgo.setSelected(!iv_threeMonthsAgo.isSelected());
+                iv_no_coupon.setSelected(false);
+                iv_expired.setSelected(false);
+                tvSel.setSelected(false);
+                tv_del.setEnabled(false);
+                invalidateListView.setVisibility(View.GONE);
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
+                        entity.setSelected(false);
+                    }
+                    if (collectionListGoodsEntity.expired.list.size() > 0) {
+                        invalidateListView.setVisibility(View.VISIBLE);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.list);
+                } else {
+                    for (CollectionGoodsEntity entity : collectionListGoodsEntity.threeMonthsAgo.list) {
+                        entity.setSelected(false);
+                    }
+                    collectionListAdapter.setNewData(collectionListGoodsEntity.threeMonthsAgo.list);
+                }
+            }
+        });
+        tv_threeMonthsAgo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                iv_threeMonthsAgo.performClick();
+            }
+        });
+
 
         collectionListAdapter = new CollectionRecommendListAdapter(false);
         collectionListAdapter.addHeaderView(collection_header);
@@ -401,7 +541,9 @@ public class CollectionFrag extends SimpleFrag {
         emptyBar.setVisibility(View.GONE);
         tv_operator.setVisibility(View.VISIBLE);
         collectionListView.setVisibility(View.VISIBLE);
-        invalidateListView.setVisibility(View.VISIBLE);
+        if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+            invalidateListView.setVisibility(View.VISIBLE);
+        }
     }
 
     /**
@@ -415,6 +557,7 @@ public class CollectionFrag extends SimpleFrag {
         invalidateListView.setVisibility(View.GONE);
         collectionListAdapter.setEditable(false);
         invalidateListAdapter.setEditable(false);
+        editLayout.setVisibility(View.GONE);
         tv_operator.setText("管理");
     }
 
@@ -539,7 +682,7 @@ public class CollectionFrag extends SimpleFrag {
                     initData = true;
                     refreshData();
                 } else { //刷新收藏
-                    goodsViewModel.doCollectionGoodsList();
+                    goodsViewModel.favList();
                 }
                 break;
 

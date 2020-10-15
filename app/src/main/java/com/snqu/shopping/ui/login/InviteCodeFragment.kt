@@ -28,6 +28,7 @@ import com.snqu.shopping.ui.login.vm.UserViewModel
 import com.snqu.shopping.util.GlideUtil
 import com.snqu.shopping.util.ThirdLoginUtil
 import com.snqu.shopping.util.ext.onClick
+import com.snqu.shopping.util.statistics.AnalysisUtil
 import com.snqu.shopping.util.statistics.SndoData
 import com.snqu.shopping.util.statistics.StatisticInfo
 import common.widget.dialog.loading.LoadingDialog
@@ -121,6 +122,8 @@ class InviteCodeFragment : SimpleFrag() {
                                     "xlt_event_signup",
                                     "higher_phone", "null",
                                     "phone", userEntity?.phone ?: "null",
+                                    "deviceId", AnalysisUtil.getUniqueId() ?: "null",
+                                    "userId", userEntity?._id ?: "null",
                                     "signup_time", System.currentTimeMillis()
                             )
                         }

@@ -15,10 +15,12 @@ import com.anroid.base.ui.StatusBar
 import com.bigkoo.pickerview.builder.TimePickerBuilder
 import com.google.android.material.tabs.TabLayout
 import com.snqu.shopping.R
+import com.snqu.shopping.common.Constant
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.home.ItemSourceClient
 import com.snqu.shopping.data.home.entity.ItemSourceEntity
 import com.snqu.shopping.ui.main.MainActivity
+import com.snqu.shopping.ui.main.frag.WebViewFrag
 import com.snqu.shopping.ui.order.fragment.FindOrderFragment
 import com.snqu.shopping.ui.order.fragment.GroupOrderItemFragment
 import com.snqu.shopping.ui.order.fragment.OrderSearchFragment
@@ -140,6 +142,11 @@ class OrderActivity : BaseActivity() {
      * 初始化View
      */
     private fun initView() {
+        order_tip.onClick {
+            val webViewParam = WebViewFrag.WebViewParam()
+            webViewParam.url = Constant.WebPage.ORDER_TIP
+            WebViewFrag.start(mContext, webViewParam)
+        }
 
         val dataLis = HashMap<String, String>()
 

@@ -50,7 +50,7 @@ data class GoodsEntity(
         val itime: Int? = null,//'收录时间'
         val rate_base: RateBase? = null,
         val rebate: Rebate? = null,//佣金返利比例
-        var presale: Presale? = null,
+        var presale: Presale? = null,//预售
         val next_level: NextLevel? = null,//下一级，星乐桃返利信息
         val seller: ShopItemEntity? = null,
         val seller_shop_id: String? = null,//'商品店铺id'

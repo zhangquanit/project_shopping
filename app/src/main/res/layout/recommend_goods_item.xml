@@ -15,6 +15,7 @@
         android:paddingTop="5dp"
         android:paddingRight="13dp"
         android:paddingBottom="5dp"
+        tools:visibility="visible"
         android:src="@drawable/check_btn_selector"
         android:visibility="gone" />
 

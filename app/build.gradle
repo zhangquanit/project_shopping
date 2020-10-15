@@ -317,6 +317,9 @@ dependencies {
 //    implementation 'com.alibaba:fastjson:1.1.71.android'
     implementation 'com.alibaba:fastjson:1.2.73'
 
+    // 跑马灯控件
+    implementation 'com.superluo:textbannerview:1.0.5'  //最新版本
+
     //####################阿里百川
 
 
