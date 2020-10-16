@@ -10,6 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#F5F5F7"
+        android:visibility="gone"
         android:orientation="vertical">
 
         <ImageView

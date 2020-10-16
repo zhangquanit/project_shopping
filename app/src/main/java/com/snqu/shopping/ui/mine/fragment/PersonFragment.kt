@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.anroid.base.BaseFragment
 import com.anroid.base.ui.StatusBar
+import com.blankj.utilcode.util.ConvertUtils
 import com.blankj.utilcode.util.SPUtils
 import com.blankj.utilcode.util.SpanUtils
 import com.google.android.material.appbar.AppBarLayout
@@ -22,7 +23,6 @@ import com.snqu.shopping.App
 import com.snqu.shopping.R
 import com.snqu.shopping.common.Constant
 import com.snqu.shopping.common.event.PushEvent
-import com.snqu.shopping.common.ui.LoadingStatusView
 import com.snqu.shopping.data.ApiHost
 import com.snqu.shopping.data.home.entity.AdvertistEntity
 import com.snqu.shopping.data.user.UserClient
@@ -792,7 +792,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             }
 
             head_bg.visibility = View.VISIBLE
-
+            bg_top.layoutParams.height = ConvertUtils.dp2px(245F)
         } else {
             banner_img.visibility = View.GONE
             img_head.setImageResource(R.drawable.icon_default_head)
@@ -806,6 +806,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
             tv_future_money.text = "0.00"
             tv_today_money.text = "0.00"
             tv_self_money.text = "0.00"
+            bg_top.layoutParams.height = ConvertUtils.dp2px(215F)
             tv_copy.visibility = View.GONE
             tv_helptext.visibility = View.GONE
             tv_withdrawal.visibility = View.GONE
@@ -904,6 +905,7 @@ class PersonFragment : BaseFragment(), AppBarLayout.OnOffsetChangedListener {
         super.onHiddenChanged(hidden)
         mContext ?: return
         if (!hidden) {
+            StatusBar.setStatusBar(mContext, false)
             refreshData()
             showTeacherDialog()
             if (tv_title.visibility == View.VISIBLE) {

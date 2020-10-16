@@ -13,7 +13,7 @@
         <ImageView
             android:id="@+id/bg_top"
             android:layout_width="match_parent"
-            android:layout_height="82dp"
+            android:layout_height="110dp"
             android:background="@drawable/self_balance_bg" />
 
         <View
@@ -27,7 +27,7 @@
         android:id="@+id/collection_titlebar"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginTop="18dp">
+        android:layout_marginTop="35dp">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/img_back"

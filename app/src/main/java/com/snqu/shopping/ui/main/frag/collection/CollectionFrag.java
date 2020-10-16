@@ -358,7 +358,7 @@ public class CollectionFrag extends SimpleFrag {
                 tvSel.setSelected(false);
                 tv_del.setEnabled(false);
                 invalidateListView.setVisibility(View.GONE);
-                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_no_coupon.isSelected()) {
                     for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
                         entity.setSelected(false);
                     }
@@ -390,7 +390,7 @@ public class CollectionFrag extends SimpleFrag {
                 tvSel.setSelected(false);
                 tv_del.setEnabled(false);
                 invalidateListView.setVisibility(View.GONE);
-                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_no_coupon.isSelected()) {
                     for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
                         entity.setSelected(false);
                     }
@@ -422,7 +422,7 @@ public class CollectionFrag extends SimpleFrag {
                 tvSel.setSelected(false);
                 tv_del.setEnabled(false);
                 invalidateListView.setVisibility(View.GONE);
-                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_threeMonthsAgo.isSelected()) {
+                if (!iv_threeMonthsAgo.isSelected() && !iv_expired.isSelected() && !iv_no_coupon.isSelected()) {
                     for (CollectionGoodsEntity entity : collectionListGoodsEntity.list) {
                         entity.setSelected(false);
                     }
