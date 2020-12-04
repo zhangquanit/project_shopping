@@ -4,46 +4,37 @@ buildscript {
     ext.kotlin_version = '1.3.11'
 
     repositories {
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
         google()
         jcenter()
-        maven {
-            url "https://maven.aliyun.com/repository/public"
-        }
-        //添加 Sndo Analytics maven 库地址
-        maven {
-            url 'http://192.168.200.90:8081/repository/maven-releases/'
-        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
-        classpath 'com.sndodata.analytics.android:android-gradle-plugin:1.0.2'   //添加 深度数据插件
-//        classpath 'com.tencent.bugly:symtabfileuploader:latest.release' //腾讯bugly符号表插件
     }
 }
 
 allprojects {
     repositories {
-        google()
-        jcenter()
-        maven { url 'https://dl.bintray.com/umsdk/release' }
-        maven { url 'https://jitpack.io' }
-        //阿里百川
         maven {
-            url "https://maven.aliyun.com/repository/public"
-        }
-        maven {
-            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
-        }
-        //SndoDataAnalytic maven 库地址
-        maven {
-            url 'http://192.168.200.90:8081/repository/maven-releases/'
+            url 'https://maven.aliyun.com/repository/public/'
         }
 
         //快电
         maven {
             url "https://gitee.com/gokd/kd-charge-qrcode/raw/master"
         }
+        google()
+        jcenter()
+        //阿里百川
+        maven {
+            url "http://repo.baichuan-android.taobao.com/content/groups/BaichuanRepositories/"
+        }
+        maven { url 'https://dl.bintray.com/umsdk/release' }
+        maven { url 'https://jitpack.io' }
+
     }
 }
 

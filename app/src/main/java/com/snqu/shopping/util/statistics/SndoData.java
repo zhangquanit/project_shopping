@@ -1,17 +1,10 @@
 package com.snqu.shopping.util.statistics;
 
-import com.android.util.LContext;
-import com.sndodata.analytics.android.sdk.PropertyBuilder;
-import com.sndodata.analytics.android.sdk.SndoDataAPI;
 import com.snqu.shopping.data.goods.entity.GoodsEntity;
 import com.snqu.shopping.data.home.entity.AdvertistEntity;
 import com.snqu.shopping.data.home.entity.CategoryEntity;
 import com.snqu.shopping.data.home.entity.RecommendDayEntity;
-import com.snqu.shopping.data.user.UserClient;
-import com.snqu.shopping.data.user.entity.UserEntity;
 import com.snqu.shopping.util.GoodsMathUtil;
-
-import org.json.JSONObject;
 
 import java.util.Map;
 
@@ -427,27 +420,27 @@ public class SndoData {
      * @param propertys
      */
     public static void event(String eventName, Object... propertys) {
-        try {
-            if (null != propertys && propertys.length > 0) {
-                PropertyBuilder propertyBuilder = PropertyBuilder.newInstance();
-                for (int i = 0; i < propertys.length; i += 2) {
-                    propertyBuilder.append(propertys[i], propertys[i + 1] == null ? "null" : propertys[i + 1]);
-                }
-                SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, propertyBuilder.toJSONObject());
-                return;
-            }
-            SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName);
-        } catch (Exception e) {
-            if (null != propertys && propertys.length > 0) {
-                PropertyBuilder propertyBuilder = PropertyBuilder.newInstance();
-                for (int i = 0; i < propertys.length; i += 2) {
-                    propertyBuilder.append(propertys[i], propertys[i + 1]);
-                }
-                SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, propertyBuilder.toJSONObject());
-                return;
-            }
-            SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName);
-        }
+//        try {
+//            if (null != propertys && propertys.length > 0) {
+//                PropertyBuilder propertyBuilder = PropertyBuilder.newInstance();
+//                for (int i = 0; i < propertys.length; i += 2) {
+//                    propertyBuilder.append(propertys[i], propertys[i + 1] == null ? "null" : propertys[i + 1]);
+//                }
+//                SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, propertyBuilder.toJSONObject());
+//                return;
+//            }
+//            SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName);
+//        } catch (Exception e) {
+//            if (null != propertys && propertys.length > 0) {
+//                PropertyBuilder propertyBuilder = PropertyBuilder.newInstance();
+//                for (int i = 0; i < propertys.length; i += 2) {
+//                    propertyBuilder.append(propertys[i], propertys[i + 1]);
+//                }
+//                SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, propertyBuilder.toJSONObject());
+//                return;
+//            }
+//            SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName);
+//        }
     }
 
     /**
@@ -457,28 +450,28 @@ public class SndoData {
      * @param property
      */
     public static void event(String eventName, Map<String, Object> property) {
-        JSONObject jsonObject = null;
-        if (null != property && !property.isEmpty()) {
-            jsonObject = PropertyBuilder.newInstance().append(property).toJSONObject();
-        }
-        SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, jsonObject);
+//        JSONObject jsonObject = null;
+//        if (null != property && !property.isEmpty()) {
+//            jsonObject = PropertyBuilder.newInstance().append(property).toJSONObject();
+//        }
+//        SndoDataAPI.sharedInstance(LContext.getContext()).track(eventName, jsonObject);
     }
 
     /**
      * 登录
      */
     public static void login() {
-        UserEntity user = UserClient.getUser();
-        JSONObject jsonObject = PropertyBuilder.newInstance().append("is_login", null != user ? true : false).toJSONObject();
-        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
+//        UserEntity user = UserClient.getUser();
+//        JSONObject jsonObject = PropertyBuilder.newInstance().append("is_login", null != user ? true : false).toJSONObject();
+//        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
     }
 
     /**
      * 退出登录
      */
     public static void loginOut() {
-        JSONObject jsonObject = PropertyBuilder.newInstance().append("is_login", false).toJSONObject();
-        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
+//        JSONObject jsonObject = PropertyBuilder.newInstance().append("is_login", false).toJSONObject();
+//        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
     }
 
     /**

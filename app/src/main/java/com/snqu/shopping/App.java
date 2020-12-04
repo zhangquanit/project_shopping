@@ -30,9 +30,6 @@ import com.kepler.jd.Listener.AsyncInitListener;
 import com.kepler.jd.login.KeplerApiManager;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.sndodata.analytics.android.sdk.PropertyBuilder;
-import com.sndodata.analytics.android.sdk.SDConfigOptions;
-import com.sndodata.analytics.android.sdk.SndoDataAPI;
 import com.snqu.shopping.common.Constant;
 import com.snqu.shopping.data.DataConfig;
 import com.snqu.shopping.data.base.AppVersionChecker;
@@ -41,7 +38,6 @@ import com.snqu.shopping.util.GlideUtil;
 import com.snqu.shopping.util.PushUtil;
 import com.snqu.shopping.util.location.LocationService;
 import com.snqu.shopping.util.log.LogClient;
-import com.snqu.shopping.util.statistics.SndoData;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.umeng.commonsdk.UMConfigure;
@@ -62,13 +58,11 @@ import org.android.agoo.huawei.HuaWeiRegister;
 import org.android.agoo.oppo.OppoRegister;
 import org.android.agoo.vivo.VivoRegister;
 import org.android.agoo.xiaomi.MiPushRegistar;
-import org.json.JSONObject;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -260,68 +254,42 @@ public class App extends Application {
      * 初始化 Sensors Analytics SDK
      */
     private void initSndoDataAPI() {
-        String serverUrl;
-        if (TextUtils.equals(LContext.channel, Constant.PROD_TEST)) {
-            serverUrl = "https://sd.sndo.com/p?project=zjxabyor";
-        } else {
-            serverUrl = "http://sd.sndo.com/p?service=sndo&project=ov3k17dq";
-        }
-        SDConfigOptions sdConfigOptions = new SDConfigOptions(serverUrl);
-//        sdConfigOptions.enableTrackAppCrash();
-        sdConfigOptions.enableJavaScriptBridge(true);//允许H5内的事件通过app发送
-        sdConfigOptions.setChannel(LContext.channel);
-//        sdConfigOptions.enableHeatMap(true); //开启点击图
-//        sdConfigOptions.enableHeatMapConfirmDialog(true); //设置点击图提示对话框是否可用
-        SndoDataAPI.startWithConfigOptions(this, sdConfigOptions);
-
-        //信任服务端证书
-//        try{
-//            final TrustManager[] trustAllCerts = new TrustManager[]{
-//                    new X509TrustManager() {
-//                        @Override
-//                        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) {
-//                        }
-//
-//                        @Override
-//                        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) {
-//                        }
-//
-//                        @Override
-//                        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-//                            return new java.security.cert.X509Certificate[]{};
-//                        }
-//                    }
-//            };
-//
-//            final SSLContext sslContext = SSLContext.getInstance("SSL");
-//            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-//            final javax.net.ssl.SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
-//            SndoDataAPI.sharedInstance(this).setSSLSocketFactory(sslSocketFactory);
-//        }catch(Exception e){
-//            e.printStackTrace();
+//        String serverUrl;
+//        if (TextUtils.equals(LContext.channel, Constant.PROD_TEST)) {
+//            serverUrl = "https://sd.sndo.com/p?project=zjxabyor";
+//        } else {
+//            serverUrl = "http://sd.sndo.com/p?service=sndo&project=ov3k17dq";
 //        }
-
-        // 打开自动采集, 并指定追踪哪些 AutoTrack 事件
-        List<SndoDataAPI.AutoTrackEventType> eventTypeList = new ArrayList<>();
-        // $AppStart
-        eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_START);
-        // $AppEnd
-        eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_END);
-
-        if (!TextUtils.equals(LContext.channel, Constant.PROD_TEST)) {
-            // $AppClick
-            eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_CLICK);
-            // $AppViewScreen
-            eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_VIEW_SCREEN);
-        }
-        SndoDataAPI.sharedInstance(this).enableLog(TextUtils.equals(LContext.channel, Constant.PROD_TEST));
-        SndoDataAPI.sharedInstance(this).enableAutoTrack(eventTypeList);
-
-
-        //初始化公共属性
-        JSONObject jsonObject = PropertyBuilder.newInstance().append("client", "星乐桃APP").append("channel", LContext.channel).toJSONObject();
-        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
-        SndoData.login();
+//        SDConfigOptions sdConfigOptions = new SDConfigOptions(serverUrl);
+////        sdConfigOptions.enableTrackAppCrash();
+//        sdConfigOptions.enableJavaScriptBridge(true);//允许H5内的事件通过app发送
+//        sdConfigOptions.setChannel(LContext.channel);
+////        sdConfigOptions.enableHeatMap(true); //开启点击图
+////        sdConfigOptions.enableHeatMapConfirmDialog(true); //设置点击图提示对话框是否可用
+//        SndoDataAPI.startWithConfigOptions(this, sdConfigOptions);
+//
+//
+//        // 打开自动采集, 并指定追踪哪些 AutoTrack 事件
+//        List<SndoDataAPI.AutoTrackEventType> eventTypeList = new ArrayList<>();
+//        // $AppStart
+//        eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_START);
+//        // $AppEnd
+//        eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_END);
+//
+//        if (!TextUtils.equals(LContext.channel, Constant.PROD_TEST)) {
+//            // $AppClick
+//            eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_CLICK);
+//            // $AppViewScreen
+//            eventTypeList.add(SndoDataAPI.AutoTrackEventType.APP_VIEW_SCREEN);
+//        }
+//        SndoDataAPI.sharedInstance(this).enableLog(TextUtils.equals(LContext.channel, Constant.PROD_TEST));
+//        SndoDataAPI.sharedInstance(this).enableAutoTrack(eventTypeList);
+//
+//
+//        //初始化公共属性
+//        JSONObject jsonObject = PropertyBuilder.newInstance().append("client", "星乐桃APP").append("channel", LContext.channel).toJSONObject();
+//        SndoDataAPI.sharedInstance(LContext.getContext()).registerSuperProperties(jsonObject);
+//        SndoData.login();
     }
 
     /**

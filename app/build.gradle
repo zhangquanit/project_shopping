@@ -2,8 +2,6 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 //apply plugin: 'com.didi.dokit'
-//添加 sndodata 插件
-apply plugin: 'com.sndodata.analytics.android'
 //apply plugin: 'bugly' //腾讯符号表插件
 //bugly {
 //    appId = '280e459010' // 注册时分配的App ID
@@ -284,7 +282,6 @@ dependencies {
     implementation config.mapLocation //高德定位
     implementation config.mapSearch //高德地图搜索
     implementation config.eventBus //事件通知
-    implementation config.sndoData //深度数据
 //    implementation config.bugly //腾讯bugly
 //    implementation config.buglyNDK //腾讯buglyNdk
     implementation 'com.kd.sdk:chargeQrcode:1.1.1' //快电
